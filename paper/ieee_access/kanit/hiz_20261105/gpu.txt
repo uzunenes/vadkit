@@ -1,0 +1,3 @@
+name, driver_version, utilization.gpu [%]
+NVIDIA GeForce RTX 3090, 595.71.05, 0 %
+ 10:59:41 up 19 days, 22:32,  0 users,  load average: 26.71, 21.89, 20.77

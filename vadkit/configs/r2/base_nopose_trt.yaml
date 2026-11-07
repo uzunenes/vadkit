@@ -1,0 +1,42 @@
+# E1 pose coverage rule (docs/tez_notlari/e1_poz_kapsama_kapisi_on_kayit_2026-11-06.md): base_trt.yaml without the pose
+# model and the opose attribute, for the datasets on which the rule turns pose off (Ped1, Ped2, ShanghaiTech).
+# Deployment back-end of base.yaml (hiz_on_kayit_2026-11-05.md C2): TensorRT FP16 engines for the detector and pose; PyTorch image encoder;
+# same models, pipeline and scoring. Build the YOLO engines with YOLO(w).export(format="engine", half=True, dynamic=True).
+name: r2_base_nopose_trt
+gap:
+  ped1: 1
+  ped2: 1
+  avenue: 2
+  shanghaitech: 2
+width: 640
+detector:
+  name: yolo_motion
+  args:
+    weights: yolo11n.engine
+    conf: 0.25
+flow:
+  name: dis
+encoder:
+  name: open_clip            # PyTorch: a TensorRT build of the image tower gave cosine 0.94 to the exact ONNX output
+  args:                      # (FP32, TF32-off and FP16 alike), so it is not used
+    model: MobileCLIP2-S0
+    pretrained: dfndr2b
+attributes:
+- name: ovel
+  kind: orientation_hist
+- name: oapp
+  kind: appearance_pca
+  args:
+    dim: 64
+density: niw
+seed: 0
+train_every: 1
+drop_startup: false
+calibrator: fisher
+fusion:
+  name: sum
+temporal:
+  name: causal_median
+  args:
+    k: 9
+warmup: 4

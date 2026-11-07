@@ -1,0 +1,29 @@
+{
+ "yolov5l": {
+  "params_M": 46.533693,
+  "gflops_640": 108.9937408,
+  "file_MB": 93.622629
+ },
+ "clip_rn101_visual": {
+  "params_M": 56.259936,
+  "params_total_incl_text_M": 119.688033,
+  "gflops_224_per_crop": 19.008651264,
+  "file_MB_full_clip": 291.791292
+ },
+ "memory_banks_MB": {
+  "g_features/avenue/32/highlevel_memory_bank_0.01.pt": 0.897892,
+  "g_features/iitb/64/highlevel_memory_bank_0.1.pt": 184.836961,
+  "g_features/shanghai/64/highlevel_memory_bank_0.25.pt": 421.018468,
+  "l_features/avenue/32/spatial_memory_bank_0.01.pt": 0.525662,
+  "l_features/avenue/32/temporal_memory_bank_0.01.pt": 0.096225,
+  "l_features/iitb/64/spatial_memory_bank_0.1.pt": 134.440795,
+  "l_features/iitb/64/temporal_memory_bank_0.1.pt": 8.208734,
+  "l_features/shanghai/64/spatial_memory_bank_0.25.pt": 438.93923,
+  "l_features/shanghai/64/temporal_memory_bank_0.25.pt": 26.846049
+ },
+ "memory_banks_total_MB": {
+  "avenue": 1.519779,
+  "shanghai": 886.8037469999999
+ },
+ "peak_allocated_MB_yolo_plus_clip_batch64": 1038.4111328125
+}

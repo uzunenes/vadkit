@@ -1,0 +1,11 @@
+wrote /workspace/hb/test/results.json (status OK)
+H1: {"point": 0.0015441813970445972, "ci95": [-0.0005471119362228466, 0.0039018475664244013], "fraction_positive": 0.9215, "pass": false}
+H1b: {"point": 0.00021151427004917345, "ci95": [-0.0014331357705508418, 0.0019747715543611015], "fraction_positive": 0.593, "pass": false}
+H2: {"point": -0.09187104426512271, "ci95": [-0.13790706210654252, -0.04706264991612845], "fraction_positive": 0.0, "weak": false, "strong": false}
+H3a: {"deltas": {"T1-T0/I": -1.6995098779393203e-06, "T1-T0/Fs": 0.0, "T1-T0/Fd": -3.2098632550825457e-06, "T2-T0/I": 7.398272914294068e-07, "T2-T0/Fs": 0.0, "T2-T0/Fd": -2.6142848293941867e-06}, "pass": true}
+H3b: {"point": -0.00018853718578426548, "ci95": [-0.0008505207056087649, 0.0004009684298598381], "fraction_positive": 0.2805, "pass": false}
+H3c: {"delta": -0.002732624734143485, "pass": true}
+H4: {"per_dataset": {"ped1": {"point": -0.0008247440892863445, "ci95": [-0.0017159321814880029, -8.139193357876182e-05], "fraction_positive": 0.015, "pass": true}, "ped2": {"point": -2.61713955668208e-05, "ci95": [-0.0013955205724883151, 0.0014822411562229075], "fraction_positive": 0.462, "pass": true}, "avenue": {"point": 0.0026390229050539116, "ci95": [-0.000582567043080931, 0.0058010270986622306], "fraction_positive": 0.933, "pass": true}}, "pass": true}
+H4_checks: {"single_channel": {"ped1": {"I": {"micro": -2.4536218445891933e-07, "macro": 0.0}, "Fs": {"micro": -8.996613429790301e-07, "macro": -8.54408749140223e-06}, "Fd": {"micro": -2.4536218434789703e-07, "macro": 2.079963380197114e-06}}, "ped2": {"I": {"micro": 0.0, "macro": 0.0}, "Fs": {"micro": -3.6098476644541577e-06, "macro": 0.0}, "Fd": {"micro": 5.4147714966257254e-06, "macro": 7.680491551453894e-05}}, "avenue": {"I": {"micro": 1.1710150360499938e-07, "macro": 0.0}, "Fs": {"micro": 4.918263151187929e-07, "macro": -1.7831139112467476e-05}, "Fd": {"micro": -1.077333832810723e-06, "macro": -3.3842321853772006e-06}}}, "single_channel_pass": true, "ped1_grid_gain_T1": {"point": 0.05471703483398749, "ci95": [0.027473692581764502, 0.08093271025210626], "fraction_positive": 1.0, "pass": true}}
+H5: {"macro": 0.8227739319880513, "pass": true}
+decision: {"adopt_T2": false, "grid_calibrator": "T0 (fisher)"}

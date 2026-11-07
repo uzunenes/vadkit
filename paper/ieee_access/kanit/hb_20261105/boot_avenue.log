@@ -1,0 +1,14 @@
+[avenue   291.4s] object state fitted (1 groups, channels ['ovel', 'opose', 'oapp'])
+[avenue   297.0s] T0 reproduction: grid+obj 0.873807 (want 0.8738), obj 0.827773 (want 0.8278) -> OK
+[avenue   304.4s] T1 calibrated
+[avenue   311.7s] T2 calibrated
+[avenue   316.1s] AUCs: T0 grid+obj 0.8738/0.9093, T1 grid+obj 0.8764/0.9098, T2 grid+obj 0.8764/0.9098, obj 0.8278/0.8677
+[avenue   329.5s] grid+obj T2-T0 (H1)      a 0.8764 b 0.8738 diff +0.0026 CI [-0.0006, +0.0058]
+[avenue   342.9s] grid+obj T2-T1 (H1b)     a 0.8764 b 0.8764 diff +0.0000 CI [+0.0000, +0.0000]
+[avenue   356.2s] grid+obj T1-T0 (H4)      a 0.8764 b 0.8738 diff +0.0026 CI [-0.0006, +0.0058]
+[avenue   369.6s] grid+obj T2 - obj (H2)   a 0.8764 b 0.8278 diff +0.0487 CI [-0.0056, +0.1126]
+[avenue   383.0s] grid+obj T1 - obj        a 0.8764 b 0.8278 diff +0.0487 CI [-0.0056, +0.1126]
+[avenue   396.4s] grid+obj T0 - obj        a 0.8738 b 0.8278 diff +0.0460 CI [-0.0057, +0.1089]
+[avenue   409.7s] Fd T2-T0 (H3b)           a 0.8697 b 0.8697 diff -0.0000 CI [-0.0000, +0.0000]
+[avenue   423.0s] Fd T1-T0                 a 0.8697 b 0.8697 diff -0.0000 CI [-0.0000, +0.0000]
+wrote /workspace/hb/test/results_avenue.json (status OK)

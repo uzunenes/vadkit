@@ -1,0 +1,46 @@
+# Same as enc_clipb16.yaml with the ShanghaiTech training subsample (every 5th frame).
+name: r2_enc_clipb16_sht
+gap:
+  ped1: 1
+  ped2: 1
+  avenue: 2
+  shanghaitech: 2
+width: 640
+detector:
+  name: yolo_motion
+  args:
+    weights: yolo11n.pt
+    conf: 0.25
+pose:
+  name: yolo
+  args:
+    weights: yolo11n-pose.pt
+    conf: 0.25
+flow:
+  name: dis
+encoder:
+  name: open_clip
+  args:
+    model: ViT-B-16
+    pretrained: openai
+attributes:
+- name: ovel
+  kind: orientation_hist
+- name: opose
+  kind: pose_keypoints
+- name: oapp
+  kind: appearance_pca
+  args:
+    dim: 64
+density: niw
+seed: 0
+train_every: 5
+drop_startup: false
+calibrator: fisher
+fusion:
+  name: sum
+temporal:
+  name: causal_median
+  args:
+    k: 9
+warmup: 4

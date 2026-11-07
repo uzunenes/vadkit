@@ -1,0 +1,20 @@
+{
+ "yolo11n torch": 8.361560581251979,
+ "yolo11n trt_fp16": 2.76123674120754,
+ "yolo11n boxes torch/trt (frame 150)": [
+  10,
+  10
+ ],
+ "yolo11n-pose torch": 12.326711798086762,
+ "yolo11n-pose trt_fp16": 2.9160005995072424,
+ "yolo11n-pose boxes torch/trt (frame 150)": [
+  3,
+  3
+ ],
+ "ort providers in use": [
+  "CPUExecutionProvider"
+ ],
+ "mc2s0 ort-trt fp16, 7 crops (incl host copies)": 2559.964001320768,
+ "mc2s0 torch fp32, 7 crops": 14.396586169023067,
+ "mc2s0 trt vs torch cosine min": 0.9999986290931702
+}

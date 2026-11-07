@@ -1,7 +1,7 @@
 """CUHK Avenue -> cached uint8 arrays + frame-level ground truth (same layout as prepare_ucsd.py).
 
-    python prepare_avenue.py --zip data/avenue/Avenue_Dataset.zip \
-        --gt-zip data/avenue/ground_truth_demo.zip --out cache/avenue
+    python prepare_avenue.py --zip /workspace/data/avenue/Avenue_Dataset.zip \
+        --gt-zip /workspace/data/avenue/ground_truth_demo.zip --out /workspace/cache/avenue
 
 Videos are 640x360 at 25 fps; frames are converted to grayscale and resized to --size (default 180x320,
 half resolution, aspect kept); --color keeps RGB (N, H, W, 3), e.g. for vision-language models. A test frame is anomalous when its pixel mask in

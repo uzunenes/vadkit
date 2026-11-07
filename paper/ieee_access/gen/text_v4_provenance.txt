@@ -1,0 +1,13 @@
+# Provenance of the v4 outputs of fig_src/make_text_v3.py: gen/tab_online_v4.tex (main_v4.tex), gen/supp_tab_component_v4.tex (supp_v4.tex), and the pre-registration citations checked in supp_v4.tex
+# output | label | value | source
+supp_v4.tex                | pre-registration 3dffc5a                 | \texttt{3dffc5a}, 5~Nov.~2026, 08:52 | git show -s 3dffc5a; found in supp_v4.tex
+supp_v4.tex                | pre-registration e4031e4                 | \texttt{e4031e4}, 5~Nov.~2026, 11:41 | git show -s e4031e4; found in supp_v4.tex
+supp_v4.tex                | pre-registration 2921bc5                 | \texttt{2921bc5}, 5~Nov.~2026, 15:41 | git show -s 2921bc5; found in supp_v4.tex
+supp_v4.tex                | pre-registration 6b08c14                 | \texttt{6b08c14}, 5~Nov.~2026, 16:17 | git show -s 6b08c14; found in supp_v4.tex
+supp_tab_component_v4.tex  | rows and notes                           | identical to part (b) of tab_ablation_v3.tex | same variables (text_v3_provenance.txt, 'ablation' entries)
+tab_online_v4.tex          | 24 AUC cells                             | as tab_online_v3.tex | paper/ieee_access/gen/online_cells_v4.json (make_tables_v3.py)
+tab_online_v4.tex          | grid effect ped1                         | $+$5.6 [$+$2.8, $+$8.2] (bold) | kanit/r2_20261105/boot/ped1.json : grid+obj_vs_obj (as tab_ablation_v3.tex part a)
+tab_online_v4.tex          | grid effect ped2                         | $+$2.7 [$-$0.6, $+$7.3] | kanit/r2_20261105/boot/ped2.json : grid+obj_vs_obj (as tab_ablation_v3.tex part a)
+tab_online_v4.tex          | grid effect avenue                       | $+$4.6 [$-$0.6, $+$10.9] | kanit/r2_20261105/boot/avenue.json : grid+obj_vs_obj (as tab_ablation_v3.tex part a)
+tab_online_v4.tex          | grid effect shanghaitech                 | $-$9.3 [$-$14.0, $-$4.8] (bold) | kanit/r2_20261105/boot/shanghaitech.json : grid+obj_vs_obj (as tab_ablation_v3.tex part a)
+tab_online_v4.tex          | median length, unscored frames           | 9, 4 | caption of gen/tab_online_v3.tex (make_tables_v3.py protocol_constants())

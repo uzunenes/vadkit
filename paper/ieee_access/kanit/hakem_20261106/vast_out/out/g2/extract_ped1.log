@@ -1,0 +1,37 @@
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+WARNING:huggingface_hub.utils._http:Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+extract training/Train001
+extract training/Train002
+extract training/Train003
+extract training/Train004
+extract training/Train005
+extract training/Train006
+extract training/Train007
+extract training/Train008
+extract training/Train009
+extract training/Train010
+extract training/Train011
+extract training/Train012
+extract training/Train013
+extract training/Train014
+extract training/Train015
+extract training/Train016
+extract training/Train017
+extract training/Train018
+extract training/Train019
+extract training/Train020
+extract training/Train021
+extract training/Train022
+extract training/Train023
+extract training/Train024
+extract training/Train025
+extract training/Train026
+extract training/Train027
+extract training/Train028
+extract training/Train029
+extract training/Train030
+extract training/Train031
+extract training/Train032
+extract training/Train033
+extract training/Train034
+ELAPSED_S 383.37124466896057

@@ -1,0 +1,21 @@
+# Light object branch for embedded use (tools/objfeat2.py, strictly causal): YOLO11n boxes + motion-contour boxes,
+# YOLO11n-pose, DIS flow between t-gap and t, MobileCLIP2-S0 crop embeddings. One configuration for every dataset.
+name: light_default
+gap: {ped2: 1, avenue: 2, shanghaitech: 2}
+width: 640
+detector: {name: yolo_motion, args: {weights: yolo11n.pt, conf: 0.25}}
+pose: {name: yolo, args: {weights: yolo11n-pose.pt, conf: 0.25}}
+flow: {name: dis}
+encoder: {name: open_clip, args: {model: MobileCLIP2-S0, pretrained: dfndr2b}}
+attributes:
+  - {name: ovel, kind: orientation_hist}       # c8
+  - {name: opose, kind: pose_keypoints}
+  - {name: oapp, kind: appearance_pca, args: {dim: 64}}
+density: niw
+seed: 0
+train_every: 1
+drop_startup: false
+calibrator: fisher
+fusion: {name: sum}
+temporal: {name: causal_median, args: {k: 9}}
+warmup: 4

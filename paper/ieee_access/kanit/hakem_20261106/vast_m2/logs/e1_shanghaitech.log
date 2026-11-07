@@ -1,0 +1,3 @@
+shanghaitech c=0.412 gate=off obj_gated_vs_obj: +0.0132 [+0.0012, +0.0247]
+shanghaitech c=0.412 gate=off grid_gated_vs_grid: +0.0042 [-0.0016, +0.0096]
+E1_DONE

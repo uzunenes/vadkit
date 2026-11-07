@@ -1,0 +1,105 @@
+{
+ "dataset": "avenue",
+ "coverage": {
+  "person_boxes": 112856,
+  "with_pose": 100023,
+  "c": 0.886288721911108,
+  "threshold": 0.5,
+  "gate_on": true
+ },
+ "results": {
+  "obj": {
+   "causal": 0.8277728582134994,
+   "offline": 0.8794928115757185,
+   "causal_macro": 0.8676513107916038
+  },
+  "obj_gated": {
+   "causal": 0.8277728582134994,
+   "offline": 0.8794928115757185,
+   "causal_macro": 0.8676513107916038
+  },
+  "grid": {
+   "causal": 0.8738065483160804,
+   "offline": 0.8978874549737488,
+   "causal_macro": 0.9093261651005858
+  },
+  "grid_gated": {
+   "causal": 0.8738065483160804,
+   "offline": 0.8978874549737488,
+   "causal_macro": 0.9093261651005858
+  }
+ },
+ "checks": {
+  "obj_reproduces_archived": 0.0,
+  "grid_reproduces_archived": 0.0,
+  "gated_obj_equals_s1_D1": 0.0
+ },
+ "boot": {
+  "obj_gated_vs_obj": {
+   "videos": 21,
+   "warmup": 4,
+   "replicates": 2000,
+   "skipped": 0,
+   "seed": 0,
+   "auc": {
+    "a": {
+     "point": 0.8277728582134994,
+     "ci95": [
+      0.7148346522052241,
+      0.9265885342967911
+     ]
+    },
+    "b": {
+     "point": 0.8277728582134994,
+     "ci95": [
+      0.7148346522052241,
+      0.9265885342967911
+     ]
+    }
+   },
+   "difference": {
+    "point": 0.0,
+    "ci95": [
+     0.0,
+     0.0
+    ],
+    "fraction_positive": 0.0
+   }
+  },
+  "grid_gated_vs_grid": {
+   "videos": 21,
+   "warmup": 4,
+   "replicates": 2000,
+   "skipped": 0,
+   "seed": 0,
+   "auc": {
+    "a": {
+     "point": 0.8738065483160804,
+     "ci95": [
+      0.8000627811041907,
+      0.9339641950236528
+     ]
+    },
+    "b": {
+     "point": 0.8738065483160804,
+     "ci95": [
+      0.8000627811041907,
+      0.9339641950236528
+     ]
+    }
+   },
+   "difference": {
+    "point": 0.0,
+    "ci95": [
+     0.0,
+     0.0
+    ],
+    "fraction_positive": 0.0
+   }
+  }
+ },
+ "guard_c": {
+  "grid_gated_minus_grid": 0.0,
+  "holds": null
+ }
+}

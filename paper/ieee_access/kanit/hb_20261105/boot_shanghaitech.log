@@ -1,0 +1,14 @@
+[shanghaitech   682.5s] object state fitted (13 groups, channels ['ovel', 'opose', 'oapp'])
+[shanghaitech   694.9s] T0 reproduction: grid+obj 0.702010 (want 0.702), obj 0.795425 (want 0.7954) -> OK
+[shanghaitech   787.2s] T1 calibrated
+[shanghaitech   880.9s] T2 calibrated
+[shanghaitech   896.3s] AUCs: T0 grid+obj 0.7020/0.8225, T1 grid+obj 0.7033/0.8234, T2 grid+obj 0.7036/0.8228, obj 0.7954/0.8194
+[shanghaitech   923.8s] grid+obj T2-T0 (H1)      a 0.7036 b 0.7020 diff +0.0015 CI [-0.0005, +0.0039]
+[shanghaitech   948.7s] grid+obj T2-T1 (H1b)     a 0.7036 b 0.7033 diff +0.0002 CI [-0.0014, +0.0020]
+[shanghaitech   973.6s] grid+obj T1-T0 (H4)      a 0.7033 b 0.7020 diff +0.0013 CI [-0.0001, +0.0033]
+[shanghaitech   998.3s] grid+obj T2 - obj (H2)   a 0.7036 b 0.7954 diff -0.0919 CI [-0.1379, -0.0471]
+[shanghaitech  1023.1s] grid+obj T1 - obj        a 0.7033 b 0.7954 diff -0.0921 CI [-0.1394, -0.0469]
+[shanghaitech  1047.8s] grid+obj T0 - obj        a 0.7020 b 0.7954 diff -0.0934 CI [-0.1402, -0.0476]
+[shanghaitech  1072.6s] Fd T2-T0 (H3b)           a 0.7270 b 0.7271 diff -0.0002 CI [-0.0009, +0.0004]
+[shanghaitech  1097.2s] Fd T1-T0                 a 0.7276 b 0.7271 diff +0.0004 CI [+0.0000, +0.0010]
+wrote /workspace/hb/test/results_shanghaitech.json (status OK)

@@ -1,0 +1,105 @@
+{
+ "dataset": "ped2",
+ "coverage": {
+  "person_boxes": 28505,
+  "with_pose": 279,
+  "c": 0.009787756533941414,
+  "threshold": 0.5,
+  "gate_on": false
+ },
+ "results": {
+  "obj": {
+   "causal": 0.9385134647317883,
+   "offline": 0.8946957303009173,
+   "causal_macro": 0.9315573749478008
+  },
+  "obj_gated": {
+   "causal": 0.9450878997906287,
+   "offline": 0.8961205278120474,
+   "causal_macro": 0.9354171530461884
+  },
+  "grid": {
+   "causal": 0.965331023030828,
+   "offline": 0.9674626535428847,
+   "causal_macro": 0.9357059118742894
+  },
+  "grid_gated": {
+   "causal": 0.9673047072413544,
+   "offline": 0.9671994850614172,
+   "causal_macro": 0.9357966399560762
+  }
+ },
+ "checks": {
+  "obj_reproduces_archived": 0.0,
+  "grid_reproduces_archived": 0.0,
+  "gated_obj_equals_s1_L-opose": 0.0
+ },
+ "boot": {
+  "obj_gated_vs_obj": {
+   "videos": 12,
+   "warmup": 4,
+   "replicates": 2000,
+   "skipped": 0,
+   "seed": 0,
+   "auc": {
+    "a": {
+     "point": 0.9450878997906287,
+     "ci95": [
+      0.8824783486429335,
+      0.9880210603636579
+     ]
+    },
+    "b": {
+     "point": 0.9385134647317883,
+     "ci95": [
+      0.8698812739280549,
+      0.987002404261427
+     ]
+    }
+   },
+   "difference": {
+    "point": 0.006574435058840367,
+    "ci95": [
+     -0.00210594709879319,
+     0.027400602567860262
+    ],
+    "fraction_positive": 0.887
+   }
+  },
+  "grid_gated_vs_grid": {
+   "videos": 12,
+   "warmup": 4,
+   "replicates": 2000,
+   "skipped": 0,
+   "seed": 0,
+   "auc": {
+    "a": {
+     "point": 0.9673047072413544,
+     "ci95": [
+      0.9054613081068313,
+      0.9958178147466498
+     ]
+    },
+    "b": {
+     "point": 0.965331023030828,
+     "ci95": [
+      0.9035661733504254,
+      0.9949557075969374
+     ]
+    }
+   },
+   "difference": {
+    "point": 0.0019736842105264607,
+    "ci95": [
+     -0.0008837697924200166,
+     0.006574658919230121
+    ],
+    "fraction_positive": 0.845
+   }
+  }
+ },
+ "guard_c": {
+  "grid_gated_minus_grid": 0.0019736842105264607,
+  "holds": true
+ }
+}

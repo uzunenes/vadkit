@@ -1,0 +1,5 @@
+frac 0.5 seed 0 videos 8 min 5.9 fit 1114.2s causal 0.8413 macro 0.8684
+frac 0.5 seed 1 videos 8 min 5.1 fit 605.8s causal 0.7917 macro 0.8557
+frac 0.5 seed 2 videos 8 min 5.7 fit 504.9s causal 0.8405 macro 0.8869
+frac 0.5 seed 3 videos 8 min 5.1 fit 326.1s causal 0.7556 macro 0.8377
+frac 0.5 seed 4 videos 8 min 4.5 fit 336.6s causal 0.7642 macro 0.8688

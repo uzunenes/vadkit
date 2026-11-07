@@ -1,0 +1,3 @@
+12:13:14 avenue D1 0.827773 archived 0.827773 diff 0.00e+00
+/opt/conda/lib/python3.11/site-packages/sklearn/mixture/_base.py:293: ConvergenceWarning: Best performing initialization did not converge. Try different init parameters, or increase max_iter, tol, or check for degenerate data.
+  warnings.warn(

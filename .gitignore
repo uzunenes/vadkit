@@ -1,10 +1,12 @@
 __pycache__/
 *.pyc
-cache/
-data/
-runs/
-*.npy
 *.npz
+*.npy
 *.pt
 *.pth
-*.log
+*.onnx
+*.engine
+data/
+cache/
+frames/
+/workspace/

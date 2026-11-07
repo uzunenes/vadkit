@@ -1,0 +1,10 @@
+obj causal pytorch 0.7086 trt 0.7105 diff +0.0019
+obj causal_macro pytorch 0.7028 trt 0.7053 diff +0.0025
+    ovel causal pytorch 0.6861 trt 0.6923
+    opose causal pytorch 0.5105 trt 0.5117
+    oapp causal pytorch 0.7141 trt 0.7156
+grid causal pytorch 0.7641 trt 0.7647 diff +0.0005
+grid causal_macro pytorch 0.7755 trt 0.7757 diff +0.0002
+    ovel causal pytorch 0.6861 trt 0.6923
+    opose causal pytorch 0.5105 trt 0.5117
+    oapp causal pytorch 0.7141 trt 0.7156

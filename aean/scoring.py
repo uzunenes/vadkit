@@ -56,6 +56,14 @@ def reconstruct(ae, x: torch.Tensor, variant: str, P: int, stride: int, chunk: i
     return (num / den)[0, :, :H, :W]
 
 
+def reconstruct_shifted(ae, x: torch.Tensor, P: int, stride: int, offset: int) -> torch.Tensor:
+    """2d reconstruction with the patch grid shifted by `offset` pixels (reflect padding, then cropped back)."""
+    if not offset:
+        return reconstruct(ae, x, "2d", P, stride)
+    xp = F.pad(x[None], (offset, 0, offset, 0), mode="reflect")[0]
+    return reconstruct(ae, xp, "2d", P, stride)[:, offset:, offset:]
+
+
 def residual_of(ae, x: torch.Tensor, variant: str, P: int, stride: int) -> torch.Tensor:
     """Residual of a model input x (C, H, W). 'pred': the last frame minus its prediction from the previous ones."""
     if variant == "pred":

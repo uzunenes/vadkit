@@ -1,0 +1,4 @@
+training flags any: False
+abs max 0.064453125 ref norm mean 49532.527 rel max 6.8414456e-06 cos min 0.99999994
+Loading yolo11n.onnx for ONNX Runtime inference...
+yolo11n test frame 100 of Avenue 01: torch 8 boxes, onnx 9 boxes (conf 0.25)

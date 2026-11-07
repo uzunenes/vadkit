@@ -1,0 +1,21 @@
+10:13:05 avenue D1 0.827773 archived 0.827773 diff 0.00e+00
+/opt/conda/lib/python3.11/site-packages/sklearn/mixture/_base.py:293: ConvergenceWarning: Best performing initialization did not converge. Try different init parameters, or increase max_iter, tol, or check for degenerate data.
+  warnings.warn(
+12:34:26 avenue D2 0.8165 macro 0.8602 diff -0.0112 [-0.0309, +0.0132]
+12:35:26 avenue D2b 0.7764 macro 0.8658 diff -0.0513 [-0.1130, +0.0084]
+12:36:00 avenue D3 0.7919 macro 0.8746 diff -0.0359 [-0.0735, -0.0028]
+12:36:50 avenue D4 0.7919 macro 0.8650 diff -0.0359 [-0.0729, -0.0080]
+12:37:27 avenue C1 0.8314 macro 0.8689 diff +0.0036 [-0.0019, +0.0104]
+12:37:55 avenue C2 0.8028 macro 0.8487 diff -0.0249 [-0.0554, -0.0054]
+12:38:23 avenue T1 0.8267 macro 0.8684 diff -0.0011 [-0.0111, +0.0075]
+12:38:51 avenue L-ovel 0.7815 macro 0.8167 diff -0.0463 [-0.0870, -0.0129]
+12:39:19 avenue L-opose 0.7887 macro 0.8367 diff -0.0391 [-0.0715, -0.0087]
+12:39:47 avenue L-oapp 0.8409 macro 0.8713 diff +0.0131 [-0.0264, +0.0482]
+12:57:02 avenue F1 seed 0: D1 0.8432 (archived diff 0.0e+00) D2 0.8296 D4 0.8082
+13:06:22 avenue F1 seed 1: D1 0.8462 (archived diff 0.0e+00) D2 0.8379 D4 0.7764
+/opt/conda/lib/python3.11/site-packages/sklearn/mixture/_base.py:293: ConvergenceWarning: Best performing initialization did not converge. Try different init parameters, or increase max_iter, tol, or check for degenerate data.
+  warnings.warn(
+13:17:00 avenue F1 seed 2: D1 0.8353 (archived diff 0.0e+00) D2 0.8292 D4 0.7953
+13:33:21 avenue F1 seed 3: D1 0.8037 (archived diff 0.0e+00) D2 0.8145 D4 0.7879
+13:59:49 avenue F1 seed 4: D1 0.8348 (archived diff 0.0e+00) D2 0.8086 D4 0.7875
+13:59:49 avenue RUN_DONE

@@ -1,0 +1,48 @@
+{
+ "torch": "2.4.1+cu121",
+ "gpu": "NVIDIA GeForce RTX 3090",
+ "yolo11n.pt": {
+  "params_M": 2.62408,
+  "gflops_640_ultralytics": 6.6733184,
+  "file_MB": 5.613764,
+  "onnx_MB": 10.701975,
+  "onnx_export": "ok"
+ },
+ "yolo11n-pose.pt": {
+  "params_M": 2.874462,
+  "gflops_640_ultralytics": 7.6014288,
+  "file_MB": 6.255593,
+  "onnx_MB": 11.811082,
+  "onnx_export": "ok"
+ },
+ "MobileCLIP2-S0": {
+  "image_size": 256,
+  "visual_params_M": 11.406976,
+  "total_params_incl_text_M": 74.835073,
+  "visual_gflops_per_crop": 4.785307648,
+  "visual_fp16_MB": 23.191258,
+  "onnx_export": "ok",
+  "onnx_MB": 45.810433,
+  "onnx_max_abs_diff": 0.420166015625
+ },
+ "state_avenue": {
+  "files": {
+   "state.npz": 8.008524,
+   "state.json": 0.002324
+  },
+  "total_MB": 8.010848
+ },
+ "state_ped2": {
+  "files": {
+   "state.npz": 0.95506,
+   "state.json": 0.002311
+  },
+  "total_MB": 0.957371
+ },
+ "runtime": {
+  "peak_allocated_MB": 538.70849609375,
+  "peak_reserved_MB": 1278.0,
+  "nvidia_smi_process": "2262737, 1616 MiB",
+  "mean_objects_per_frame": 6.546666666666667
+ }
+}

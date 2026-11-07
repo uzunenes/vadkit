@@ -1,0 +1,4 @@
+oapp                     causal 0.7480  macro 0.7700  offline 0.7398
+opose                    causal 0.6358  macro 0.7051  offline 0.6520
+ovel                     causal 0.7517  macro 0.8013  offline 0.7530
+oapp+opose+ovel          causal 0.7862  macro 0.8235  offline 0.7872

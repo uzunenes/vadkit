@@ -1,0 +1,33 @@
+{
+ "dataset": "ped2",
+ "group": "all",
+ "threads": 4,
+ "objects_per_frame_mean": 16.813333333333333,
+ "train_rows": {
+  "ovel": 29039,
+  "opose": 279,
+  "oapp": 29039
+ },
+ "dims": {
+  "ovel": 8,
+  "opose": 34,
+  "oapp": 64
+ },
+ "bytes": {
+  "D1_niw_sufficient_stats": 560968,
+  "D4_knn_bank_float32": 8401176
+ },
+ "latency": {
+  "D1": {
+   "ms_per_frame_median": 0.6276352796703577,
+   "ms_per_frame_p95": 0.7864891784265639,
+   "frames": 300
+  },
+  "D4": {
+   "ms_per_frame_median": 3.4020000603049994,
+   "ms_per_frame_p95": 4.986394313164055,
+   "frames": 300
+  }
+ },
+ "loadavg": 63.22802734375
+}

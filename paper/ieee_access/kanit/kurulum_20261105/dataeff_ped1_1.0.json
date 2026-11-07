@@ -1,0 +1,42 @@
+{
+ "config": "r2_base",
+ "dataset": "ped1",
+ "frac": 1.0,
+ "rows": [
+  {
+   "seed": 0,
+   "videos": 34,
+   "frames": 6800,
+   "minutes": 11.333333333333334,
+   "fit_seconds": 952.0099884279989,
+   "loadavg": 48.09375,
+   "torch_threads": 2,
+   "test_videos": 36,
+   "fused": "ovel+opose+oapp",
+   "causal": 0.7085985051063551,
+   "offline": 0.746145639683513,
+   "causal_macro": 0.7027858606990526,
+   "channels": {
+    "ovel": {
+     "causal": 0.6861342476291674,
+     "offline": 0.7180452868776188,
+     "causal_macro": 0.6785381598278493
+    },
+    "opose": {
+     "causal": 0.5104681322368043,
+     "offline": 0.5014118112596209,
+     "causal_macro": 0.48858852839569866
+    },
+    "oapp": {
+     "causal": 0.714105332186456,
+     "offline": 0.7003790557495999,
+     "causal_macro": 0.7311759672943718
+    }
+   }
+  }
+ ],
+ "causal_mean": 0.7085985051063551,
+ "causal_std": 0.0,
+ "macro_mean": 0.7027858606990526,
+ "macro_std": 0.0
+}

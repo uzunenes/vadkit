@@ -1,0 +1,105 @@
+{
+ "dataset": "shanghaitech",
+ "coverage": {
+  "person_boxes": 166469,
+  "with_pose": 68626,
+  "c": 0.412244922478059,
+  "threshold": 0.5,
+  "gate_on": false
+ },
+ "results": {
+  "obj": {
+   "causal": 0.7954247592606736,
+   "offline": 0.7842421961095065,
+   "causal_macro": 0.8194191899934706
+  },
+  "obj_gated": {
+   "causal": 0.808576416871228,
+   "offline": 0.7864169372678832,
+   "causal_macro": 0.82776180734868
+  },
+  "grid": {
+   "causal": 0.7020095335985063,
+   "offline": 0.7689838515905084,
+   "causal_macro": 0.8224740816047669
+  },
+  "grid_gated": {
+   "causal": 0.7062206937825491,
+   "offline": 0.7697717875968391,
+   "causal_macro": 0.8212974851910357
+  }
+ },
+ "checks": {
+  "obj_reproduces_archived": 0.0,
+  "grid_reproduces_archived": 0.0,
+  "gated_obj_equals_s1_L-opose": 0.0
+ },
+ "boot": {
+  "obj_gated_vs_obj": {
+   "videos": 107,
+   "warmup": 4,
+   "replicates": 2000,
+   "skipped": 0,
+   "seed": 0,
+   "auc": {
+    "a": {
+     "point": 0.808576416871228,
+     "ci95": [
+      0.7740358179034155,
+      0.8418868779946505
+     ]
+    },
+    "b": {
+     "point": 0.7954247592606736,
+     "ci95": [
+      0.7597910774311567,
+      0.8304219703282697
+     ]
+    }
+   },
+   "difference": {
+    "point": 0.013151657610554479,
+    "ci95": [
+     0.0012179180042207,
+     0.02467122020023833
+    ],
+    "fraction_positive": 0.984
+   }
+  },
+  "grid_gated_vs_grid": {
+   "videos": 107,
+   "warmup": 4,
+   "replicates": 2000,
+   "skipped": 0,
+   "seed": 0,
+   "auc": {
+    "a": {
+     "point": 0.7062206937825491,
+     "ci95": [
+      0.649712257400261,
+      0.7623403047467333
+     ]
+    },
+    "b": {
+     "point": 0.7020095335985063,
+     "ci95": [
+      0.6463718522647557,
+      0.7558532623286411
+     ]
+    }
+   },
+   "difference": {
+    "point": 0.004211160184042884,
+    "ci95": [
+     -0.0015892252188090899,
+     0.00956406871890624
+    ],
+    "fraction_positive": 0.928
+   }
+  }
+ },
+ "guard_c": {
+  "grid_gated_minus_grid": 0.004211160184042884,
+  "holds": true
+ }
+}

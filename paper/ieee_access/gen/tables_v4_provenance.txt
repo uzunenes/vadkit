@@ -1,0 +1,23 @@
+# Provenance of the v4 outputs of fig_src/make_tables_v3.py (main_v4.tex, supp_v4.tex): gen/tab_main_v4.tex, gen/tab_size_v4.tex, gen/supp_tab_size_v4.tex, gen/online_cells_v4.json, gen/tab_speed_v4.tex, gen/supp_speed_notes_v4.tex, gen/tab_setup_v4.tex, gen/supp_setup_notes_v4.tex. Every value comes from the variables of the v3 tables (gen/tables_v3_provenance.txt).
+# output | label | value | source
+tab_main_v4.tex              | tabular (all cells)                                  | identical to tab_main_v3.tex | same rows as tab_main_v3.tex (see the 'main' entries of tables_v3_provenance.txt)
+tab_main_v4.tex              | note: Avenue label sets differ on                    | 441 of 15,324 | paper/ieee_access/kanit/avenue_etiket_20261105/diff.json
+tab_main_v4.tex              | note: AccI-VAD ShT configuration params (M)          | 206.9 | tables_v3_provenance.txt : 'AccI-VAD params, ShT configuration'
+online_cells_v4.json         | 24 cells (2 configurations x 3 metrics x 4 datasets) | as tab_online_v3.tex | kanit/r2_20261105/res/base/<ds>_{obj,grid}.json : fused offline / causal / causal_macro
+tab_speed_v4.tex             | tabular and note values                              | identical to tab_speed_v3.tex | same variables (tables_v3_provenance.txt, 'speed' entries)
+supp_speed_notes_v4.tex      | TensorRT encoder mean cosine, crops                  | 0.947, 481 | tables_v3_provenance.txt : same 'speed' entries as tab_speed_v3.tex
+supp_speed_notes_v4.tex      | 4-thread FPS sequential / parallel                   | 12.5 / 18.3 | tables_v3_provenance.txt : same 'speed' entries as tab_speed_v3.tex
+supp_speed_notes_v4.tex      | host 1-min load average                              | 11.63--32.69 | tables_v3_provenance.txt : same 'speed' entries as tab_speed_v3.tex
+supp_tab_size_v4.tex         | all cells and notes                                  | identical to tab_size_v3.tex | tab_size_v3.tex with label stab:size and the latency reference re-pointed to stab:latency
+tab_size_v4.tex              | ours params with / without grid (M)                  | 17.9 / 16.9 | tables_v3_provenance.txt : 'ours params object / with grid (M)'
+tab_size_v4.tex              | ours weights                                         | 61.5~MB | tables_v3_provenance.txt : 'ours weights total (MB)'
+tab_size_v4.tex              | ours GFLOPs per frame / per crop                     | 14.3 / 4.8 | tables_v3_provenance.txt : 'ours GFLOPs per frame ... / per crop'
+tab_size_v4.tex              | ours FPS TensorRT / PyTorch                          | 25.7 / 19.1 | tables_v3_provenance.txt : 'ours speed cell'
+tab_size_v4.tex              | grid AE training (min)                               | 3.7--3.8 | tables_v3_provenance.txt : 'grid AE training (...)' / 60
+tab_size_v4.tex              | competitor cells                                     | params, weights, GFLOPs, published speed as tab_size_v3.tex | same variables (tables_v3_provenance.txt, 'size' entries); training cells: TRAIN_V4 in make_tables_v3.py; portability: first clause of the v3 cell, plus its custom-CUDA clause
+tab_setup_v4.tex             | tabulars (a), (b) and note values                    | identical to tab_setup_v3.tex | same variables (tables_v3_provenance.txt, 'setup' entries)
+supp_setup_notes_v4.tex      | G2 host 1-min load average                           | 56--119 | tables_v3_provenance.txt : same 'setup' entries as tab_setup_v3.tex
+supp_setup_notes_v4.tex      | extraction estimate Ped2 / Avenue (min)              | 2.2--3.2 / 13.4--19.2 | tables_v3_provenance.txt : same 'setup' entries as tab_setup_v3.tex
+supp_setup_notes_v4.tex      | TensorRT engine build (min)                          | 9.5 | tables_v3_provenance.txt : same 'setup' entries as tab_setup_v3.tex
+supp_setup_notes_v4.tex      | earlier session GPU fitting Ped2 / Avenue (s)        | 41.6 / 54.3 | tables_v3_provenance.txt : same 'setup' entries as tab_setup_v3.tex
+supp_setup_notes_v4.tex      | draw generator                                       | default_rng(1000+s), s=0..4 | tables_v3_provenance.txt : same 'setup' entries as tab_setup_v3.tex

@@ -1,0 +1,7 @@
+I                        causal 0.7180  macro 0.6918  offline 0.6834
+Fs                       causal 0.7818  macro 0.8308  offline 0.8564
+Fd                       causal 0.8697  macro 0.8746  offline 0.8623
+ovel                     causal 0.7510  macro 0.7821  offline 0.7823
+opose                    causal 0.7970  macro 0.8111  offline 0.8338
+oapp                     causal 0.7172  macro 0.7286  offline 0.7212
+I+Fs+Fd+ovel+opose+oapp  causal 0.8752  macro 0.9107  offline 0.8960

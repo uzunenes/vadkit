@@ -1,0 +1,3 @@
+avenue c=0.886 gate=on obj_gated_vs_obj: +0.0000 [+0.0000, +0.0000]
+avenue c=0.886 gate=on grid_gated_vs_grid: +0.0000 [+0.0000, +0.0000]
+E1_DONE

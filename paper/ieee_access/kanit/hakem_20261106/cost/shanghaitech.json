@@ -1,0 +1,33 @@
+{
+ "dataset": "shanghaitech",
+ "group": "01",
+ "threads": 4,
+ "objects_per_frame_mean": 5.913333333333333,
+ "train_rows": {
+  "ovel": 67035,
+  "opose": 14589,
+  "oapp": 67035
+ },
+ "dims": {
+  "ovel": 8,
+  "opose": 34,
+  "oapp": 64
+ },
+ "bytes": {
+  "D1_niw_sufficient_stats": 2873344,
+  "D4_knn_bank_float32": 21290184
+ },
+ "latency": {
+  "D1": {
+   "ms_per_frame_median": 1.3758938293904066,
+   "ms_per_frame_p95": 2.1103159291669726,
+   "frames": 300
+  },
+  "D4": {
+   "ms_per_frame_median": 6.083648419007659,
+   "ms_per_frame_p95": 11.020632437430322,
+   "frames": 300
+  }
+ },
+ "loadavg": 75.96826171875
+}

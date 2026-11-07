@@ -1,0 +1,348 @@
+{
+ "_about": [
+  "Inputs of fig_src/make_tables_v3.py that are not plain JSON paths of our own result files.",
+  "No number is typed here. A competitor number is given as a 'quote': an exact substring of a field of",
+  "kanit/boyut_20261105/rakip_boyutlari_dogrulanmis.json (two-agent verified sources). The script checks that the",
+  "quote occurs in that field, parses the first number of the quote and multiplies it by 'scale'. A 'path' term is a",
+  "key path into a measured JSON file (size_vpc.json, size_aed.json). Competitor AUCs are read from",
+  "kanit/literature/dogrulanmis_literatur_2026-11-04.json (list 'lit'), supervision blocks from",
+  "kanit/literature/denetim_turu_2026-11-05.json (checked against 'block'), Avenue label sets from",
+  "kanit/avenue_etiket_20261105/diff.json ('avenue_label_key'). Text cells are qualitative summaries of the same",
+  "size JSON (fields per_scene_artifacts, training_on_target, portability); every number inside them is a {placeholder}",
+  "filled from a 'named' term. 'check' lists substrings that must occur in the source so that the text stays true.",
+  "'gflops': GFLOPs for the size table: 'none' (not found for the configuration used), 'eq', 'range' (over the",
+  "per-dataset models) or 'frame_crop' (per frame plus per object crop); terms as above.",
+  "'speed': the inference speed published by the competitor's own authors, for the 'Published speed' column of the",
+  "size table. 'values' and 'hardware' are short verbatim quotes of the competitor's paper (location and URL given;",
+  "table rows with whitespace collapsed); the script checks that each 'value' / 'name' occurs in its quote. 'cell' and",
+  "'note' are templates without digits: every number in them is a {placeholder} filled from 'values' or 'hardware'.",
+  "Each entry was checked against the downloaded paper by two research agents and once more against the PDF text",
+  "before it was added (2026-11-06); 'reported': false means the paper gives no speed for the configuration in the",
+  "tables."
+ ],
+ "size_json": "kanit/boyut_20261105/rakip_boyutlari_dogrulanmis.json",
+ "block_order": ["training_free", "one_class_trained", "synthetic_or_pseudo_anomaly"],
+ "block_title": {
+  "training_free": "Training-free (no network trained on the target data)",
+  "one_class_trained": "One-class (networks trained on normal target video)",
+  "synthetic_or_pseudo_anomaly": "Synthetic-anomaly training"
+ },
+ "block_short": {
+  "training_free": "training-free",
+  "one_class_trained": "one-class",
+  "synthetic_or_pseudo_anomaly": "synthetic-anomaly"
+ },
+ "competitors": [
+  {
+   "key": "accivad", "name": "AccI-VAD", "cite": "reiss2022attribute", "venue": "TMLR", "venue_match": "TMLR",
+   "lit": ["sota", "An Attribute-based Method for Video Anomaly Detection"],
+   "audit": "An Attribute-based Method for Video Anomaly Detection",
+   "block": "training_free",
+   "speed": {
+    "reported": true,
+    "values": {"fps": {"value": "12", "quote": "Our method runs at 12FPS with an average of 5 objects per frame."}, "objs": {"value": "5", "quote": "Our method runs at 12FPS with an average of 5 objects per frame."}},
+    "hardware": {"hw": {"name": "RTX 2080", "quote": "We carried out all our experiments on a NVIDIA RTX 2080 GPU."}},
+    "cell": "{fps}",
+    "note": "AccI-VAD {fps} on an {hw}, end to end including object detection and optical flow, with an average of {objs} objects per frame",
+    "source": "Reiss and Hoshen, An Attribute-based Method for Video Anomaly Detection, TMLR 01/2025 (arXiv 2212.00789v2), Sec. 4.5 'Analysis', paragraph 'Running times', p. 10",
+    "url": "https://arxiv.org/pdf/2212.00789v2"
+   },
+   "avenue_label_key": "accivad_avenue_mat",
+   "params": {"bound": "ge", "missing": "AlphaPose (count not found)", "terms": [
+    {"entry": "AccI-VAD", "component": "Object detector", "field": "params_millions", "quote": "num_params 44,401,393", "scale": 1e-6},
+    {"entry": "AccI-VAD", "component": "Optical flow: FlowNet2", "field": "params_millions", "quote": "Parameter count = 162,518,834", "scale": 1e-6},
+    {"entry": "AccI-VAD", "component": "Deep features: OpenAI CLIP ViT-B/16", "field": "params_millions", "quote": "Image tower 86.19M", "scale": 1}
+   ]},
+   "params_sht_config": {"bound": "ge", "check": {"entry": "AccI-VAD", "field": "notes", "quote": "ShT micro 85.9 uses detector + flow + AlphaPose, with no CLIP"}, "terms": [
+    {"entry": "AccI-VAD", "component": "Object detector", "field": "params_millions", "quote": "num_params 44,401,393", "scale": 1e-6},
+    {"entry": "AccI-VAD", "component": "Optical flow: FlowNet2", "field": "params_millions", "quote": "Parameter count = 162,518,834", "scale": 1e-6}
+   ]},
+   "weights_MB": {"bound": "ge", "missing": "AlphaPose (file not identified)", "terms": [
+    {"entry": "AccI-VAD", "component": "Object detector", "field": "weights_mb", "quote": "177,841,981 bytes", "scale": 1e-6},
+    {"entry": "AccI-VAD", "component": "Optical flow: FlowNet2", "field": "weights_mb", "quote": "listed as '[620MB]'", "scale": 1},
+    {"entry": "AccI-VAD", "component": "Deep features: OpenAI CLIP ViT-B/16", "field": "weights_mb", "quote": "350,837,078 bytes", "scale": 1e-6}
+   ]},
+   "gflops": {"kind": "none"},
+   "text": {
+    "artefacts": "All normal training-object features (kNN banks), per dataset",
+    "training": "None (feature extraction and kNN banks)",
+    "portability": "detectron2 and FlowNet2 need custom CUDA extensions; faiss-GPU"
+   },
+   "check": [
+    {"entry": "AccI-VAD", "field": "per_scene_artifacts", "quote": "the full training-set feature files, used as kNN banks"},
+    {"entry": "AccI-VAD", "field": "training_on_target", "quote": "No network training."},
+    {"entry": "AccI-VAD", "field": "portability", "quote": "FlowNet2 needs three custom CUDA extensions"},
+    {"entry": "AccI-VAD", "field": "portability", "quote": "faiss-GPU is required"}
+   ]
+  },
+  {
+   "key": "vpc", "name": "VideoPatchCore", "cite": "ahn2024videopatchcore", "venue": "ACCV", "venue_match": "ACCV",
+   "lit": ["sota", "VideoPatchCore"],
+   "audit": "VideoPatchCore",
+   "block": "training_free",
+   "speed": {
+    "reported": true,
+    "values": {"fps": {"value": "96.1", "quote": "25% 85.1% (-0.0%) 96.1 76.3% (-0.1%) 60.0"}, "ratio": {"value": "25%", "quote": "25% 85.1% (-0.0%) 96.1 76.3% (-0.1%) 60.0"}},
+    "hardware": {"hw": {"name": "RTX 3090", "quote": "experiments were conducted using an NVIDIA GeForce RTX 3090 graphics card"}},
+    "cell": "{fps} (ShT)",
+    "note": "VideoPatchCore {fps} on ShT with the {ratio} coreset of its main ShT result, on an {hw} (no Avenue value; what is timed is not stated)",
+    "source": "Ahn et al., VideoPatchCore, ACCV 2024, Table 6 (p. 14; SHTech AUC / FPS by subsampling ratio) and Sec. 4.2 'Inference details' (hardware); coreset ratio of the main ShT result: Sec. 4.2 'Memorizing details'",
+    "url": "https://openaccess.thecvf.com/content/ACCV2024/papers/Ahn_VideoPatchCore_An_Effective_Method_to_Memorize_Normality_for_Video_Anomaly_ACCV_2024_paper.pdf"
+   },
+   "avenue_label_key": "vpc_avenue_mat",
+   "params": {"bound": "eq", "terms": [
+    {"file": "kanit/boyut_20261105/size_vpc.json", "path": ["yolov5l", "params_M"]},
+    {"file": "kanit/boyut_20261105/size_vpc.json", "path": ["clip_rn101_visual", "params_M"]}
+   ]},
+   "weights_MB": {"bound": "eq", "terms": [
+    {"file": "kanit/boyut_20261105/size_vpc.json", "path": ["yolov5l", "file_MB"]},
+    {"file": "kanit/boyut_20261105/size_vpc.json", "path": ["clip_rn101_visual", "file_MB_full_clip"]}
+   ]},
+   "named": {
+    "bank_avenue": {"file": "kanit/boyut_20261105/size_vpc.json", "path": ["memory_banks_total_MB", "avenue"], "fmt": "mb"},
+    "bank_sht": {"file": "kanit/boyut_20261105/size_vpc.json", "path": ["memory_banks_total_MB", "shanghai"], "fmt": "mb"}
+   },
+   "gflops": {"kind": "frame_crop",
+    "frame": [{"file": "kanit/boyut_20261105/size_vpc.json", "path": ["yolov5l", "gflops_640"]}],
+    "crop": [{"file": "kanit/boyut_20261105/size_vpc.json", "path": ["clip_rn101_visual", "gflops_224_per_crop"]}]},
+   "text": {
+    "artefacts": "Memory banks: {bank_avenue} (Avenue) to {bank_sht} (ShT)",
+    "training": "None (banks built from normal video)",
+    "portability": "Pure PyTorch"
+   },
+   "check": []
+  },
+  {
+   "key": "anomalyruler", "name": "AnomalyRuler", "cite": "yang2024anomalyruler", "venue": "ECCV", "venue_match": "ECCV",
+   "lit": ["sota", "Follow the Rules"],
+   "audit": "Follow the Rules",
+   "block": "training_free",
+   "speed": {
+    "reported": false,
+    "searched": "arXiv 2407.10299 v1 and v2, ECCV 2024 paper (ECVA 10568.pdf) and supplement (10568-supp.pdf): no speed, runtime or hardware figure; only a cost remark in Sec. 5.1",
+    "quote": "due to using GPTs on entire test sets is too costly",
+    "cell": "Not reported",
+    "note": "AnomalyRuler reports no speed or hardware",
+    "source": "Yang et al., Follow the Rules, ECCV 2024, whole text and supplement searched",
+    "url": "https://arxiv.org/abs/2407.10299"
+   },
+   "avenue_label_key": null,
+   "params": {"bound": "eq", "terms": [
+    {"entry": "AnomalyRuler", "component": "VLM CogVLM-17B", "field": "params_millions", "quote": "17,639.69 M", "scale": 1},
+    {"entry": "AnomalyRuler", "component": "LLM Mistral-7B", "field": "params_millions", "quote": "7,241.73 M", "scale": 1},
+    {"entry": "AnomalyRuler", "component": "Zero-shot NLI classifier", "field": "params_millions", "quote": "407.34 M", "scale": 1}
+   ]},
+   "weights_MB": {"bound": "eq", "terms": [
+    {"entry": "AnomalyRuler", "component": "VLM CogVLM-17B", "field": "weights_mb", "quote": "35,279.5 MB", "scale": 1},
+    {"entry": "AnomalyRuler", "component": "Tokenizer for CogVLM", "field": "weights_mb", "quote": "0.50 MB", "scale": 1},
+    {"entry": "AnomalyRuler", "component": "LLM Mistral-7B", "field": "weights_mb", "quote": "14,483.5 MB", "scale": 1},
+    {"entry": "AnomalyRuler", "component": "Zero-shot NLI classifier", "field": "weights_mb", "quote": "1,629.4 MB", "scale": 1}
+   ]},
+   "named": {
+    "rule_bytes": {"entry": "AnomalyRuler", "field": "per_scene_artifacts", "quote": "rule/rule_avenue.txt 1,992 B", "scale": 1, "fmt": "int"},
+    "vram_gb": {"entry": "AnomalyRuler", "field": "gpu_memory", "quote": "inference needs close to 40GB VRAM", "scale": 1, "fmt": "int"}
+   },
+   "gflops": {"kind": "none"},
+   "text": {
+    "artefacts": "Rule text per dataset ({rule_bytes} bytes for Avenue)",
+    "training": "None; rules induced with GPT-4 (closed API)",
+    "portability": "About {vram_gb} GB GPU memory for CogVLM (model card)"
+   },
+   "check": [
+    {"entry": "AnomalyRuler", "field": "training_on_target", "quote": "No gradient training."},
+    {"entry": "AnomalyRuler", "field": "portability", "quote": "A closed external API (OpenAI GPT-4"}
+   ]
+  },
+  {
+   "key": "anyanomaly", "name": "AnyAnomaly", "cite": "ahn2026anyanomaly", "venue": "WACV", "venue_match": "WACV",
+   "lit": ["sota", "AnyAnomaly"],
+   "audit": "AnyAnomaly",
+   "block": "training_free",
+   "speed": {
+    "reported": true,
+    "values": {"fps": {"value": "1.36", "quote": "MiniCPM-V[10] MiniCPM-Llama3-V-2 5 (8B) 87.7 90.1 86.3 91.0 1.36"}},
+    "hardware": {"hw": {"name": "RTX 3090", "quote": "All the experiments were conducted on a single NVIDIA GeForce RTX 3090 GPU."}},
+    "cell": "{fps}",
+    "note": "AnyAnomaly {fps} on an {hw} with MiniCPM-V, the model of its VAD results, measured on its customizable C-ShT and C-Ave benchmarks, not in its VAD setting",
+    "source": "Ahn et al., AnyAnomaly, WACV 2026, supplementary Table S4 'Comparison of diverse LVLMs' (FPS column) and Sec. A.2 (hardware); also arXiv 2503.04504v4",
+    "url": "https://openaccess.thecvf.com/content/WACV2026/supplemental/Ahn_AnyAnomaly_Zero-Shot_Customizable_WACV_2026_supplemental.pdf"
+   },
+   "avenue_label_key": null,
+   "params": {"bound": "eq", "terms": [
+    {"entry": "AnyAnomaly", "component": "LVLM MiniCPM-Llama3-V 2.5", "field": "params_millions", "quote": "8,537.09 M", "scale": 1},
+    {"entry": "AnyAnomaly", "component": "CLIP ViT-B/32", "field": "params_millions", "quote": "151.28 M total", "scale": 1}
+   ]},
+   "params_note": {"entry": "AnyAnomaly", "component": "CLIP ViT-B/32", "field": "component", "quote": "encodes all 24 frames of the segment plus 1 text"},
+   "weights_MB": {"bound": "eq", "terms": [
+    {"entry": "AnyAnomaly", "component": "LVLM MiniCPM-Llama3-V 2.5", "field": "weights_mb", "quote": "17,074.3 MB", "scale": 1},
+    {"entry": "AnyAnomaly", "component": "CLIP ViT-B/32", "field": "weights_mb", "quote": "354.0 MB", "scale": 1}
+   ]},
+   "gflops": {"kind": "none"},
+   "text": {
+    "artefacts": "Text prompts per dataset",
+    "training": "None (zero-shot)",
+    "portability": "Open weights, run locally"
+   },
+   "check": [
+    {"entry": "AnyAnomaly", "field": "training_on_target", "quote": "None. The method is zero-shot"},
+    {"entry": "AnyAnomaly", "field": "portability", "quote": "all LVLMs are open weights run locally"}
+   ]
+  },
+  {
+   "key": "mulde", "name": "MULDE", "cite": "micorek2024mulde", "venue": "CVPR", "venue_match": "CVPR",
+   "lit": ["sota", "MULDE: Multiscale"],
+   "audit": "MULDE: Multiscale",
+   "block": "one_class_trained",
+   "speed": {
+    "reported": false,
+    "values": {"fps": {"value": "25", "quote": "detection at 25 FPS, even on our PC with an NVIDIA RTX 2080Ti GPU"}},
+    "hardware": {"hw": {"name": "RTX 2080Ti", "quote": "detection at 25 FPS, even on our PC with an NVIDIA RTX 2080Ti GPU"}},
+    "cell": "Not reported",
+    "note": "MULDE reports {fps} for its frame-centric pipeline with the smaller Hiera-base feature extractor on an {hw}, not for the object-centric configuration of Table~\\ref{{tab:main}}, which is not timed",
+    "source": "Micorek et al., MULDE, CVPR 2024, Sec. 4, paragraph 'Running time', p. 8",
+    "url": "https://openaccess.thecvf.com/content/CVPR2024/papers/Micorek_MULDE_Multiscale_Log-Density_Estimation_via_Denoising_Score_Matching_for_Video_CVPR_2024_paper.pdf"
+   },
+   "avenue_label_key": null,
+   "params": {"bound": "ge", "missing": "AlphaPose (count not found); density MLPs (not reported)", "terms": [
+    {"entry": "MULDE, object-centric", "component": "Object detector", "field": "params_millions", "quote": "44,401,393", "scale": 1e-6},
+    {"entry": "MULDE, object-centric", "component": "FlowNet 2.0", "field": "params_millions", "quote": "162,518,834", "scale": 1e-6},
+    {"entry": "MULDE, object-centric", "component": "CLIP image encoder", "field": "params_millions", "quote": "86.19M image tower", "scale": 1}
+   ]},
+   "named": {
+    "mlp_derived": {"entry": "MULDE, object-centric", "component": "MULDE density network", "field": "params_millions", "quote": "The three networks total 52,649,987", "scale": 1e-6, "fmt": ".1f"}
+   },
+   "weights_MB": {"bound": "ge", "missing": "AlphaPose; density MLPs (not released)", "terms": [
+    {"entry": "MULDE, object-centric", "component": "Object detector", "field": "weights_mb", "quote": "177,841,981 bytes", "scale": 1e-6},
+    {"entry": "MULDE, object-centric", "component": "FlowNet 2.0", "field": "weights_mb", "quote": "listed as 620MB", "scale": 1},
+    {"entry": "MULDE, object-centric", "component": "CLIP image encoder", "field": "weights_mb", "quote": "350,837,078 bytes", "scale": 1e-6}
+   ]},
+   "gflops": {"kind": "none"},
+   "text": {
+    "artefacts": "Density MLPs and GMMs per dataset",
+    "training": "MLPs trained per dataset (denoising score matching)",
+    "portability": "AccI-VAD feature pipeline (custom CUDA extensions); VAD code not released"
+   },
+   "check": [
+    {"entry": "MULDE, object-centric", "field": "training_on_target", "quote": "Each dataset's MLPs are trained on that dataset's normal training features"},
+    {"entry": "MULDE, object-centric", "field": "portability", "quote": "no VAD feature extraction"}
+   ]
+  },
+  {
+   "key": "stgnf", "name": "STG-NF", "cite": "hirschorn2023stgnf", "venue": "ICCV", "venue_match": "ICCV",
+   "lit": ["sota", "Normalizing Flows for Human Pose Anomaly Detection"],
+   "audit": "Normalizing Flows for Human Pose Anomaly Detection",
+   "block": "one_class_trained",
+   "speed": {
+    "reported": true,
+    "values": {"fps": {"value": "189", "quote": "∼1K parameters, 0.95G FLOPS, and inference speed of 189 FPS"}, "params": {"value": "1K", "quote": "∼1K parameters, 0.95G FLOPS, and inference speed of 189 FPS"}},
+    "hardware": {"hw": {"name": "Titan XP", "quote": "On a single Nvidia Titan XP GPU."}},
+    "cell": "{fps}",
+    "note": "STG-NF {fps} on a {hw}, stated with the $\\sim${params} parameters of its flow model on pose sequences; the paper does not say whether pose estimation and tracking are included",
+    "source": "Hirschorn and Avidan, Normalizing Flows for Human Pose Anomaly Detection, ICCV 2023, Sec. 1 and footnote 1, p. 2",
+    "url": "https://openaccess.thecvf.com/content/ICCV2023/papers/Hirschorn_Normalizing_Flows_for_Human_Pose_Anomaly_Detection_ICCV_2023_paper.pdf"
+   },
+   "avenue_label_key": null,
+   "params": {"bound": "approx", "terms": [
+    {"entry": "STG-NF", "component": "Pose estimator: AlphaPose", "field": "params_millions", "quote": "is of size 83M parameters", "scale": 1},
+    {"entry": "STG-NF", "component": "Person detector named in the paper", "field": "params_millions", "quote": "99.1 (YOLOX-X)", "scale": 1},
+    {"entry": "STG-NF", "component": "STG-NF normalizing flow", "field": "params_millions", "quote": "~0.001", "scale": 1}
+   ]},
+   "weights_MB": {"bound": "approx", "terms": [
+    {"entry": "STG-NF", "component": "Pose estimator: AlphaPose", "field": "weights_mb", "quote": "318 MB.", "scale": 1},
+    {"entry": "STG-NF", "component": "Person detector named in the paper", "field": "weights_mb", "quote": "793.5 MB yolox_x.pth", "scale": 1},
+    {"entry": "STG-NF", "component": "STG-NF normalizing flow", "field": "weights_mb", "quote": "0.156 MB", "scale": 1}
+   ]},
+   "named": {
+    "nf_mb": {"entry": "STG-NF", "component": "STG-NF normalizing flow", "field": "weights_mb", "quote": "0.156 MB", "scale": 1, "fmt": ".2f"}
+   },
+   "gflops": {"kind": "none"},
+   "text": {
+    "artefacts": "Flow checkpoint per dataset ({nf_mb} MB)",
+    "training": "Normalizing flow trained per dataset",
+    "portability": "Human skeletons only; AlphaPose custom CUDA extensions"
+   },
+   "check": [
+    {"entry": "STG-NF", "field": "training_on_target", "quote": "Only the NF is trained, once per dataset"},
+    {"entry": "STG-NF", "field": "portability", "quote": "AlphaPose builds custom C++/CUDA extensions"}
+   ]
+  },
+  {
+   "key": "aedmae", "name": "AED-MAE", "cite": "ristea2024self", "venue": "CVPR", "venue_match": "CVPR",
+   "lit": ["sota", "Self-Distilled Masked Auto-Encoders"],
+   "audit": "Self-Distilled Masked Auto-Encoders",
+   "block": "synthetic_or_pseudo_anomaly",
+   "speed": {
+    "reported": true,
+    "values": {"fps": {"value": "1655", "quote": "Our highly efficient framework reached an unprecedented speed of 1655 FPS"}},
+    "hardware": {"hw": {"name": "GTX 3090", "quote": "Nvidia GeForce GTX 3090 GPU with 24 GB of VRAM"}},
+    "cell": "{fps}",
+    "note": "AED-MAE {fps} on a GPU the paper names ``{hw}''; batch size and what is timed are not stated",
+    "source": "Ristea et al., Self-Distilled Masked Auto-Encoders are Efficient Video Anomaly Detectors, CVPR 2024, Conclusion (quote), abstract, Table 1 and Table 5; hardware in the Fig. 2 and Table 1 captions",
+    "url": "https://openaccess.thecvf.com/content/CVPR2024/papers/Ristea_Self-Distilled_Masked_Auto-Encoders_are_Efficient_Video_Anomaly_Detectors_CVPR_2024_paper.pdf"
+   },
+   "avenue_label_key": "aedmae_avenue_gt_txt",
+   "params": {"bound": "range", "terms": [
+    {"file": "kanit/boyut_20261105/size_aed.json", "path": ["shanghai", "params_M"]},
+    {"file": "kanit/boyut_20261105/size_aed.json", "path": ["avenue", "params_M"]}
+   ]},
+   "weights_MB": {"bound": "range_of_sums", "groups": [
+    [{"file": "kanit/boyut_20261105/size_aed.json", "path": ["shanghai", "checkpoint_MB", "checkpoint-best-student.pth"]},
+     {"file": "kanit/boyut_20261105/size_aed.json", "path": ["shanghai", "checkpoint_MB", "checkpoint-best.pth"]}],
+    [{"file": "kanit/boyut_20261105/size_aed.json", "path": ["avenue", "checkpoint_MB", "checkpoint-best-student.pth"]},
+     {"file": "kanit/boyut_20261105/size_aed.json", "path": ["avenue", "checkpoint_MB", "checkpoint-best.pth"]}]
+   ]},
+   "gflops": {"kind": "range", "terms": [
+    {"file": "kanit/boyut_20261105/size_aed.json", "path": ["shanghai", "gflops_per_frame_batch1"]},
+    {"file": "kanit/boyut_20261105/size_aed.json", "path": ["avenue", "gflops_per_frame_batch1"]}
+   ]},
+   "text": {
+    "artefacts": "A trained network per dataset (two checkpoint files)",
+    "training": "GPU training with synthetic anomalies, per dataset",
+    "portability": "Pure PyTorch"
+   },
+   "check": []
+  },
+  {
+   "key": "fastaed", "name": "Fast-AED", "cite": "croitoru2024lightning", "venue": "CVIU", "venue_match": "Computer Vision and Image Understanding",
+   "lit": ["sota", "Lightning Fast Video Anomaly Detection via Adversarial"],
+   "audit": "Lightning Fast Video Anomaly Detection via Adversarial",
+   "block": "synthetic_or_pseudo_anomaly",
+   "speed": {
+    "reported": true,
+    "values": {"fps": {"value": "1480", "quote": "Our method runs at 1480 FPS, being more than 7 times faster"}, "cpu": {"value": "88", "quote": "On CPU, our model runs at 88 FPS"}},
+    "hardware": {"hw": {"name": "GTX 3090", "quote": "Nvidia GeForce GTX 3090 GPU with 24 GB of VRAM"}, "cpuhw": {"name": "Intel i9", "quote": "(Intel i9 CPU 3.7 GHz, no GPU)"}},
+    "cell": "{fps} (GPU), {cpu} (CPU)",
+    "note": "Fast-AED {fps} on a GPU the paper names ``{hw}'' and {cpu} on an {cpuhw} CPU, for the student network (the teachers are used only in training); batch size and whether decoding is included are not stated",
+    "source": "Croitoru et al., Lightning Fast Video Anomaly Detection via Multi-Scale Adversarial Distillation, CVIU 247:104074, 2024 (arXiv 2211.15597v4), Sec. 4.4 'Speed versus accuracy trade-off' and paragraph 'Comparison with teachers'; hardware in the Baselines paragraph and the Table 1 caption",
+    "url": "https://arxiv.org/html/2211.15597v4"
+   },
+   "avenue_label_key": null,
+   "params": {"bound": "eq", "terms": [
+    {"entry": "Fast-AED", "component": "Student: CyTran", "field": "params_millions", "quote": "5 (Table 3 'Trainable parameters (M)': Student 5", "scale": 1}
+   ]},
+   "weights_MB": {"bound": "none", "text": "Not released",
+    "check": {"entry": "Fast-AED", "component": "Student: CyTran", "field": "weights_mb", "quote": "no checkpoint released"}},
+   "gflops": {"kind": "eq", "terms": [
+    {"entry": "Fast-AED", "component": "Student: CyTran", "field": "gflops_per_frame", "quote": "6.2 (Table 3)", "scale": 1}
+   ]},
+   "text": {
+    "artefacts": "Student network and precomputed teacher maps per dataset",
+    "training": "Two teachers trained, then distilled into the student, per dataset",
+    "portability": "Student is pure PyTorch; teacher code only on request"
+   },
+   "check": [
+    {"entry": "Fast-AED", "field": "per_scene_artifacts", "quote": "Per-frame teacher anomaly maps are precomputed"},
+    {"entry": "Fast-AED", "field": "training_on_target", "quote": "train both object-centric teachers"},
+    {"entry": "Fast-AED", "field": "portability", "quote": "The student is plain PyTorch"},
+    {"entry": "Fast-AED", "field": "portability", "quote": "available only on request"}
+   ]
+  }
+ ],
+ "ours_outside_kanit": {
+  "_why": "The grid autoencoder's size and training time are not in kanit/. They are derived / read here from the repo and cross-checked; see make_tables_v3.py grid_ae().",
+  "ae_architecture": "aean/models.py",
+  "ae_logs": ["results/runs_ped1_2d_noadv.log", "results/runs_ped2_2d_noadv.log"],
+  "eval_protocol": "vadkit/eval/protocol.py",
+  "config": "vadkit/configs/r2/base.yaml"
+ }
+}

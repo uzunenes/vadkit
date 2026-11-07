@@ -2,7 +2,6 @@
 scene on its own normal training videos) over all test frames: micro AUC (standard), and the mean per-video AUC."""
 import glob
 import json
-import os
 import sys
 from pathlib import Path
 
@@ -26,7 +25,7 @@ per_video = []
 for ev in sorted(glob.glob("runs/shtech_*_2d_noadv/eval_shtech_*_pool48_mc5")):
     sc = ev.split("eval_shtech_")[1][:2]
     S = np.load(Path(ev) / "scores.npz")
-    gt = {k: np.asarray(v) for k, v in json.loads(Path(os.environ.get("VAD_CACHE", "cache"), f"shtech_{sc}/gt.json").read_text()).items()}
+    gt = {k: np.asarray(v) for k, v in json.loads(Path(f"/workspace/cache/shtech_{sc}/gt.json").read_text()).items()}
     N = {k: normaliser(S[f"ref/{k}"], "fisher") for k in KEYS}
     for v in sorted(gt):
         F = sum(N[k](S[f"{k}/{v}"]) for k in KEYS)

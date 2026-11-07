@@ -1,0 +1,1612 @@
+{
+ "note": "Frame indices are 1-based, inclusive. n_frames = decoded test frames (OpenCV), equal to len(volLabel) for all 21 videos.",
+ "generated": "2026-11-05",
+ "total_test_frames": 15324,
+ "sources": {
+  "ours_gt_json": {
+   "source": "cctv-aean/prepare_avenue.py -> /workspace/cache/avenue/gt.json (m3)",
+   "md5": "3eaa991acbf92839bd27180a5439d241",
+   "git_blob_sha1": "d3a7799de888a27a0f57bc093e5f2c5ec51d1e2b",
+   "bytes": 46140
+  },
+  "cuhk_mask_anypixel": {
+   "source": "official CUHK ground_truth_demo.zip/testing_label_mask/<i>_label.mat (volLabel), frame=1 iff mask has any nonzero pixel",
+   "md5": "e8e3bff99195b6b511534083b9dbe1f5",
+   "git_blob_sha1": "f6bfb331f267a27829a1de22496ffc9e856e8d2c",
+   "bytes": 931269
+  },
+  "vpc_avenue_mat": {
+   "source": "m3:/workspace/m3/vpc/data/avenue/avenue.mat (from VideoPatchCore Google-Drive avenue.zip, CRC da034f7e); MAT header: PCWIN64, created Fri Oct 23 20:15:43 2015; cell gt{21} of [start;end] 1-based inclusive intervals",
+   "md5": "b8845f354561e5863d4b0a64ed554a19",
+   "git_blob_sha1": "2859b48dfacff2284e70b45fcd0becbbde554497",
+   "bytes": 460
+  },
+  "accivad_avenue_mat": {
+   "source": "AccI-VAD repo data/avenue.mat; MAT header: created Wed Jan 20 23:58:42 2021; per-frame int32 arrays keyed 01..21",
+   "md5": "5bdbf858be74bc4586e081f6cd849a25",
+   "git_blob_sha1": "00158f978c8b3523b1cfd804d6c5658753d84142",
+   "bytes": 62656
+  },
+  "aedmae_avenue_gt_txt": {
+   "source": "AED-MAE gt_files.zip/Avenue_gt/<vid>.txt (np.savetxt 0/1 per frame, zip dated 2022-03-17)",
+   "md5": "cd9a29317af30a142833d8d70d43f5b7",
+   "git_blob_sha1": "2d1bf3ef91f5f8e69cd8841f147798e197d97d02",
+   "bytes": 34755
+  }
+ },
+ "total_positive_frames": {
+  "ours_gt_json": 3712,
+  "cuhk_mask_anypixel": 3712,
+  "vpc_avenue_mat": 3867,
+  "accivad_avenue_mat": 3712,
+  "aedmae_avenue_gt_txt": 3867
+ },
+ "pairwise_differing_frames": {
+  "ours_gt_json__vs__cuhk_mask_anypixel": 0,
+  "ours_gt_json__vs__vpc_avenue_mat": 441,
+  "ours_gt_json__vs__accivad_avenue_mat": 0,
+  "ours_gt_json__vs__aedmae_avenue_gt_txt": 441,
+  "cuhk_mask_anypixel__vs__vpc_avenue_mat": 441,
+  "cuhk_mask_anypixel__vs__accivad_avenue_mat": 0,
+  "cuhk_mask_anypixel__vs__aedmae_avenue_gt_txt": 441,
+  "vpc_avenue_mat__vs__accivad_avenue_mat": 441,
+  "vpc_avenue_mat__vs__aedmae_avenue_gt_txt": 0,
+  "accivad_avenue_mat__vs__aedmae_avenue_gt_txt": 441
+ },
+ "identical_groups": [
+  [
+   "ours_gt_json",
+   "cuhk_mask_anypixel",
+   "accivad_avenue_mat"
+  ],
+  [
+   "vpc_avenue_mat",
+   "aedmae_avenue_gt_txt"
+  ]
+ ],
+ "cuhk_vs_vpc_summary": {
+  "n_differing": 441,
+  "only_cuhk_frames": 143,
+  "only_vpc_frames": 298,
+  "videos_identical": [
+   "03",
+   "04",
+   "05",
+   "15",
+   "20",
+   "21"
+  ],
+  "n_events_vpc": 47,
+  "n_runs_cuhk": 74,
+  "by_type": {
+   "cuhk_event_dropped_in_vpc": {
+    "segments": 2,
+    "frames": 19
+   },
+   "vpc_ends_event_earlier_at_video_end": {
+    "segments": 7,
+    "frames": 56
+   },
+   "vpc_extra_event_no_mask": {
+    "segments": 1,
+    "frames": 50
+   },
+   "vpc_gap_fill_between_mask_runs": {
+    "segments": 26,
+    "frames": 248
+   },
+   "vpc_starts_event_later": {
+    "segments": 4,
+    "frames": 68
+   }
+  },
+  "mask_pixels_in_only_cuhk_frames": {
+   "min": 3479,
+   "median": 13756.0,
+   "max": 125102
+  },
+  "mask_pixels_all_cuhk_positive_frames": {
+   "min": 609,
+   "median": 14800.0,
+   "max": 125102
+  }
+ },
+ "per_video": {
+  "01": {
+   "n_frames": 1439,
+   "positives": {
+    "ours_gt_json": 408,
+    "cuhk_mask_anypixel": 408,
+    "vpc_avenue_mat": 451,
+    "accivad_avenue_mat": 408,
+    "aedmae_avenue_gt_txt": 451
+   },
+   "n_diff_cuhk_vs_vpc": 43,
+   "n_events_vpc_intervals": 5,
+   "n_runs_cuhk": 12,
+   "cuhk_runs": [
+    [
+     78,
+     83
+    ],
+    [
+     95,
+     99
+    ],
+    [
+     109,
+     110
+    ],
+    [
+     116,
+     120
+    ],
+    [
+     392,
+     399
+    ],
+    [
+     408,
+     409
+    ],
+    [
+     416,
+     422
+    ],
+    [
+     503,
+     666
+    ],
+    [
+     868,
+     875
+    ],
+    [
+     878,
+     897
+    ],
+    [
+     900,
+     910
+    ],
+    [
+     932,
+     1101
+    ]
+   ],
+   "vpc_intervals": [
+    [
+     78,
+     120
+    ],
+    [
+     392,
+     422
+    ],
+    [
+     503,
+     666
+    ],
+    [
+     868,
+     910
+    ],
+    [
+     932,
+     1101
+    ]
+   ],
+   "only_cuhk": [],
+   "only_vpc": [
+    [
+     84,
+     94
+    ],
+    [
+     100,
+     108
+    ],
+    [
+     111,
+     115
+    ],
+    [
+     400,
+     407
+    ],
+    [
+     410,
+     415
+    ],
+    [
+     876,
+     877
+    ],
+    [
+     898,
+     899
+    ]
+   ],
+   "diff_segments": [
+    {
+     "frames": [
+      84,
+      94
+     ],
+     "n": 11,
+     "only_in": "vpc",
+     "type": "vpc_gap_fill_between_mask_runs"
+    },
+    {
+     "frames": [
+      100,
+      108
+     ],
+     "n": 9,
+     "only_in": "vpc",
+     "type": "vpc_gap_fill_between_mask_runs"
+    },
+    {
+     "frames": [
+      111,
+      115
+     ],
+     "n": 5,
+     "only_in": "vpc",
+     "type": "vpc_gap_fill_between_mask_runs"
+    },
+    {
+     "frames": [
+      400,
+      407
+     ],
+     "n": 8,
+     "only_in": "vpc",
+     "type": "vpc_gap_fill_between_mask_runs"
+    },
+    {
+     "frames": [
+      410,
+      415
+     ],
+     "n": 6,
+     "only_in": "vpc",
+     "type": "vpc_gap_fill_between_mask_runs"
+    },
+    {
+     "frames": [
+      876,
+      877
+     ],
+     "n": 2,
+     "only_in": "vpc",
+     "type": "vpc_gap_fill_between_mask_runs"
+    },
+    {
+     "frames": [
+      898,
+      899
+     ],
+     "n": 2,
+     "only_in": "vpc",
+     "type": "vpc_gap_fill_between_mask_runs"
+    }
+   ]
+  },
+  "02": {
+   "n_frames": 1211,
+   "positives": {
+    "ours_gt_json": 89,
+    "cuhk_mask_anypixel": 89,
+    "vpc_avenue_mat": 139,
+    "accivad_avenue_mat": 89,
+    "aedmae_avenue_gt_txt": 139
+   },
+   "n_diff_cuhk_vs_vpc": 50,
+   "n_events_vpc_intervals": 3,
+   "n_runs_cuhk": 2,
+   "cuhk_runs": [
+    [
+     273,
+     320
+    ],
+    [
+     724,
+     764
+    ]
+   ],
+   "vpc_intervals": [
+    [
+     273,
+     320
+    ],
+    [
+     724,
+     764
+    ],
+    [
+     1051,
+     1100
+    ]
+   ],
+   "only_cuhk": [],
+   "only_vpc": [
+    [
+     1051,
+     1100
+    ]
+   ],
+   "diff_segments": [
+    {
+     "frames": [
+      1051,
+      1100
+     ],
+     "n": 50,
+     "only_in": "vpc",
+     "type": "vpc_extra_event_no_mask"
+    }
+   ]
+  },
+  "03": {
+   "n_frames": 923,
+   "positives": {
+    "ours_gt_json": 87,
+    "cuhk_mask_anypixel": 87,
+    "vpc_avenue_mat": 87,
+    "accivad_avenue_mat": 87,
+    "aedmae_avenue_gt_txt": 87
+   },
+   "n_diff_cuhk_vs_vpc": 0,
+   "n_events_vpc_intervals": 2,
+   "n_runs_cuhk": 2,
+   "cuhk_runs": [
+    [
+     295,
+     340
+    ],
+    [
+     582,
+     622
+    ]
+   ],
+   "vpc_intervals": [
+    [
+     295,
+     340
+    ],
+    [
+     582,
+     622
+    ]
+   ],
+   "only_cuhk": [],
+   "only_vpc": [],
+   "diff_segments": []
+  },
+  "04": {
+   "n_frames": 947,
+   "positives": {
+    "ours_gt_json": 93,
+    "cuhk_mask_anypixel": 93,
+    "vpc_avenue_mat": 93,
+    "accivad_avenue_mat": 93,
+    "aedmae_avenue_gt_txt": 93
+   },
+   "n_diff_cuhk_vs_vpc": 0,
+   "n_events_vpc_intervals": 2,
+   "n_runs_cuhk": 2,
+   "cuhk_runs": [
+    [
+     380,
+     428
+    ],
+    [
+     649,
+     692
+    ]
+   ],
+   "vpc_intervals": [
+    [
+     380,
+     428
+    ],
+    [
+     649,
+     692
+    ]
+   ],
+   "only_cuhk": [],
+   "only_vpc": [],
+   "diff_segments": []
+  },
+  "05": {
+   "n_frames": 1007,
+   "positives": {
+    "ours_gt_json": 318,
+    "cuhk_mask_anypixel": 318,
+    "vpc_avenue_mat": 318,
+    "accivad_avenue_mat": 318,
+    "aedmae_avenue_gt_txt": 318
+   },
+   "n_diff_cuhk_vs_vpc": 0,
+   "n_events_vpc_intervals": 1,
+   "n_runs_cuhk": 1,
+   "cuhk_runs": [
+    [
+     469,
+     786
+    ]
+   ],
+   "vpc_intervals": [
+    [
+     469,
+     786
+    ]
+   ],
+   "only_cuhk": [],
+   "only_vpc": [],
+   "diff_segments": []
+  },
+  "06": {
+   "n_frames": 1283,
+   "positives": {
+    "ours_gt_json": 429,
+    "cuhk_mask_anypixel": 429,
+    "vpc_avenue_mat": 433,
+    "accivad_avenue_mat": 429,
+    "aedmae_avenue_gt_txt": 433
+   },
+   "n_diff_cuhk_vs_vpc": 26,
+   "n_events_vpc_intervals": 2,
+   "n_runs_cuhk": 4,
+   "cuhk_runs": [
+    [
+     345,
+     625
+    ],
+    [
+     815,
+     825
+    ],
+    [
+     856,
+     905
+    ],
+    [
+     921,
+     1007
+    ]
+   ],
+   "vpc_intervals": [
+    [
+     345,
+     625
+    ],
+    [
+     856,
+     1007
+    ]
+   ],
+   "only_cuhk": [
+    [
+     815,
+     825
+    ]
+   ],
+   "only_vpc": [
+    [
+     906,
+     920
+    ]
+   ],
+   "diff_segments": [
+    {
+     "frames": [
+      815,
+      825
+     ],
+     "n": 11,
+     "only_in": "cuhk",
+     "type": "cuhk_event_dropped_in_vpc",
+     "mask_pixels_min": 3479,
+     "mask_pixels_median": 4615.0,
+     "mask_pixels_max": 5832
+    },
+    {
+     "frames": [
+      906,
+      920
+     ],
+     "n": 15,
+     "only_in": "vpc",
+     "type": "vpc_gap_fill_between_mask_runs"
+    }
+   ]
+  },
+  "07": {
+   "n_frames": 605,
+   "positives": {
+    "ours_gt_json": 123,
+    "cuhk_mask_anypixel": 123,
+    "vpc_avenue_mat": 105,
+    "accivad_avenue_mat": 123,
+    "aedmae_avenue_gt_txt": 105
+   },
+   "n_diff_cuhk_vs_vpc": 18,
+   "n_events_vpc_intervals": 2,
+   "n_runs_cuhk": 3,
+   "cuhk_runs": [
+    [
+     300,
+     307
+    ],
+    [
+     423,
+     494
+    ],
+    [
+     563,
+     605
+    ]
+   ],
+   "vpc_intervals": [
+    [
+     423,
+     494
+    ],
+    [
+     563,
+     595
+    ]
+   ],
+   "only_cuhk": [
+    [
+     300,
+     307
+    ],
+    [
+     596,
+     605
+    ]
+   ],
+   "only_vpc": [],
+   "diff_segments": [
+    {
+     "frames": [
+      300,
+      307
+     ],
+     "n": 8,
+     "only_in": "cuhk",
+     "type": "cuhk_event_dropped_in_vpc",
+     "mask_pixels_min": 4110,
+     "mask_pixels_median": 4545.0,
+     "mask_pixels_max": 5472
+    },
+    {
+     "frames": [
+      596,
+      605
+     ],
+     "n": 10,
+     "only_in": "cuhk",
+     "type": "vpc_ends_event_earlier_at_video_end",
+     "mask_pixels_min": 12528,
+     "mask_pixels_median": 14200.0,
+     "mask_pixels_max": 17622
+    }
+   ]
+  },
+  "08": {
+   "n_frames": 36,
+   "positives": {
+    "ours_gt_json": 36,
+    "cuhk_mask_anypixel": 36,
+    "vpc_avenue_mat": 10,
+    "accivad_avenue_mat": 36,
+    "aedmae_avenue_gt_txt": 10
+   },
+   "n_diff_cuhk_vs_vpc": 26,
+   "n_events_vpc_intervals": 1,
+   "n_runs_cuhk": 1,
+   "cuhk_runs": [
+    [
+     1,
+     36
+    ]
+   ],
+   "vpc_intervals": [
+    [
+     21,
+     30
+    ]
+   ],
+   "only_cuhk": [
+    [
+     1,
+     20
+    ],
+    [
+     31,
+     36
+    ]
+   ],
+   "only_vpc": [],
+   "diff_segments": [
+    {
+     "frames": [
+      1,
+      20
+     ],
+     "n": 20,
+     "only_in": "cuhk",
+     "type": "vpc_starts_event_later",
+     "mask_pixels_min": 11040,
+     "mask_pixels_median": 12830.5,
+     "mask_pixels_max": 15470
+    },
+    {
+     "frames": [
+      31,
+      36
+     ],
+     "n": 6,
+     "only_in": "cuhk",
+     "type": "vpc_ends_event_earlier_at_video_end",
+     "mask_pixels_min": 9720,
+     "mask_pixels_median": 11399.5,
+     "mask_pixels_max": 14288
+    }
+   ]
+  },
+  "09": {
+   "n_frames": 1175,
+   "positives": {
+    "ours_gt_json": 289,
+    "cuhk_mask_anypixel": 289,
+    "vpc_avenue_mat": 333,
+    "accivad_avenue_mat": 289,
+    "aedmae_avenue_gt_txt": 333
+   },
+   "n_diff_cuhk_vs_vpc": 44,
+   "n_events_vpc_intervals": 6,
+   "n_runs_cuhk": 12,
+   "cuhk_runs": [
+    [
+     136,
+     183
+    ],
+    [
+     496,
+     547
+    ],
+    [
+     551,
+     563
+    ],
+    [
+     565,
+     566
+    ],
+    [
+     741,
+     755
+    ],
+    [
+     875,
+     908
+    ],
+    [
+     924,
+     937
+    ],
+    [
+     946,
+     955
+    ],
+    [
+     969,
+     981
+    ],
+    [
+     1013,
+     1044
+    ],
+    [
+     1104,
+     1133
+    ],
+    [
+     1138,
+     1163
+    ]
+   ],
+   "vpc_intervals": [
+    [
+     136,
+     183
+    ],
+    [
+     496,
+     566
+    ],
+    [
+     741,
+     755
+    ],
+    [
+     875,
+     981
+    ],
+    [
+     1013,
+     1044
+    ],
+    [
+     1104,
+     1163
+    ]
+   ],
+   "only_cuhk": [],
+   "only_vpc": [
+    [
+     548,
+     550
+    ],
+    [
+     564,
+     564
+    ],
+    [
+     909,
+     923
+    ],
+    [
+     938,
+     945
+    ],
+    [
+     956,
+     968
+    ],
+    [
+     1134,
+     1137
+    ]
+   ],
+   "diff_segments": [
+    {
+     "frames": [
+      548,
+      550
+     ],
+     "n": 3,
+     "only_in": "vpc",
+     "type": "vpc_gap_fill_between_mask_runs"
+    },
+    {
+     "frames": [
+      564,
+      564
+     ],
+     "n": 1,
+     "only_in": "vpc",
+     "type": "vpc_gap_fill_between_mask_runs"
+    },
+    {
+     "frames": [
+      909,
+      923
+     ],
+     "n": 15,
+     "only_in": "vpc",
+     "type": "vpc_gap_fill_between_mask_runs"
+    },
+    {
+     "frames": [
+      938,
+      945
+     ],
+     "n": 8,
+     "only_in": "vpc",
+     "type": "vpc_gap_fill_between_mask_runs"
+    },
+    {
+     "frames": [
+      956,
+      968
+     ],
+     "n": 13,
+     "only_in": "vpc",
+     "type": "vpc_gap_fill_between_mask_runs"
+    },
+    {
+     "frames": [
+      1134,
+      1137
+     ],
+     "n": 4,
+     "only_in": "vpc",
+     "type": "vpc_gap_fill_between_mask_runs"
+    }
+   ]
+  },
+  "10": {
+   "n_frames": 841,
+   "positives": {
+    "ours_gt_json": 133,
+    "cuhk_mask_anypixel": 133,
+    "vpc_avenue_mat": 161,
+    "accivad_avenue_mat": 133,
+    "aedmae_avenue_gt_txt": 161
+   },
+   "n_diff_cuhk_vs_vpc": 28,
+   "n_events_vpc_intervals": 5,
+   "n_runs_cuhk": 8,
+   "cuhk_runs": [
+    [
+     571,
+     583
+    ],
+    [
+     593,
+     607
+    ],
+    [
+     637,
+     656
+    ],
+    [
+     678,
+     690
+    ],
+    [
+     699,
+     713
+    ],
+    [
+     724,
+     755
+    ],
+    [
+     783,
+     793
+    ],
+    [
+     805,
+     818
+    ]
+   ],
+   "vpc_intervals": [
+    [
+     571,
+     607
+    ],
+    [
+     637,
+     656
+    ],
+    [
+     678,
+     713
+    ],
+    [
+     724,
+     755
+    ],
+    [
+     783,
+     818
+    ]
+   ],
+   "only_cuhk": [],
+   "only_vpc": [
+    [
+     584,
+     592
+    ],
+    [
+     691,
+     698
+    ],
+    [
+     794,
+     804
+    ]
+   ],
+   "diff_segments": [
+    {
+     "frames": [
+      584,
+      592
+     ],
+     "n": 9,
+     "only_in": "vpc",
+     "type": "vpc_gap_fill_between_mask_runs"
+    },
+    {
+     "frames": [
+      691,
+      698
+     ],
+     "n": 8,
+     "only_in": "vpc",
+     "type": "vpc_gap_fill_between_mask_runs"
+    },
+    {
+     "frames": [
+      794,
+      804
+     ],
+     "n": 11,
+     "only_in": "vpc",
+     "type": "vpc_gap_fill_between_mask_runs"
+    }
+   ]
+  },
+  "11": {
+   "n_frames": 472,
+   "positives": {
+    "ours_gt_json": 144,
+    "cuhk_mask_anypixel": 144,
+    "vpc_avenue_mat": 183,
+    "accivad_avenue_mat": 144,
+    "aedmae_avenue_gt_txt": 183
+   },
+   "n_diff_cuhk_vs_vpc": 55,
+   "n_events_vpc_intervals": 2,
+   "n_runs_cuhk": 5,
+   "cuhk_runs": [
+    [
+     13,
+     34
+    ],
+    [
+     48,
+     96
+    ],
+    [
+     113,
+     125
+    ],
+    [
+     144,
+     164
+    ],
+    [
+     308,
+     346
+    ]
+   ],
+   "vpc_intervals": [
+    [
+     21,
+     164
+    ],
+    [
+     308,
+     346
+    ]
+   ],
+   "only_cuhk": [
+    [
+     13,
+     20
+    ]
+   ],
+   "only_vpc": [
+    [
+     35,
+     47
+    ],
+    [
+     97,
+     112
+    ],
+    [
+     126,
+     143
+    ]
+   ],
+   "diff_segments": [
+    {
+     "frames": [
+      13,
+      20
+     ],
+     "n": 8,
+     "only_in": "cuhk",
+     "type": "vpc_starts_event_later",
+     "mask_pixels_min": 11235,
+     "mask_pixels_median": 14371.0,
+     "mask_pixels_max": 17110
+    },
+    {
+     "frames": [
+      35,
+      47
+     ],
+     "n": 13,
+     "only_in": "vpc",
+     "type": "vpc_gap_fill_between_mask_runs"
+    },
+    {
+     "frames": [
+      97,
+      112
+     ],
+     "n": 16,
+     "only_in": "vpc",
+     "type": "vpc_gap_fill_between_mask_runs"
+    },
+    {
+     "frames": [
+      126,
+      143
+     ],
+     "n": 18,
+     "only_in": "vpc",
+     "type": "vpc_gap_fill_between_mask_runs"
+    }
+   ]
+  },
+  "12": {
+   "n_frames": 1271,
+   "positives": {
+    "ours_gt_json": 190,
+    "cuhk_mask_anypixel": 190,
+    "vpc_avenue_mat": 249,
+    "accivad_avenue_mat": 190,
+    "aedmae_avenue_gt_txt": 249
+   },
+   "n_diff_cuhk_vs_vpc": 59,
+   "n_events_vpc_intervals": 3,
+   "n_runs_cuhk": 7,
+   "cuhk_runs": [
+    [
+     539,
+     579
+    ],
+    [
+     592,
+     617
+    ],
+    [
+     645,
+     658
+    ],
+    [
+     673,
+     687
+    ],
+    [
+     695,
+     729
+    ],
+    [
+     759,
+     795
+    ],
+    [
+     822,
+     843
+    ]
+   ],
+   "vpc_intervals": [
+    [
+     539,
+     617
+    ],
+    [
+     645,
+     729
+    ],
+    [
+     759,
+     843
+    ]
+   ],
+   "only_cuhk": [],
+   "only_vpc": [
+    [
+     580,
+     591
+    ],
+    [
+     659,
+     672
+    ],
+    [
+     688,
+     694
+    ],
+    [
+     796,
+     821
+    ]
+   ],
+   "diff_segments": [
+    {
+     "frames": [
+      580,
+      591
+     ],
+     "n": 12,
+     "only_in": "vpc",
+     "type": "vpc_gap_fill_between_mask_runs"
+    },
+    {
+     "frames": [
+      659,
+      672
+     ],
+     "n": 14,
+     "only_in": "vpc",
+     "type": "vpc_gap_fill_between_mask_runs"
+    },
+    {
+     "frames": [
+      688,
+      694
+     ],
+     "n": 7,
+     "only_in": "vpc",
+     "type": "vpc_gap_fill_between_mask_runs"
+    },
+    {
+     "frames": [
+      796,
+      821
+     ],
+     "n": 26,
+     "only_in": "vpc",
+     "type": "vpc_gap_fill_between_mask_runs"
+    }
+   ]
+  },
+  "13": {
+   "n_frames": 549,
+   "positives": {
+    "ours_gt_json": 75,
+    "cuhk_mask_anypixel": 75,
+    "vpc_avenue_mat": 81,
+    "accivad_avenue_mat": 75,
+    "aedmae_avenue_gt_txt": 81
+   },
+   "n_diff_cuhk_vs_vpc": 6,
+   "n_events_vpc_intervals": 2,
+   "n_runs_cuhk": 3,
+   "cuhk_runs": [
+    [
+     259,
+     286
+    ],
+    [
+     458,
+     466
+    ],
+    [
+     473,
+     510
+    ]
+   ],
+   "vpc_intervals": [
+    [
+     259,
+     286
+    ],
+    [
+     458,
+     510
+    ]
+   ],
+   "only_cuhk": [],
+   "only_vpc": [
+    [
+     467,
+     472
+    ]
+   ],
+   "diff_segments": [
+    {
+     "frames": [
+      467,
+      472
+     ],
+     "n": 6,
+     "only_in": "vpc",
+     "type": "vpc_gap_fill_between_mask_runs"
+    }
+   ]
+  },
+  "14": {
+   "n_frames": 507,
+   "positives": {
+    "ours_gt_json": 74,
+    "cuhk_mask_anypixel": 74,
+    "vpc_avenue_mat": 73,
+    "accivad_avenue_mat": 74,
+    "aedmae_avenue_gt_txt": 73
+   },
+   "n_diff_cuhk_vs_vpc": 13,
+   "n_events_vpc_intervals": 2,
+   "n_runs_cuhk": 3,
+   "cuhk_runs": [
+    [
+     399,
+     410
+    ],
+    [
+     417,
+     455
+    ],
+    [
+     485,
+     507
+    ]
+   ],
+   "vpc_intervals": [
+    [
+     399,
+     455
+    ],
+    [
+     485,
+     500
+    ]
+   ],
+   "only_cuhk": [
+    [
+     501,
+     507
+    ]
+   ],
+   "only_vpc": [
+    [
+     411,
+     416
+    ]
+   ],
+   "diff_segments": [
+    {
+     "frames": [
+      411,
+      416
+     ],
+     "n": 6,
+     "only_in": "vpc",
+     "type": "vpc_gap_fill_between_mask_runs"
+    },
+    {
+     "frames": [
+      501,
+      507
+     ],
+     "n": 7,
+     "only_in": "cuhk",
+     "type": "vpc_ends_event_earlier_at_video_end",
+     "mask_pixels_min": 6432,
+     "mask_pixels_median": 7110.0,
+     "mask_pixels_max": 8181
+    }
+   ]
+  },
+  "15": {
+   "n_frames": 1001,
+   "positives": {
+    "ours_gt_json": 90,
+    "cuhk_mask_anypixel": 90,
+    "vpc_avenue_mat": 90,
+    "accivad_avenue_mat": 90,
+    "aedmae_avenue_gt_txt": 90
+   },
+   "n_diff_cuhk_vs_vpc": 0,
+   "n_events_vpc_intervals": 1,
+   "n_runs_cuhk": 1,
+   "cuhk_runs": [
+    [
+     498,
+     587
+    ]
+   ],
+   "vpc_intervals": [
+    [
+     498,
+     587
+    ]
+   ],
+   "only_cuhk": [],
+   "only_vpc": [],
+   "diff_segments": []
+  },
+  "16": {
+   "n_frames": 740,
+   "positives": {
+    "ours_gt_json": 109,
+    "cuhk_mask_anypixel": 109,
+    "vpc_avenue_mat": 99,
+    "accivad_avenue_mat": 109,
+    "aedmae_avenue_gt_txt": 99
+   },
+   "n_diff_cuhk_vs_vpc": 10,
+   "n_events_vpc_intervals": 1,
+   "n_runs_cuhk": 1,
+   "cuhk_runs": [
+    [
+     632,
+     740
+    ]
+   ],
+   "vpc_intervals": [
+    [
+     632,
+     730
+    ]
+   ],
+   "only_cuhk": [
+    [
+     731,
+     740
+    ]
+   ],
+   "only_vpc": [],
+   "diff_segments": [
+    {
+     "frames": [
+      731,
+      740
+     ],
+     "n": 10,
+     "only_in": "cuhk",
+     "type": "vpc_ends_event_earlier_at_video_end",
+     "mask_pixels_min": 47522,
+     "mask_pixels_median": 91854.5,
+     "mask_pixels_max": 125102
+    }
+   ]
+  },
+  "17": {
+   "n_frames": 426,
+   "positives": {
+    "ours_gt_json": 384,
+    "cuhk_mask_anypixel": 384,
+    "vpc_avenue_mat": 358,
+    "accivad_avenue_mat": 384,
+    "aedmae_avenue_gt_txt": 358
+   },
+   "n_diff_cuhk_vs_vpc": 26,
+   "n_events_vpc_intervals": 2,
+   "n_runs_cuhk": 2,
+   "cuhk_runs": [
+    [
+     1,
+     56
+    ],
+    [
+     99,
+     426
+    ]
+   ],
+   "vpc_intervals": [
+    [
+     21,
+     56
+    ],
+    [
+     99,
+     420
+    ]
+   ],
+   "only_cuhk": [
+    [
+     1,
+     20
+    ],
+    [
+     421,
+     426
+    ]
+   ],
+   "only_vpc": [],
+   "diff_segments": [
+    {
+     "frames": [
+      1,
+      20
+     ],
+     "n": 20,
+     "only_in": "cuhk",
+     "type": "vpc_starts_event_later",
+     "mask_pixels_min": 13394,
+     "mask_pixels_median": 16042.0,
+     "mask_pixels_max": 18144
+    },
+    {
+     "frames": [
+      421,
+      426
+     ],
+     "n": 6,
+     "only_in": "cuhk",
+     "type": "vpc_ends_event_earlier_at_video_end",
+     "mask_pixels_min": 13260,
+     "mask_pixels_median": 14415.0,
+     "mask_pixels_max": 15010
+    }
+   ]
+  },
+  "18": {
+   "n_frames": 294,
+   "positives": {
+    "ours_gt_json": 294,
+    "cuhk_mask_anypixel": 294,
+    "vpc_avenue_mat": 265,
+    "accivad_avenue_mat": 294,
+    "aedmae_avenue_gt_txt": 265
+   },
+   "n_diff_cuhk_vs_vpc": 29,
+   "n_events_vpc_intervals": 1,
+   "n_runs_cuhk": 1,
+   "cuhk_runs": [
+    [
+     1,
+     294
+    ]
+   ],
+   "vpc_intervals": [
+    [
+     21,
+     285
+    ]
+   ],
+   "only_cuhk": [
+    [
+     1,
+     20
+    ],
+    [
+     286,
+     294
+    ]
+   ],
+   "only_vpc": [],
+   "diff_segments": [
+    {
+     "frames": [
+      1,
+      20
+     ],
+     "n": 20,
+     "only_in": "cuhk",
+     "type": "vpc_starts_event_later",
+     "mask_pixels_min": 10556,
+     "mask_pixels_median": 13494.0,
+     "mask_pixels_max": 15092
+    },
+    {
+     "frames": [
+      286,
+      294
+     ],
+     "n": 9,
+     "only_in": "cuhk",
+     "type": "vpc_ends_event_earlier_at_video_end",
+     "mask_pixels_min": 11220,
+     "mask_pixels_median": 13067.0,
+     "mask_pixels_max": 14000
+    }
+   ]
+  },
+  "19": {
+   "n_frames": 248,
+   "positives": {
+    "ours_gt_json": 140,
+    "cuhk_mask_anypixel": 140,
+    "vpc_avenue_mat": 132,
+    "accivad_avenue_mat": 140,
+    "aedmae_avenue_gt_txt": 132
+   },
+   "n_diff_cuhk_vs_vpc": 8,
+   "n_events_vpc_intervals": 1,
+   "n_runs_cuhk": 1,
+   "cuhk_runs": [
+    [
+     109,
+     248
+    ]
+   ],
+   "vpc_intervals": [
+    [
+     109,
+     240
+    ]
+   ],
+   "only_cuhk": [
+    [
+     241,
+     248
+    ]
+   ],
+   "only_vpc": [],
+   "diff_segments": [
+    {
+     "frames": [
+      241,
+      248
+     ],
+     "n": 8,
+     "only_in": "cuhk",
+     "type": "vpc_ends_event_earlier_at_video_end",
+     "mask_pixels_min": 34989,
+     "mask_pixels_median": 40525.0,
+     "mask_pixels_max": 44955
+    }
+   ]
+  },
+  "20": {
+   "n_frames": 273,
+   "positives": {
+    "ours_gt_json": 154,
+    "cuhk_mask_anypixel": 154,
+    "vpc_avenue_mat": 154,
+    "accivad_avenue_mat": 154,
+    "aedmae_avenue_gt_txt": 154
+   },
+   "n_diff_cuhk_vs_vpc": 0,
+   "n_events_vpc_intervals": 2,
+   "n_runs_cuhk": 2,
+   "cuhk_runs": [
+    [
+     65,
+     144
+    ],
+    [
+     168,
+     241
+    ]
+   ],
+   "vpc_intervals": [
+    [
+     65,
+     144
+    ],
+    [
+     168,
+     241
+    ]
+   ],
+   "only_cuhk": [],
+   "only_vpc": [],
+   "diff_segments": []
+  },
+  "21": {
+   "n_frames": 76,
+   "positives": {
+    "ours_gt_json": 53,
+    "cuhk_mask_anypixel": 53,
+    "vpc_avenue_mat": 53,
+    "accivad_avenue_mat": 53,
+    "aedmae_avenue_gt_txt": 53
+   },
+   "n_diff_cuhk_vs_vpc": 0,
+   "n_events_vpc_intervals": 1,
+   "n_runs_cuhk": 1,
+   "cuhk_runs": [
+    [
+     14,
+     66
+    ]
+   ],
+   "vpc_intervals": [
+    [
+     14,
+     66
+    ]
+   ],
+   "only_cuhk": [],
+   "only_vpc": [],
+   "diff_segments": []
+  }
+ }
+}

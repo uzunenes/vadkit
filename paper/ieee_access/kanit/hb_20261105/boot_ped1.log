@@ -1,0 +1,14 @@
+[ped1   173.0s] object state fitted (1 groups, channels ['ovel', 'opose', 'oapp'])
+[ped1   174.9s] T0 reproduction: grid+obj 0.764140 (want 0.7641), obj 0.708599 (want 0.7086) -> OK
+[ped1   182.1s] T1 calibrated
+[ped1   189.2s] T2 calibrated
+[ped1   192.2s] AUCs: T0 grid+obj 0.7641/0.7755, T1 grid+obj 0.7633/0.7750, T2 grid+obj 0.7633/0.7750, obj 0.7086/0.7028
+[ped1   202.1s] grid+obj T2-T0 (H1)      a 0.7633 b 0.7641 diff -0.0008 CI [-0.0017, -0.0001]
+[ped1   212.0s] grid+obj T2-T1 (H1b)     a 0.7633 b 0.7633 diff +0.0000 CI [+0.0000, +0.0000]
+[ped1   221.9s] grid+obj T1-T0 (H4)      a 0.7633 b 0.7641 diff -0.0008 CI [-0.0017, -0.0001]
+[ped1   231.9s] grid+obj T2 - obj (H2)   a 0.7633 b 0.7086 diff +0.0547 CI [+0.0275, +0.0809]
+[ped1   241.8s] grid+obj T1 - obj        a 0.7633 b 0.7086 diff +0.0547 CI [+0.0275, +0.0809]
+[ped1   251.7s] grid+obj T0 - obj        a 0.7641 b 0.7086 diff +0.0555 CI [+0.0282, +0.0817]
+[ped1   261.5s] Fd T2-T0 (H3b)           a 0.7640 b 0.7640 diff -0.0000 CI [-0.0000, +0.0000]
+[ped1   271.3s] Fd T1-T0                 a 0.7640 b 0.7640 diff -0.0000 CI [-0.0000, +0.0000]
+wrote /workspace/hb/test/results_ped1.json (status OK)

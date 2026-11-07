@@ -1,0 +1,41 @@
+# E1 pose coverage rule (docs/tez_notlari/e1_poz_kapsama_kapisi_on_kayit_2026-11-06.md): base.yaml without the pose
+# model and the opose attribute, for the datasets on which the rule turns pose off (Ped1, Ped2, ShanghaiTech).
+# Round 2 component study (docs/tez_notlari/tur2_on_kayit_2026-11-05.md): light_default with one slot changed.
+name: r2_base_nopose
+gap:
+  ped1: 1
+  ped2: 1
+  avenue: 2
+  shanghaitech: 2
+width: 640
+detector:
+  name: yolo_motion
+  args:
+    weights: yolo11n.pt
+    conf: 0.25
+flow:
+  name: dis
+encoder:
+  name: open_clip
+  args:
+    model: MobileCLIP2-S0
+    pretrained: dfndr2b
+attributes:
+- name: ovel
+  kind: orientation_hist
+- name: oapp
+  kind: appearance_pca
+  args:
+    dim: 64
+density: niw
+seed: 0
+train_every: 1
+drop_startup: false
+calibrator: fisher
+fusion:
+  name: sum
+temporal:
+  name: causal_median
+  args:
+    k: 9
+warmup: 4

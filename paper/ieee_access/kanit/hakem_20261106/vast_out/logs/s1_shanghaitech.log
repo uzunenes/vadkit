@@ -1,0 +1,19 @@
+07:48:19 shanghaitech D1 0.795425 archived 0.795425 diff 0.00e+00
+/opt/conda/lib/python3.11/site-packages/sklearn/mixture/_base.py:293: ConvergenceWarning: Best performing initialization did not converge. Try different init parameters, or increase max_iter, tol, or check for degenerate data.
+  warnings.warn(
+08:25:17 shanghaitech D2 0.7325 macro 0.7938 diff -0.0630 [-0.0894, -0.0373]
+08:26:24 shanghaitech D2b 0.7470 macro 0.8127 diff -0.0484 [-0.0745, -0.0235]
+08:27:09 shanghaitech D3 0.7904 macro 0.8231 diff -0.0050 [-0.0168, +0.0064]
+08:28:17 shanghaitech D4 0.7768 macro 0.8240 diff -0.0186 [-0.0299, -0.0082]
+08:29:02 shanghaitech C1 0.7904 macro 0.8174 diff -0.0050 [-0.0119, +0.0020]
+08:29:34 shanghaitech C2 0.7947 macro 0.8149 diff -0.0007 [-0.0100, +0.0090]
+08:30:08 shanghaitech T1 0.7854 macro 0.8048 diff -0.0101 [-0.0141, -0.0060]
+08:30:41 shanghaitech L-oapp 0.7176 macro 0.7887 diff -0.0778 [-0.1099, -0.0463]
+08:31:14 shanghaitech L-opose 0.8086 macro 0.8278 diff +0.0132 [+0.0012, +0.0247]
+08:31:47 shanghaitech L-ovel 0.7745 macro 0.8010 diff -0.0210 [-0.0342, -0.0073]
+08:37:50 shanghaitech F1 seed 0: D1 0.7161 (archived diff 0.0e+00) D2 0.6926 D4 0.7361
+08:43:43 shanghaitech F1 seed 1: D1 0.7172 (archived diff 0.0e+00) D2 0.6630 D4 0.7459
+08:48:59 shanghaitech F1 seed 2: D1 0.7121 (archived diff 0.0e+00) D2 0.6937 D4 0.7282
+08:54:50 shanghaitech F1 seed 3: D1 0.7413 (archived diff 0.0e+00) D2 0.6974 D4 0.7532
+08:59:36 shanghaitech F1 seed 4: D1 0.7420 (archived diff 0.0e+00) D2 0.6994 D4 0.7467
+08:59:36 shanghaitech RUN_DONE

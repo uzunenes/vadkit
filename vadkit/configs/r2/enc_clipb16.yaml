@@ -1,0 +1,46 @@
+# Round 2 component study (docs/tez_notlari/tur2_on_kayit_2026-11-05.md): light_default with one slot changed.
+name: r2_enc_clipb16
+gap:
+  ped1: 1
+  ped2: 1
+  avenue: 2
+  shanghaitech: 2
+width: 640
+detector:
+  name: yolo_motion
+  args:
+    weights: yolo11n.pt
+    conf: 0.25
+pose:
+  name: yolo
+  args:
+    weights: yolo11n-pose.pt
+    conf: 0.25
+flow:
+  name: dis
+encoder:
+  name: open_clip
+  args:
+    model: ViT-B-16
+    pretrained: openai
+attributes:
+- name: ovel
+  kind: orientation_hist
+- name: opose
+  kind: pose_keypoints
+- name: oapp
+  kind: appearance_pca
+  args:
+    dim: 64
+density: niw
+seed: 0
+train_every: 1
+drop_startup: false
+calibrator: fisher
+fusion:
+  name: sum
+temporal:
+  name: causal_median
+  args:
+    k: 9
+warmup: 4

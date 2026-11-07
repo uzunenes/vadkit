@@ -1,0 +1,16 @@
+empirical smoothed   alpha 0.1    FAR 0.3933 [0.1970, 0.6225] FAR/alpha 3.93 TPR 0.936
+empirical smoothed   alpha 0.05   FAR 0.2975 [0.1210, 0.5107] FAR/alpha 5.95 TPR 0.817
+empirical smoothed   alpha 0.01   FAR 0.1312 [0.0117, 0.2703] FAR/alpha 13.12 TPR 0.419
+empirical smoothed   alpha 0.001  FAR 0.0055 [0.0013, 0.0115] FAR/alpha 5.55 TPR 0.114
+empirical unsmoothed alpha 0.1    FAR 0.3581 [0.1801, 0.5696] FAR/alpha 3.58 TPR 0.883
+empirical unsmoothed alpha 0.05   FAR 0.2626 [0.1082, 0.4513] FAR/alpha 5.25 TPR 0.771
+empirical unsmoothed alpha 0.01   FAR 0.1287 [0.0184, 0.2607] FAR/alpha 12.87 TPR 0.407
+empirical unsmoothed alpha 0.001  FAR 0.0089 [0.0025, 0.0165] FAR/alpha 8.93 TPR 0.135
+analytic  obj        alpha 0.1    FAR 0.3811 FAR/alpha 3.81 TPR 0.927
+analytic  obj        alpha 0.05   FAR 0.3063 FAR/alpha 6.13 TPR 0.829
+analytic  obj        alpha 0.01   FAR 0.1817 FAR/alpha 18.17 TPR 0.587
+analytic  obj        alpha 0.001  FAR 0.0842 FAR/alpha 84.23 TPR 0.276
+analytic  grid+obj   alpha 0.1    FAR 0.4664 FAR/alpha 4.66 TPR 0.987
+analytic  grid+obj   alpha 0.05   FAR 0.4175 FAR/alpha 8.35 TPR 0.973
+analytic  grid+obj   alpha 0.01   FAR 0.2890 FAR/alpha 28.90 TPR 0.862
+analytic  grid+obj   alpha 0.001  FAR 0.1536 FAR/alpha 153.55 TPR 0.615

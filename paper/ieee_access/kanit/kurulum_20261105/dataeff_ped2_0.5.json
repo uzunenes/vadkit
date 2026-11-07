@@ -1,0 +1,166 @@
+{
+ "config": "r2_base",
+ "dataset": "ped2",
+ "frac": 0.5,
+ "rows": [
+  {
+   "seed": 0,
+   "videos": 8,
+   "frames": 1260,
+   "minutes": 2.1,
+   "fit_seconds": 280.9306958909983,
+   "loadavg": 47.88671875,
+   "torch_threads": 2,
+   "test_videos": 12,
+   "fused": "ovel+opose+oapp",
+   "causal": 0.9415610786224821,
+   "offline": 0.9525022796760177,
+   "causal_macro": 0.9445828490788433,
+   "channels": {
+    "ovel": {
+     "causal": 0.8583035520901018,
+     "offline": 0.8319593815373062,
+     "causal_macro": 0.8866455776002166
+    },
+    "opose": {
+     "causal": 0.5614251678579164,
+     "offline": 0.6472662326342327,
+     "causal_macro": 0.4824776951177939
+    },
+    "oapp": {
+     "causal": 0.935680636777128,
+     "offline": 0.9432930590570188,
+     "causal_macro": 0.9401070819393226
+    }
+   }
+  },
+  {
+   "seed": 1,
+   "videos": 8,
+   "frames": 1290,
+   "minutes": 2.15,
+   "fit_seconds": 260.2022421869988,
+   "loadavg": 58.2373046875,
+   "torch_threads": 2,
+   "test_videos": 12,
+   "fused": "ovel+opose+oapp",
+   "causal": 0.9388600101075735,
+   "offline": 0.921265689534946,
+   "causal_macro": 0.9397853398798869,
+   "channels": {
+    "ovel": {
+     "causal": 0.8694372247491156,
+     "offline": 0.8376351043287025,
+     "causal_macro": 0.8880496254307142
+    },
+    "opose": {
+     "causal": 0.5625767092628692,
+     "offline": 0.6428921042750632,
+     "causal_macro": 0.4809386739768873
+    },
+    "oapp": {
+     "causal": 0.9323216735253772,
+     "offline": 0.9376458322158452,
+     "causal_macro": 0.9245038669705667
+    }
+   }
+  },
+  {
+   "seed": 2,
+   "videos": 8,
+   "frames": 1380,
+   "minutes": 2.3,
+   "fit_seconds": 280.47545626099964,
+   "loadavg": 59.78564453125,
+   "torch_threads": 2,
+   "test_videos": 12,
+   "fused": "ovel+opose+oapp",
+   "causal": 0.9416865208288209,
+   "offline": 0.9476864640883979,
+   "causal_macro": 0.9505166820635821,
+   "channels": {
+    "ovel": {
+     "causal": 0.8729649483791784,
+     "offline": 0.8418189803143271,
+     "causal_macro": 0.9051385973903388
+    },
+    "opose": {
+     "causal": 0.5625324886289799,
+     "offline": 0.6492064715979188,
+     "causal_macro": 0.48630187260621494
+    },
+    "oapp": {
+     "causal": 0.9319200779727097,
+     "offline": 0.9380531566807919,
+     "causal_macro": 0.946218749750856
+    }
+   }
+  },
+  {
+   "seed": 3,
+   "videos": 8,
+   "frames": 1290,
+   "minutes": 2.15,
+   "fit_seconds": 239.00368106000315,
+   "loadavg": 59.42333984375,
+   "torch_threads": 2,
+   "test_videos": 12,
+   "fused": "ovel+opose+oapp",
+   "causal": 0.936153526821168,
+   "offline": 0.9451989352572012,
+   "causal_macro": 0.9308775364138487,
+   "channels": {
+    "ovel": {
+     "causal": 0.8577692946357663,
+     "offline": 0.8396231159148206,
+     "causal_macro": 0.8868774194563287
+    },
+    "opose": {
+     "causal": 0.5592520395639303,
+     "offline": 0.648976827763772,
+     "causal_macro": 0.4789200340146989
+    },
+    "oapp": {
+     "causal": 0.9364477294058191,
+     "offline": 0.9359595424556133,
+     "causal_macro": 0.9270640588807633
+    }
+   }
+  },
+  {
+   "seed": 4,
+   "videos": 8,
+   "frames": 1200,
+   "minutes": 2.0,
+   "fit_seconds": 205.156554358,
+   "loadavg": 54.5341796875,
+   "torch_threads": 2,
+   "test_videos": 12,
+   "fused": "ovel+opose+oapp",
+   "causal": 0.9335264601833803,
+   "offline": 0.8910432199753258,
+   "causal_macro": 0.932439792520676,
+   "channels": {
+    "ovel": {
+     "causal": 0.862675980073641,
+     "offline": 0.8327522394464411,
+     "causal_macro": 0.8882133930275868
+    },
+    "opose": {
+     "causal": 0.5696736697711356,
+     "offline": 0.6446940540685513,
+     "causal_macro": 0.4983693191226962
+    },
+    "oapp": {
+     "causal": 0.9305546530936395,
+     "offline": 0.9374228933111625,
+     "causal_macro": 0.914522949911243
+    }
+   }
+  }
+ ],
+ "causal_mean": 0.9383575193126849,
+ "causal_std": 0.003155764742761154,
+ "macro_mean": 0.9396404399913674,
+ "macro_std": 0.00736720908194051
+}

@@ -1,0 +1,21 @@
+/workspace/hb/refids/shanghaitech/01.npz: 83 videos, frx_bayes 7677, flow_ubm_m 23365, flow_rx_m 23365
+/workspace/hb/refids/shanghaitech/02.npz: 15 videos, frx_bayes 854, flow_ubm_m 2618, flow_rx_m 2618
+/workspace/hb/refids/shanghaitech/03.npz: 6 videos, frx_bayes 248, flow_ubm_m 769, flow_rx_m 769
+/workspace/hb/refids/shanghaitech/04.npz: 20 videos, frx_bayes 1649, flow_ubm_m 5028, flow_rx_m 5028
+/workspace/hb/refids/shanghaitech/05.npz: 66 videos, frx_bayes 6096, flow_ubm_m 18555, flow_rx_m 18555
+/workspace/hb/refids/shanghaitech/06.npz: 30 videos, frx_bayes 2463, flow_ubm_m 7509, flow_rx_m 7509
+/workspace/hb/refids/shanghaitech/07.npz: 8 videos, frx_bayes 445, flow_ubm_m 1369, flow_rx_m 1369
+/workspace/hb/refids/shanghaitech/08.npz: 49 videos, frx_bayes 4724, flow_ubm_m 14373, flow_rx_m 14373
+/workspace/hb/refids/shanghaitech/09.npz: 10 videos, frx_bayes 1009, flow_ubm_m 3068, flow_rx_m 3068
+/workspace/hb/refids/shanghaitech/10.npz: 11 videos, frx_bayes 1286, flow_ubm_m 3904, flow_rx_m 3904
+/workspace/hb/refids/shanghaitech/11.npz: 10 videos, frx_bayes 867, flow_ubm_m 2637, flow_rx_m 2637
+/workspace/hb/refids/shanghaitech/12.npz: 15 videos, frx_bayes 2258, flow_ubm_m 6841, flow_rx_m 6841
+/workspace/hb/refids/ped1/mc4.npz: 34 videos, frx_bayes 442
+/workspace/hb/refids/ped1/mc5.npz: 34 videos, flow_ubm_m 2278, flow_rx_m 2278
+check ped1 mc5 frx_bayes step 9: 714 ok
+/workspace/hb/refids/ped2/mc4.npz: 16 videos, frx_bayes 154
+/workspace/hb/refids/ped2/mc5.npz: 16 videos, flow_ubm_m 850, flow_rx_m 850
+check ped2 mc5 frx_bayes step 9: 262 ok
+/workspace/hb/refids/avenue/mc4.npz: 16 videos, frx_bayes 1013
+/workspace/hb/refids/avenue/mc5.npz: 16 videos, flow_ubm_m 5115, flow_rx_m 5115
+check avenue mc5 frx_bayes step 9: 1684 ok

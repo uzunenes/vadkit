@@ -1,0 +1,28 @@
+{
+ "avenue": {
+  "input_size": [
+   320,
+   640
+  ],
+  "params_M": 3.04269,
+  "gflops_per_frame_batch1": 5.335888896,
+  "peak_allocated_MB_batch1": 60.689453125,
+  "checkpoint_MB": {
+   "checkpoint-best-student.pth": 36.812427,
+   "checkpoint-best.pth": 34.628313
+  }
+ },
+ "shanghai": {
+  "input_size": [
+   160,
+   320
+  ],
+  "params_M": 2.402178,
+  "gflops_per_frame_batch1": 4.31313408,
+  "peak_allocated_MB_batch1": 77.474609375,
+  "checkpoint_MB": {
+   "checkpoint-best-student.pth": 29.126283,
+   "checkpoint-best.pth": 27.734745
+  }
+ }
+}

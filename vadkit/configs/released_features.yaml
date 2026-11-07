@@ -1,0 +1,17 @@
+# Object branch on stored feat2 npz (the released light features of tools/objfeat2.py): no perception back-ends, the
+# attribute rows come from the stored vel / pose / app arrays. Reproduces sonuclar/obj2 (tools/objscore2.py + objfuse.py).
+name: released_features
+gap: {ped2: 1, avenue: 2, shanghaitech: 2}     # frame gap of the stored features (their 'startup')
+width: 640
+attributes:                                    # channel name, registry kind, args; fitted in this order (shared rng)
+  - {name: ovel, kind: orientation_hist}       # c8: mean L1 flow magnitude per orientation bin
+  - {name: opose, kind: pose_keypoints}        # COCO-17 keypoints of matched persons, box centre / height
+  - {name: oapp, kind: appearance_pca, args: {dim: 64}}
+density: niw                                   # held-out likelihood selection of (K, kappa0, nu0), normal videos only
+seed: 0                                        # one default_rng(seed) per fit (per scene with --scenes)
+train_every: 1
+drop_startup: false
+calibrator: fisher
+fusion: {name: sum}                            # every channel in order; or args: {channels: [ovel, oapp]}
+temporal: {name: causal_median, args: {k: 9}}
+warmup: 4

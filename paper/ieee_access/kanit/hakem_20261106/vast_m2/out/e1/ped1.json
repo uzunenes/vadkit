@@ -1,0 +1,105 @@
+{
+ "dataset": "ped1",
+ "coverage": {
+  "person_boxes": 61600,
+  "with_pose": 6846,
+  "c": 0.11113636363636363,
+  "threshold": 0.5,
+  "gate_on": false
+ },
+ "results": {
+  "obj": {
+   "causal": 0.7085985051063551,
+   "offline": 0.746145639683513,
+   "causal_macro": 0.7027858606990526
+  },
+  "obj_gated": {
+   "causal": 0.7326767141390694,
+   "offline": 0.7731360545683563,
+   "causal_macro": 0.7363193779457576
+  },
+  "grid": {
+   "causal": 0.764140284029629,
+   "offline": 0.7943366916170891,
+   "causal_macro": 0.7755004124558817
+  },
+  "grid_gated": {
+   "causal": 0.7762555326105564,
+   "offline": 0.8098115691340878,
+   "causal_macro": 0.7884138499154607
+  }
+ },
+ "checks": {
+  "obj_reproduces_archived": 0.0,
+  "grid_reproduces_archived": 0.0,
+  "gated_obj_equals_s1_L-opose": 0.0
+ },
+ "boot": {
+  "obj_gated_vs_obj": {
+   "videos": 36,
+   "warmup": 4,
+   "replicates": 2000,
+   "skipped": 0,
+   "seed": 0,
+   "auc": {
+    "a": {
+     "point": 0.7326767141390694,
+     "ci95": [
+      0.6676352826365128,
+      0.791508716292344
+     ]
+    },
+    "b": {
+     "point": 0.7085985051063551,
+     "ci95": [
+      0.6358656983381343,
+      0.772856488637938
+     ]
+    }
+   },
+   "difference": {
+    "point": 0.024078209032714293,
+    "ci95": [
+     0.004374621714912269,
+     0.04708048535962754
+    ],
+    "fraction_positive": 0.9885
+   }
+  },
+  "grid_gated_vs_grid": {
+   "videos": 36,
+   "warmup": 4,
+   "replicates": 2000,
+   "skipped": 0,
+   "seed": 0,
+   "auc": {
+    "a": {
+     "point": 0.7762555326105564,
+     "ci95": [
+      0.7037958266634756,
+      0.8397951377443271
+     ]
+    },
+    "b": {
+     "point": 0.764140284029629,
+     "ci95": [
+      0.6884113760736951,
+      0.8312356170885611
+     ]
+    }
+   },
+   "difference": {
+    "point": 0.012115248580927385,
+    "ci95": [
+     0.004470500561668522,
+     0.020470919509331054
+    ],
+    "fraction_positive": 0.9985
+   }
+  }
+ },
+ "guard_c": {
+  "grid_gated_minus_grid": 0.012115248580927385,
+  "holds": true
+ }
+}

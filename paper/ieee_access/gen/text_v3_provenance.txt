@@ -1,0 +1,207 @@
+# Provenance of every number in gen/numbers_text_v3.tex and gen/tab_ablation_v3.tex (written by fig_src/make_text_v3.py)
+# table | label | value | source
+text    | VtGridGainPedOne                         | $+$5.6 | paper/ieee_access/kanit/r2_20261105/boot/ped1.json : grid+obj_vs_obj / difference.point
+text    | VtGridGainCIPedOne                       | [$+$2.8, $+$8.2] | paper/ieee_access/kanit/r2_20261105/boot/ped1.json : grid+obj_vs_obj / difference.ci95
+text    | VtTestVideosPedOne                       | 36 | paper/ieee_access/kanit/r2_20261105/boot/ped1.json : grid+obj_vs_obj / videos
+text    | VtGridGainPedTwo                         | $+$2.7 | paper/ieee_access/kanit/r2_20261105/boot/ped2.json : grid+obj_vs_obj / difference.point
+text    | VtGridGainCIPedTwo                       | [$-$0.6, $+$7.3] | paper/ieee_access/kanit/r2_20261105/boot/ped2.json : grid+obj_vs_obj / difference.ci95
+text    | VtTestVideosPedTwo                       | 12 | paper/ieee_access/kanit/r2_20261105/boot/ped2.json : grid+obj_vs_obj / videos
+text    | VtGridGainAvenue                         | $+$4.6 | paper/ieee_access/kanit/r2_20261105/boot/avenue.json : grid+obj_vs_obj / difference.point
+text    | VtGridGainCIAvenue                       | [$-$0.6, $+$10.9] | paper/ieee_access/kanit/r2_20261105/boot/avenue.json : grid+obj_vs_obj / difference.ci95
+text    | VtTestVideosAvenue                       | 21 | paper/ieee_access/kanit/r2_20261105/boot/avenue.json : grid+obj_vs_obj / videos
+text    | VtGridGainSHT                            | $-$9.3 | paper/ieee_access/kanit/r2_20261105/boot/shanghaitech.json : grid+obj_vs_obj / difference.point
+text    | VtGridGainCISHT                          | [$-$14.0, $-$4.8] | paper/ieee_access/kanit/r2_20261105/boot/shanghaitech.json : grid+obj_vs_obj / difference.ci95
+text    | VtTestVideosSHT                          | 107 | paper/ieee_access/kanit/r2_20261105/boot/shanghaitech.json : grid+obj_vs_obj / videos
+text    | VtBootReps                               | 2,000 | paper/ieee_access/kanit/r2_20261105/boot/ped1.json : replicates
+text    | VtBootSeed                               | 0 | paper/ieee_access/kanit/r2_20261105/boot/<ds>.json : grid+obj_vs_obj.seed (all datasets)
+ablation | base latency (ms)                        | 74.2 | paper/ieee_access/kanit/r2_20261105/bench/base.json : median of 3 per-repetition median totals
+ablation | base ped1 object branch online           | 70.9 | paper/ieee_access/kanit/r2_20261105/res/base/ped1_obj.json : fused causal
+ablation | base ped2 object branch online           | 93.9 | paper/ieee_access/kanit/r2_20261105/res/base/ped2_obj.json : fused causal
+ablation | base avenue object branch online         | 82.8 | paper/ieee_access/kanit/r2_20261105/res/base/avenue_obj.json : fused causal
+ablation | base shanghaitech object branch online   | 79.5 | paper/ieee_access/kanit/r2_20261105/res/base/shanghaitech_obj.json : fused causal
+ablation | det_y11s latency (ms)                    | 73.6 | paper/ieee_access/kanit/r2_20261105/bench/det_y11s.json : median of 3 per-repetition median totals
+ablation | det_y11s ped1 object branch online       | 70.7 | paper/ieee_access/kanit/r2_20261105/res/det_y11s/ped1_obj.json : fused causal
+ablation | det_y11s ped2 object branch online       | 92.5 | paper/ieee_access/kanit/r2_20261105/res/det_y11s/ped2_obj.json : fused causal
+ablation | det_y11s avenue object branch online     | 85.1 | paper/ieee_access/kanit/r2_20261105/res/det_y11s/avenue_obj.json : fused causal
+ablation | det_y11s shanghaitech object branch online | 78.6 | paper/ieee_access/kanit/r2_20261105/res/det_y11s/shanghaitech_obj.json : fused causal
+ablation | det_y11m latency (ms)                    | 75.3 | paper/ieee_access/kanit/r2_20261105/bench/det_y11m.json : median of 3 per-repetition median totals
+ablation | det_y11m ped1 object branch online       | 70.7 | paper/ieee_access/kanit/r2_20261105/res/det_y11m/ped1_obj.json : fused causal
+ablation | det_y11m ped2 object branch online       | 93.4 | paper/ieee_access/kanit/r2_20261105/res/det_y11m/ped2_obj.json : fused causal
+ablation | det_y11m avenue object branch online     | 82.9 | paper/ieee_access/kanit/r2_20261105/res/det_y11m/avenue_obj.json : fused causal
+ablation | det_y11m shanghaitech object branch online | 77.8 | paper/ieee_access/kanit/r2_20261105/res/det_y11m/shanghaitech_obj.json : fused causal
+ablation | pose_y11s latency (ms)                   | 73.6 | paper/ieee_access/kanit/r2_20261105/bench/pose_y11s.json : median of 3 per-repetition median totals
+ablation | pose_y11s ped1 object branch online      | 70.3 | paper/ieee_access/kanit/r2_20261105/res/pose_y11s/ped1_obj.json : fused causal
+ablation | pose_y11s ped2 object branch online      | 94.5 | paper/ieee_access/kanit/r2_20261105/res/pose_y11s/ped2_obj.json : fused causal
+ablation | pose_y11s avenue object branch online    | 80.1 | paper/ieee_access/kanit/r2_20261105/res/pose_y11s/avenue_obj.json : fused causal
+ablation | pose_y11s shanghaitech object branch online | 79.3 | paper/ieee_access/kanit/r2_20261105/res/pose_y11s/shanghaitech_obj.json : fused causal
+ablation | enc_mc2s2 latency (ms)                   | 89.9 | paper/ieee_access/kanit/r2_20261105/bench/enc_mc2s2.json : median of 3 per-repetition median totals
+ablation | enc_mc2s2 ped1 object branch online      | 72.0 | paper/ieee_access/kanit/r2_20261105/res/enc_mc2s2/ped1_obj.json : fused causal
+ablation | enc_mc2s2 ped2 object branch online      | 93.9 | paper/ieee_access/kanit/r2_20261105/res/enc_mc2s2/ped2_obj.json : fused causal
+ablation | enc_mc2s2 avenue object branch online    | 82.5 | paper/ieee_access/kanit/r2_20261105/res/enc_mc2s2/avenue_obj.json : fused causal
+ablation | enc_mc2s2 shanghaitech object branch online | 79.0 | paper/ieee_access/kanit/r2_20261105/res/enc_mc2s2/shanghaitech_obj.json : fused causal
+ablation | enc_mc2b latency (ms)                    | 72.2 | paper/ieee_access/kanit/r2_20261105/bench/enc_mc2b.json : median of 3 per-repetition median totals
+ablation | enc_mc2b ped1 object branch online       | 71.5 | paper/ieee_access/kanit/r2_20261105/res/enc_mc2b/ped1_obj.json : fused causal
+ablation | enc_mc2b ped2 object branch online       | 93.5 | paper/ieee_access/kanit/r2_20261105/res/enc_mc2b/ped2_obj.json : fused causal
+ablation | enc_mc2b avenue object branch online     | 84.0 | paper/ieee_access/kanit/r2_20261105/res/enc_mc2b/avenue_obj.json : fused causal
+ablation | enc_mc2b shanghaitech object branch online | 78.8 | paper/ieee_access/kanit/r2_20261105/res/enc_mc2b/shanghaitech_obj.json : fused causal
+ablation | enc_clipb16 latency (ms)                 | 72.8 | paper/ieee_access/kanit/r2_20261105/bench/enc_clipb16.json : median of 3 per-repetition median totals
+ablation | enc_clipb16 ped1 object branch online    | 68.7 | paper/ieee_access/kanit/r2_20261105/res/enc_clipb16/ped1_obj.json : fused causal
+ablation | enc_clipb16 ped2 object branch online    | 93.4 | paper/ieee_access/kanit/r2_20261105/res/enc_clipb16/ped2_obj.json : fused causal
+ablation | enc_clipb16 avenue object branch online  | 80.6 | paper/ieee_access/kanit/r2_20261105/res/enc_clipb16/avenue_obj.json : fused causal
+ablation | enc_clipb16 shanghaitech object branch online | 78.1 | paper/ieee_access/kanit/r2_20261105/res/enc_clipb16/shanghaitech_obj.json : fused causal
+ablation | enc_dinov2s latency (ms)                 | 71.0 | paper/ieee_access/kanit/r2_20261105/bench/enc_dinov2s.json : median of 3 per-repetition median totals
+ablation | enc_dinov2s ped1 object branch online    | 69.0 | paper/ieee_access/kanit/r2_20261105/res/enc_dinov2s/ped1_obj.json : fused causal
+ablation | enc_dinov2s ped2 object branch online    | 91.4 | paper/ieee_access/kanit/r2_20261105/res/enc_dinov2s/ped2_obj.json : fused causal
+ablation | enc_dinov2s avenue object branch online  | 82.6 | paper/ieee_access/kanit/r2_20261105/res/enc_dinov2s/avenue_obj.json : fused causal
+ablation | enc_dinov2s shanghaitech object branch online | 79.2 | paper/ieee_access/kanit/r2_20261105/res/enc_dinov2s/shanghaitech_obj.json : fused causal
+ablation | b3 latency (ms)                          | 91.7 | paper/ieee_access/kanit/r2_20261105/bench/b3.json : median of 3 per-repetition median totals
+ablation | b3 ped1 object branch online             | 71.1 | paper/ieee_access/kanit/r2_20261105/res/b3/ped1_obj.json : fused causal
+ablation | b3 ped2 object branch online             | 93.4 | paper/ieee_access/kanit/r2_20261105/res/b3/ped2_obj.json : fused causal
+ablation | b3 avenue object branch online           | 84.5 | paper/ieee_access/kanit/r2_20261105/res/b3/avenue_obj.json : fused causal
+ablation | b3 shanghaitech object branch online     | 77.2 | paper/ieee_access/kanit/r2_20261105/res/b3/shanghaitech_obj.json : fused causal
+text    | VtCompLatMin                             | 71 | ablation latencies of every config except MobileCLIP2-S2 and B3: min
+text    | VtCompLatMax                             | 75 | ablation latencies of every config except MobileCLIP2-S2 and B3: max
+text    | VtCompLatSTwo                            | 90 | paper/ieee_access/kanit/r2_20261105/bench/enc_mc2s2.json : median total
+text    | VtCompLatBThree                          | 92 | paper/ieee_access/kanit/r2_20261105/bench/b3.json : median total
+text    | VtCompMaxGain                            | $+$2.3 | max over single swaps and datasets of res/<cfg>/<ds>_obj - res/base, rounded table values (det_y11s, avenue)
+text    | VtCompMaxGainDs                          | Avenue | dataset of VtCompMaxGain
+text    | VtCompMaxLoss                            | 2.7 | -min over single swaps and datasets, rounded table values (pose_y11s, avenue)
+text    | VtCompBestPedOne                         | $+$1.1 | max over configs of res/<cfg>/ped1_obj.json - res/base (ped1), rounded table values
+text    | VtCompWorstPedOne                        | $-$2.2 | min over configs of res/<cfg>/ped1_obj.json - res/base (ped1), rounded table values
+text    | VtCompBestPedTwo                         | $+$0.6 | max over configs of res/<cfg>/ped2_obj.json - res/base (ped2), rounded table values
+text    | VtCompWorstPedTwo                        | $-$2.5 | min over configs of res/<cfg>/ped2_obj.json - res/base (ped2), rounded table values
+text    | VtCompBestAvenue                         | $+$2.3 | max over configs of res/<cfg>/avenue_obj.json - res/base (avenue), rounded table values
+text    | VtCompWorstAvenue                        | $-$2.7 | min over configs of res/<cfg>/avenue_obj.json - res/base (avenue), rounded table values
+text    | VtCompBestSHT                            | $-$0.2 | max over configs of res/<cfg>/shanghaitech_obj.json - res/base (shanghaitech), rounded table values
+text    | VtCompWorstSHT                           | $-$2.3 | min over configs of res/<cfg>/shanghaitech_obj.json - res/base (shanghaitech), rounded table values
+text    | VtAppAvenueBase                          | 70.3 | paper/ieee_access/kanit/r2_20261105/res/base/avenue_obj.json : oapp causal
+text    | VtAppAvenueBest                          | 74.8 | paper/ieee_access/kanit/r2_20261105/res/enc_mc2b/avenue_obj.json : oapp causal (enc_mc2b)
+text    | VtAppAvenueBestName                      | MobileCLIP2-B | argmax of the Avenue oapp causal AUC over the encoder configs
+text    | VtAppAvenueBestFused                     | $+$1.2 | res/enc_mc2b/avenue_obj.json fused causal - res/base/avenue_obj.json fused causal, rounded table values
+text    | VtGridStdPedOne                          | 79.4 | paper/ieee_access/kanit/r2_20261105/res/base/ped1_grid.json : fused offline
+text    | VtGridOnPedOne                           | 76.4 | paper/ieee_access/kanit/r2_20261105/res/base/ped1_grid.json : fused causal
+text    | VtObjStdPedOne                           | 74.6 | paper/ieee_access/kanit/r2_20261105/res/base/ped1_obj.json : fused offline
+text    | VtObjOnPedOne                            | 70.9 | paper/ieee_access/kanit/r2_20261105/res/base/ped1_obj.json : fused causal
+text    | VtGridStdPedTwo                          | 96.7 | paper/ieee_access/kanit/r2_20261105/res/base/ped2_grid.json : fused offline
+text    | VtGridOnPedTwo                           | 96.5 | paper/ieee_access/kanit/r2_20261105/res/base/ped2_grid.json : fused causal
+text    | VtObjStdPedTwo                           | 89.5 | paper/ieee_access/kanit/r2_20261105/res/base/ped2_obj.json : fused offline
+text    | VtObjOnPedTwo                            | 93.9 | paper/ieee_access/kanit/r2_20261105/res/base/ped2_obj.json : fused causal
+text    | VtGridStdAvenue                          | 89.8 | paper/ieee_access/kanit/r2_20261105/res/base/avenue_grid.json : fused offline
+text    | VtGridOnAvenue                           | 87.4 | paper/ieee_access/kanit/r2_20261105/res/base/avenue_grid.json : fused causal
+text    | VtObjStdAvenue                           | 87.9 | paper/ieee_access/kanit/r2_20261105/res/base/avenue_obj.json : fused offline
+text    | VtObjOnAvenue                            | 82.8 | paper/ieee_access/kanit/r2_20261105/res/base/avenue_obj.json : fused causal
+text    | VtGridStdSHT                             | 76.9 | paper/ieee_access/kanit/r2_20261105/res/base/shanghaitech_grid.json : fused offline
+text    | VtGridOnSHT                              | 70.2 | paper/ieee_access/kanit/r2_20261105/res/base/shanghaitech_grid.json : fused causal
+text    | VtObjStdSHT                              | 78.4 | paper/ieee_access/kanit/r2_20261105/res/base/shanghaitech_obj.json : fused offline
+text    | VtObjOnSHT                               | 79.5 | paper/ieee_access/kanit/r2_20261105/res/base/shanghaitech_obj.json : fused causal
+text    | VtShtIOn                                 | 55.8 | paper/ieee_access/kanit/r2_20261105/res/base/shanghaitech_grid.json : I causal
+text    | VtShtGridMacro                           | 82.2 | paper/ieee_access/kanit/r2_20261105/res/base/shanghaitech_grid.json : fused causal_macro
+text    | VtShtObjMacro                            | 81.9 | paper/ieee_access/kanit/r2_20261105/res/base/shanghaitech_obj.json : fused causal_macro
+text    | VtHbGates                                | 4 | paper/ieee_access/kanit/hb_20261105/gate.json : number of gates
+text    | VtHbGatesPassed                          | 0 | paper/ieee_access/kanit/hb_20261105/gate.json : gates passed
+text    | VtHbHOne                                 | $+$0.15 | paper/ieee_access/kanit/hb_20261105/results.json : verdicts.H1.point
+text    | VtHbHOneCI                               | [$-$0.05, $+$0.39] | paper/ieee_access/kanit/hb_20261105/results.json : verdicts.H1.ci95
+text    | VtHbHTwo                                 | $-$9.2 | paper/ieee_access/kanit/hb_20261105/results.json : verdicts.H2.point
+text    | VtHbHTwoCI                               | [$-$13.8, $-$4.7] | paper/ieee_access/kanit/hb_20261105/results.json : verdicts.H2.ci95
+text    | VtHbZTenBefore                           | 190 | paper/ieee_access/kanit/hb_20261105/gate.json : gates.G2.n_z10_T0
+text    | VtHbZTenAfter                            | 42 | paper/ieee_access/kanit/hb_20261105/gate.json : gates.G2.n_z10_T2
+text    | VtFarFivePedOne                          | 7.6 | paper/ieee_access/kanit/kurulum_20261105/far_ped1.json : empirical.smoothed alpha=0.05 far
+text    | VtFarRatioFivePedOne                     | 1.52 | paper/ieee_access/kanit/kurulum_20261105/far_ped1.json : empirical.smoothed alpha=0.05 far_over_alpha
+text    | VtFarOnePedOne                           | 4.0 | paper/ieee_access/kanit/kurulum_20261105/far_ped1.json : empirical.smoothed alpha=0.01 far
+text    | VtFarRatioOnePedOne                      | 4.02 | paper/ieee_access/kanit/kurulum_20261105/far_ped1.json : empirical.smoothed alpha=0.01 far_over_alpha
+text    | VtTprPedOne                              | 34 | paper/ieee_access/kanit/kurulum_20261105/far_ped1.json : empirical.smoothed alpha=0.05 tpr
+text    | VtTrainVideosPedOne                      | 34 | paper/ieee_access/kanit/kurulum_20261105/far_ped1.json : sum of groups.*.train_videos
+text    | VtTestNormalPedOne                       | 3,059 | paper/ieee_access/kanit/kurulum_20261105/far_ped1.json : normal_frames
+text    | VtFarFivePedTwo                          | 8.8 | paper/ieee_access/kanit/kurulum_20261105/far_ped2.json : empirical.smoothed alpha=0.05 far
+text    | VtFarRatioFivePedTwo                     | 1.75 | paper/ieee_access/kanit/kurulum_20261105/far_ped2.json : empirical.smoothed alpha=0.05 far_over_alpha
+text    | VtFarOnePedTwo                           | 3.8 | paper/ieee_access/kanit/kurulum_20261105/far_ped2.json : empirical.smoothed alpha=0.01 far
+text    | VtFarRatioOnePedTwo                      | 3.80 | paper/ieee_access/kanit/kurulum_20261105/far_ped2.json : empirical.smoothed alpha=0.01 far_over_alpha
+text    | VtTprPedTwo                              | 82 | paper/ieee_access/kanit/kurulum_20261105/far_ped2.json : empirical.smoothed alpha=0.05 tpr
+text    | VtTrainVideosPedTwo                      | 16 | paper/ieee_access/kanit/kurulum_20261105/far_ped2.json : sum of groups.*.train_videos
+text    | VtTestNormalPedTwo                       | 342 | paper/ieee_access/kanit/kurulum_20261105/far_ped2.json : normal_frames
+text    | VtFarFiveAvenue                          | 29.7 | paper/ieee_access/kanit/kurulum_20261105/far_avenue.json : empirical.smoothed alpha=0.05 far
+text    | VtFarRatioFiveAvenue                     | 5.95 | paper/ieee_access/kanit/kurulum_20261105/far_avenue.json : empirical.smoothed alpha=0.05 far_over_alpha
+text    | VtFarOneAvenue                           | 13.1 | paper/ieee_access/kanit/kurulum_20261105/far_avenue.json : empirical.smoothed alpha=0.01 far
+text    | VtFarRatioOneAvenue                      | 13.12 | paper/ieee_access/kanit/kurulum_20261105/far_avenue.json : empirical.smoothed alpha=0.01 far_over_alpha
+text    | VtTprAvenue                              | 82 | paper/ieee_access/kanit/kurulum_20261105/far_avenue.json : empirical.smoothed alpha=0.05 tpr
+text    | VtTrainVideosAvenue                      | 16 | paper/ieee_access/kanit/kurulum_20261105/far_avenue.json : sum of groups.*.train_videos
+text    | VtTestNormalAvenue                       | 11,540 | paper/ieee_access/kanit/kurulum_20261105/far_avenue.json : normal_frames
+text    | VtFarFiveSHT                             | 3.6 | paper/ieee_access/kanit/kurulum_20261105/far_shanghaitech.json : empirical.smoothed alpha=0.05 far
+text    | VtFarRatioFiveSHT                        | 0.72 | paper/ieee_access/kanit/kurulum_20261105/far_shanghaitech.json : empirical.smoothed alpha=0.05 far_over_alpha
+text    | VtFarOneSHT                              | 1.4 | paper/ieee_access/kanit/kurulum_20261105/far_shanghaitech.json : empirical.smoothed alpha=0.01 far
+text    | VtFarRatioOneSHT                         | 1.42 | paper/ieee_access/kanit/kurulum_20261105/far_shanghaitech.json : empirical.smoothed alpha=0.01 far_over_alpha
+text    | VtTprSHT                                 | 30 | paper/ieee_access/kanit/kurulum_20261105/far_shanghaitech.json : empirical.smoothed alpha=0.05 tpr
+text    | VtTrainVideosSHT                         | 330 | paper/ieee_access/kanit/kurulum_20261105/far_shanghaitech.json : sum of groups.*.train_videos
+text    | VtTestNormalSHT                          | 23,079 | paper/ieee_access/kanit/kurulum_20261105/far_shanghaitech.json : normal_frames
+text    | VtFarCalibMain                           | 0 | far_<ds>.json : main datasets calibrated at both alpha levels
+text    | VtFarCiLoFivePedTwo                      | 1.5 | paper/ieee_access/kanit/kurulum_20261105/far_ped2.json : empirical.smoothed alpha=0.05 far_ci95[0]
+text    | VtFarCiHiFivePedTwo                      | 24.3 | paper/ieee_access/kanit/kurulum_20261105/far_ped2.json : empirical.smoothed alpha=0.05 far_ci95[1]
+text    | VtEffQuarterPedOne                       | $-$0.9 | kanit/kurulum_20261105/dataeff_ped1_0.25.json mean causal - dataeff_ped1_1.0.json causal
+text    | VtEffQuarterMinPedOne                    | 3.0 | kanit/kurulum_20261105/dataeff_ped1_0.25.json : minutes range over draws (rounded half up)
+text    | VtEffQuarterPedTwo                       | $+$0.5 | kanit/kurulum_20261105/dataeff_ped2_0.25.json mean causal - dataeff_ped2_1.0.json causal
+text    | VtEffQuarterMinPedTwo                    | 1.0--1.2 | kanit/kurulum_20261105/dataeff_ped2_0.25.json : minutes range over draws (rounded half up)
+text    | VtEffQuarterAvenue                       | $+$0.5 | kanit/kurulum_20261105/dataeff_avenue_0.25.json mean causal - dataeff_avenue_1.0.json causal
+text    | VtEffQuarterMinAvenue                    | 1.9--3.7 | kanit/kurulum_20261105/dataeff_avenue_0.25.json : minutes range over draws (rounded half up)
+text    | VtEffQuarterSHT                          | $-$7.0 | kanit/kurulum_20261105/dataeff_shanghaitech_0.25.json mean causal - dataeff_shanghaitech_1.0.json causal
+text    | VtEffQuarterMinSHT                       | 48.3--54.5 | kanit/kurulum_20261105/dataeff_shanghaitech_0.25.json : minutes range over draws (rounded half up)
+text    | VtEffQuarterMinRange                     | 1.0--3.7 | kanit/kurulum_20261105/dataeff_{ped1,ped2,avenue}_0.25.json : minutes, min and max over all draws
+text    | VtEffQuarterMacroSHT                     | $-$0.9 | dataeff_shanghaitech_{0.25,1.0}.json causal_macro (mean)
+text    | VtAvePosA                                | 3,712 | paper/ieee_access/kanit/avenue_etiket_20261105/diff.json : total_positive_frames.cuhk_mask_anypixel
+text    | VtAvePosB                                | 3,867 | paper/ieee_access/kanit/avenue_etiket_20261105/diff.json : total_positive_frames.vpc_avenue_mat
+text    | VtAveOnlyA                               | 143 | paper/ieee_access/kanit/avenue_etiket_20261105/diff.json : cuhk_vs_vpc_summary.only_cuhk_frames
+text    | VtAveOnlyB                               | 298 | paper/ieee_access/kanit/avenue_etiket_20261105/diff.json : cuhk_vs_vpc_summary.only_vpc_frames
+text    | VtAveEventsB                             | 47 | paper/ieee_access/kanit/avenue_etiket_20261105/diff.json : cuhk_vs_vpc_summary.n_events_vpc
+text    | VtAveRunsA                               | 74 | paper/ieee_access/kanit/avenue_etiket_20261105/diff.json : cuhk_vs_vpc_summary.n_runs_cuhk
+text    | VtGapTfMinPedTwo                         | 8.4 | paper/ieee_access/kanit/literature/dogrulanmis_literatur_2026-11-04.json sota ped2_auc of the training_free block minus ours standard (obj, 89.5): min over the more accurate methods
+text    | VtGapTfMaxPedTwo                         | 9.6 | paper/ieee_access/kanit/literature/dogrulanmis_literatur_2026-11-04.json sota ped2_auc of the training_free block minus ours standard (obj, 89.5): max over the more accurate methods
+text    | VtGapTfMinAvenue                         | 1.8 | paper/ieee_access/kanit/literature/dogrulanmis_literatur_2026-11-04.json sota avenue_auc of the training_free block minus ours standard (obj, 87.9): min over the more accurate methods
+text    | VtGapTfMaxAvenue                         | 5.8 | paper/ieee_access/kanit/literature/dogrulanmis_literatur_2026-11-04.json sota avenue_auc of the training_free block minus ours standard (obj, 87.9): max over the more accurate methods
+text    | VtTfBelowAvenue                          | 0.6 | paper/ieee_access/kanit/literature/dogrulanmis_literatur_2026-11-04.json sota avenue_auc of the training_free block minus ours standard (obj, 87.9): AnyAnomaly (less accurate)
+text    | VtGapTfMinSHT                            | 1.3 | paper/ieee_access/kanit/literature/dogrulanmis_literatur_2026-11-04.json sota shtech_auc of the training_free block minus ours standard (obj, 78.4): min over the more accurate methods
+text    | VtGapTfMaxSHT                            | 7.5 | paper/ieee_access/kanit/literature/dogrulanmis_literatur_2026-11-04.json sota shtech_auc of the training_free block minus ours standard (obj, 78.4): max over the more accurate methods
+text    | VtGapOcPedTwo                            | 3.0 | paper/ieee_access/kanit/literature/dogrulanmis_literatur_2026-11-04.json sota ped2_auc of the one_class_trained block minus ours standard (grid, 96.7): MULDE
+text    | VtGapOcAvenue                            | 4.5 | paper/ieee_access/kanit/literature/dogrulanmis_literatur_2026-11-04.json sota avenue_auc of the one_class_trained block minus ours standard (grid, 89.8): MULDE
+text    | VtGapOcSHT                               | 9.8 | paper/ieee_access/kanit/literature/dogrulanmis_literatur_2026-11-04.json sota shtech_auc of the one_class_trained block minus ours standard (grid, 76.9): MULDE
+text    | VtGapOcStgnfSHT                          | 9.0 | paper/ieee_access/kanit/literature/dogrulanmis_literatur_2026-11-04.json sota shtech_auc of the one_class_trained block minus ours standard (grid, 76.9): STG-NF
+text    | synthetic-anomaly vs ours (sign of published - ours) | {('obj', 'ped2', 'AED-MAE'): 1, ('obj', 'ped2', 'Fast-AED'): 1, ('obj', 'avenue', 'AED-MAE'): 1, ('obj', 'avenue', 'Fast-AED'): 1, ('obj', 'shanghaitech', 'AED-MAE'): 1, ('obj', 'shanghaitech', 'Fast-AED'): 0, ('grid', 'ped2', 'AED-MAE'): -1, ('grid', 'ped2', 'Fast-AED'): -1, ('grid', 'avenue', 'AED-MAE'): 1, ('grid', 'avenue', 'Fast-AED'): -1, ('grid', 'shanghaitech', 'AED-MAE'): 1, ('grid', 'shanghaitech', 'Fast-AED'): 1} | paper/ieee_access/kanit/literature/dogrulanmis_literatur_2026-11-04.json sota and res/base offline, rounded to one decimal
+text    | VtOnStdDiffMin                           | $-$6.7 | kanit/r2_20261105/res/base/<ped2,avenue,shanghaitech>_<obj,grid>.json : fused causal - offline (rounded): min
+text    | VtOnStdDiffMax                           | $+$4.4 | kanit/r2_20261105/res/base/<ped2,avenue,shanghaitech>_<obj,grid>.json : fused causal - offline (rounded): max
+text    | VtAeTrainMin                             | 3.7--3.8 | paper/ieee_access/gen/tables_v3_provenance.txt : grid AE training (s / 60)
+text    | VtParEquivFrames                         | 80 | paper/ieee_access/kanit/hiz_20261105/equivalence.log : frames (mismatching 0)
+text    | VtAeSteps                                | 20,000 | paper/ieee_access/gen/tables_v3_provenance.txt : grid AE training steps
+text    | frame rate ped1                          | 10 | paper/ieee_access/kanit/kurulum_20261105/dataeff_ped1_1.0.json : frames / minutes / 60
+text    | frame rate ped2                          | 10 | paper/ieee_access/kanit/kurulum_20261105/dataeff_ped2_1.0.json : frames / minutes / 60
+text    | frame rate avenue                        | 25 | paper/ieee_access/kanit/kurulum_20261105/dataeff_avenue_1.0.json : frames / minutes / 60
+text    | frame rate shanghaitech                  | 24 | paper/ieee_access/kanit/kurulum_20261105/dataeff_shanghaitech_1.0.json : frames / minutes / 60
+text    | VtFpsUCSD                                | 10 | kanit/kurulum_20261105/dataeff_ped2_1.0.json : frames / minutes / 60
+text    | VtMedDelayUCSD                           | 0.4 | (9 - 1) / 2 = 4 frames (vadkit/configs/r2/base.yaml k) / 10 frames/s
+text    | VtFpsAvenue                              | 25 | kanit/kurulum_20261105/dataeff_avenue_1.0.json : frames / minutes / 60
+text    | VtMedDelayAvenue                         | 0.16 | (9 - 1) / 2 = 4 frames (vadkit/configs/r2/base.yaml k) / 25 frames/s
+text    | VtFpsSHT                                 | 24 | kanit/kurulum_20261105/dataeff_shanghaitech_1.0.json : frames / minutes / 60
+text    | VtMedDelaySHT                            | 0.17 | (9 - 1) / 2 = 4 frames (vadkit/configs/r2/base.yaml k) / 24 frames/s
+text    | VtFastAnoFps                             | 195 | paper/ieee_access/kanit/literature/dogrulanmis_literatur_2026-11-04.json : lightweight / FastAno / fps (paper Table 1, 'FPS 195')
+text    | VtFastAnoParams                          | 2.15 | paper/ieee_access/kanit/literature/dogrulanmis_literatur_2026-11-04.json : lightweight / FastAno / params_or_flops (paper: 'Its value for our model is 2.15 M')
+text    | VtFastAnoParamsSdmae                     | 64 | paper/ieee_access/kanit/literature/dogrulanmis_literatur_2026-11-04.json : lightweight / FastAno / params_or_flops (SD-MAE Table 5)
+text    | VtOuyangPedTwo                           | 96.5 | paper/ieee_access/kanit/literature/online_rakipler_2026-11-05.json : ped2_auc (paper Table 1)
+text    | VtOuyangAvenue                           | 90.2 | paper/ieee_access/kanit/literature/online_rakipler_2026-11-05.json : avenue_auc (paper Table 1)
+text    | VtOuyangSHT                              | 83.1 | paper/ieee_access/kanit/literature/online_rakipler_2026-11-05.json : shtech_auc (paper Table 1)
+text    | VtOuyangIters                            | 100 | paper/ieee_access/kanit/literature/online_rakipler_2026-11-05.json : fps_or_latency ('up to k=100 gradient-descent iterations (k=500 for the first 5 frames of each video)') : k after the first frames
+text    | VtOuyangItersFirst                       | 500 | paper/ieee_access/kanit/literature/online_rakipler_2026-11-05.json : fps_or_latency ('up to k=100 gradient-descent iterations (k=500 for the first 5 frames of each video)') : k on the first frames
+text    | VtOuyangFirstFrames                      | five | paper/ieee_access/kanit/literature/online_rakipler_2026-11-05.json : fps_or_latency ('up to k=100 gradient-descent iterations (k=500 for the first 5 frames of each video)') : number of first frames (5)
+text    | seed 0 (Method, NIW selection)           | 0 | vadkit/configs/r2/base.yaml : NIW held-out subsample: config seed (vadkit/pipeline/offline.py fit(): default_rng(cfg seed) per group)
+text    | seed 0 (Method, NIW selection)           | 0 | vadkit/pipeline/offline.py : default seed of the per-group NumPy generator passed to select_hyper
+text    | seed 0 (Method, NIW selection)           | 0 | vadkit/density/niw.py : NIWDensity.fit(): fallback NumPy generator of select_hyper
+text    | seed 0 (Method, NIW selection)           | 0 | aean/niw.py : k-means initial centres: K training vectors by torch.randperm with this seed
+text    | seed 0 (Method, NIW selection)           | 0 | aean/niw.py : NIWMixture.fit() default seed (vadkit NIWDensity.fit calls it without a seed)
+text    | pre-registration 3dffc5a                 | 3dffc5aff696b61728467e89594bacb4494617d9 2026-11-05 08:52:55 +0300 | git show -s 3dffc5a (adds docs/tez_notlari/tur2_on_kayit_2026-11-05.md; unchanged since, also in the working tree)
+text    | pre-registration e4031e4                 | e4031e4222f069865ca020706c4977cc513e1d54 2026-11-05 11:41:26 +0300 | git show -s e4031e4 (adds docs/tez_notlari/kurulum_olcumleri_on_kayit_2026-11-05.md; unchanged since, also in the working tree)
+text    | pre-registration 2921bc5                 | 2921bc5585e8143e37b7853a1ad40ae619ba923d 2026-11-05 15:41:30 +0300 | git show -s 2921bc5 (adds docs/tez_notlari/hiz_on_kayit_2026-11-05.md; unchanged since, also in the working tree)
+text    | pre-registration 6b08c14                 | 6b08c14520984b53208dfbc143cf44942a536975 2026-11-05 16:17:27 +0300 | git show -s 6b08c14 (adds docs/tez_notlari/hiyerarsik_kalibrasyon_on_kayit_2026-11-05.md; unchanged since, also in the working tree)
+text    | latency budget B1 (ms)                   | 15 | docs/tez_notlari/tur2_on_kayit_2026-11-05.md : budget table
+text    | latency budget B2 (ms)                   | 40 | docs/tez_notlari/tur2_on_kayit_2026-11-05.md : budget table
+text    | latency budget B3 (ms)                   | 100 | docs/tez_notlari/tur2_on_kayit_2026-11-05.md : budget table
+text    | VtBudgetBTwo                             | 40 | docs/tez_notlari/tur2_on_kayit_2026-11-05.md : budget table, B2
+text    | round-2 H1 outcome                       | desteklenmedi | docs/tez_notlari/sonuclar_tur2_hb_trt_2026-11-05.md : section 1, H1
+text    | round-2 H2 outcome                       | sınanamadı | docs/tez_notlari/sonuclar_tur2_hb_trt_2026-11-05.md : section 1, H2
+text    | round-2 H3 outcome                       | desteklenmedi | docs/tez_notlari/sonuclar_tur2_hb_trt_2026-11-05.md : section 1, H3
+text    | round-2 H1 share of the appearance gap closed | 0.41 | (best enc_* oapp causal - base) / (0.812 - base), res/<cfg>/avenue_obj.json, heavy value from docs/tez_notlari/tur2_on_kayit_2026-11-05.md H1

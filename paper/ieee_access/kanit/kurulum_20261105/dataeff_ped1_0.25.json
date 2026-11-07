@@ -1,0 +1,166 @@
+{
+ "config": "r2_base",
+ "dataset": "ped1",
+ "frac": 0.25,
+ "rows": [
+  {
+   "seed": 0,
+   "videos": 9,
+   "frames": 1800,
+   "minutes": 3.0,
+   "fit_seconds": 329.60085922600047,
+   "loadavg": 45.87890625,
+   "torch_threads": 2,
+   "test_videos": 36,
+   "fused": "ovel+opose+oapp",
+   "causal": 0.6983150488070368,
+   "offline": 0.7356710070345696,
+   "causal_macro": 0.689865804940295,
+   "channels": {
+    "ovel": {
+     "causal": 0.6958144401043509,
+     "offline": 0.7117577020798114,
+     "causal_macro": 0.6885429012658665
+    },
+    "opose": {
+     "causal": 0.5055144742015159,
+     "offline": 0.5020582629256052,
+     "causal_macro": 0.48025482793031166
+    },
+    "oapp": {
+     "causal": 0.7051784016174929,
+     "offline": 0.7022381723831931,
+     "causal_macro": 0.7058251873428304
+    }
+   }
+  },
+  {
+   "seed": 1,
+   "videos": 9,
+   "frames": 1800,
+   "minutes": 3.0,
+   "fit_seconds": 367.0669611199992,
+   "loadavg": 53.12646484375,
+   "torch_threads": 2,
+   "test_videos": 36,
+   "fused": "ovel+opose+oapp",
+   "causal": 0.6985893637292369,
+   "offline": 0.7320627097294894,
+   "causal_macro": 0.6961586062167806,
+   "channels": {
+    "ovel": {
+     "causal": 0.7041127118630899,
+     "offline": 0.7293949408300832,
+     "causal_macro": 0.6922002511486256
+    },
+    "opose": {
+     "causal": 0.5107446145249669,
+     "offline": 0.524709694228362,
+     "causal_macro": 0.4867828660715971
+    },
+    "oapp": {
+     "causal": 0.6936973733896368,
+     "offline": 0.7058663725638077,
+     "causal_macro": 0.7083724838742558
+    }
+   }
+  },
+  {
+   "seed": 2,
+   "videos": 9,
+   "frames": 1800,
+   "minutes": 3.0,
+   "fit_seconds": 253.49699233199863,
+   "loadavg": 52.349609375,
+   "torch_threads": 2,
+   "test_videos": 36,
+   "fused": "ovel+opose+oapp",
+   "causal": 0.6911833106605043,
+   "offline": 0.7166669735679626,
+   "causal_macro": 0.6938452701861743,
+   "channels": {
+    "ovel": {
+     "causal": 0.671538101107704,
+     "offline": 0.6565213456381163,
+     "causal_macro": 0.6700694725933458
+    },
+    "opose": {
+     "causal": 0.5117261859438056,
+     "offline": 0.5138759478842421,
+     "causal_macro": 0.48764461635572004
+    },
+    "oapp": {
+     "causal": 0.691809311380397,
+     "offline": 0.7058217086305214,
+     "causal_macro": 0.7086953969148797
+    }
+   }
+  },
+  {
+   "seed": 3,
+   "videos": 9,
+   "frames": 1800,
+   "minutes": 3.0,
+   "fit_seconds": 249.5755798700011,
+   "loadavg": 54.83544921875,
+   "torch_threads": 2,
+   "test_videos": 36,
+   "fused": "ovel+opose+oapp",
+   "causal": 0.7038141878720254,
+   "offline": 0.7320411613406232,
+   "causal_macro": 0.6917039168158866,
+   "channels": {
+    "ovel": {
+     "causal": 0.7066079225977181,
+     "offline": 0.7362532836806215,
+     "causal_macro": 0.6957806662024476
+    },
+    "opose": {
+     "causal": 0.5068615943814678,
+     "offline": 0.5258017665760981,
+     "causal_macro": 0.48314997249378777
+    },
+    "oapp": {
+     "causal": 0.7037982802237344,
+     "offline": 0.7024702681207259,
+     "causal_macro": 0.7143174940031459
+    }
+   }
+  },
+  {
+   "seed": 4,
+   "videos": 9,
+   "frames": 1800,
+   "minutes": 3.0,
+   "fit_seconds": 231.2352495410014,
+   "loadavg": 38.38427734375,
+   "torch_threads": 2,
+   "test_videos": 36,
+   "fused": "ovel+opose+oapp",
+   "causal": 0.7051346862549658,
+   "offline": 0.7402814219585918,
+   "causal_macro": 0.6977009122509059,
+   "channels": {
+    "ovel": {
+     "causal": 0.7021696887245362,
+     "offline": 0.7288349961506742,
+     "causal_macro": 0.6827610239814403
+    },
+    "opose": {
+     "causal": 0.5061967037553419,
+     "offline": 0.5178757206466867,
+     "causal_macro": 0.48351926105035314
+    },
+    "oapp": {
+     "causal": 0.7021570525720378,
+     "offline": 0.71602522336864,
+     "causal_macro": 0.7245006632593843
+    }
+   }
+  }
+ ],
+ "causal_mean": 0.6994073194647539,
+ "causal_std": 0.00493395677111139,
+ "macro_mean": 0.6938549020820085,
+ "macro_std": 0.0028509147077506814
+}

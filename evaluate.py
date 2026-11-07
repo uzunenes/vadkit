@@ -33,8 +33,8 @@ from aean.channels import (CellRX, CellSkewT, CellUBM, DeepFeatures, DinoFeature
 from aean.data import load_gt, load_split, to_unit
 from aean.models import build, n_params
 from aean.latent import LatentDPGMM, patch_latents, patches_to_map, scene_descriptor
-from aean.scoring import (BackgroundStats, StateBackground, frame_score, reconstruct, residual_of, score_frame,
-                          select_kappa0, set_roi_mask)
+from aean.scoring import (BackgroundStats, StateBackground, frame_score, reconstruct, reconstruct_shifted, residual_of,
+                          score_frame, select_kappa0, set_roi_mask)
 
 BASE_DETECTORS = ("rem", "frx_global", "frx_cell", "frx_bayes", "frx_t", "wrx")
 LATENT_DETECTORS = ("bgmm", "fused")
@@ -52,9 +52,18 @@ def model_input(video: torch.Tensor, t: int, variant: str, T: int, s: int = 1) -
     return video[idx]
 
 
+ALT_OFFSET = 0          # alternating patch grid: odd frames use a grid shifted by this many pixels (2d only)
+
+
+def residual_at(ae, x, cfg, stride, t):
+    if ALT_OFFSET and cfg["variant"] == "2d" and t % 2:
+        return x - reconstruct_shifted(ae, x, cfg["patch"], stride, ALT_OFFSET)
+    return residual_of(ae, x, cfg["variant"], cfg["patch"], stride)
+
+
 def residual(ae, video, t, cfg, stride):
     x = model_input(video, t, cfg["variant"], cfg["T"], cfg.get("tstride", 1))
-    return residual_of(ae, x, cfg["variant"], cfg["patch"], stride)
+    return residual_at(ae, x, cfg, stride, t)
 
 
 def cell_map(m: torch.Tensor, cell: int) -> np.ndarray:
@@ -67,7 +76,7 @@ def frame_scores(ae, video, t, cfg, args, stats, gmm, znorm, with_maps=False, st
     `cellmaps` (list): the FRX-Bayes map pooled to the channel cell grid is appended (per-cell fusion)."""
     P = cfg["patch"]
     x = model_input(video, t, cfg["variant"], cfg["T"], cfg.get("tstride", 1))
-    d = residual_of(ae, x, cfg["variant"], P, args.stride)
+    d = residual_at(ae, x, cfg, args.stride, t)
     out, maps = score_frame(d, stats, P, args.pool)
     if cellmaps is not None:
         cellmaps.append(cell_map(maps["frx_bayes"], args.cell_ch))
@@ -106,6 +115,8 @@ def main():
     ap.add_argument("--data", required=True)
     ap.add_argument("--run", required=True, help="training output folder")
     ap.add_argument("--stride", type=int, default=8)
+    ap.add_argument("--alt-offset", type=int, default=0,
+                    help="alternate the patch grid: odd frames shift it by this many pixels (2d models)")
     ap.add_argument("--median", type=int, default=9)
     ap.add_argument("--stats-every", type=int, default=3)
     ap.add_argument("--pool", type=int, default=0, help="local-mean window for frame scores (0 = patch size)")
@@ -126,6 +137,8 @@ def main():
                     "(0 = choose by cross-validated likelihood on the training videos; tested: it picks 1-3 on both "
                     "Ped2 and IPAD, but on Ped2 detection gets worse, so likelihood does not track detection)")
     args = ap.parse_args()
+    global ALT_OFFSET
+    ALT_OFFSET = args.alt_offset
 
     dev, run = "cuda", Path(args.run)
     cfg = json.loads((run / "args.json").read_text())
@@ -307,7 +320,7 @@ def main():
     # 4. real-time cost: non-overlapping patches, one frame at a time
     name0 = next(iter(test))
     vt = to_unit(torch.from_numpy(test[name0]).to(dev))
-    t_lo = min(cfg["T"], max(0, len(vt) - 20))                # short test sets (e.g. short frame blocks)
+    t_lo = min(cfg["T"], max(0, len(vt) - 20))                # short test sets (e.g. Ford frame blocks)
     for t in range(t_lo, min(len(vt), t_lo + 10)):
         score_frame(residual(ae, vt, t, cfg, P), stats, P)
     torch.cuda.synchronize()

@@ -1,0 +1,19 @@
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+WARNING:huggingface_hub.utils._http:Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+extract training/Train001
+extract training/Train002
+extract training/Train003
+extract training/Train004
+extract training/Train005
+extract training/Train006
+extract training/Train007
+extract training/Train008
+extract training/Train009
+extract training/Train010
+extract training/Train011
+extract training/Train012
+extract training/Train013
+extract training/Train014
+extract training/Train015
+extract training/Train016
+ELAPSED_S 167.1310999393463

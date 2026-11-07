@@ -1,12 +1,12 @@
 """ShanghaiTech Campus -> per-scene caches (same layout as prepare_ucsd.py / prepare_ipad.py), read from the zip or
 from the extracted official archive (cat shanghaitech.tar.gz.a? | tar xz).
 
-    python prepare_shanghaitech.py --zip data/shanghaitech.zip --out cache --size 180x320
-    python prepare_shanghaitech.py --root data/shanghaitech --out cache --size 180x320
+    python prepare_shanghaitech.py --zip /workspace/data/shanghaitech.zip --out /workspace/cache --size 180x320
+    python prepare_shanghaitech.py --root /workspace/data/shanghaitech --out /workspace/cache --size 180x320
 
 Expected inside the zip (any top folder): training/videos/<SS>_<VVV>.avi (normal only),
 testing/frames/<SS>_<VVVV>/<NNN>.jpg and testing/test_frame_mask/<SS>_<VVVV>.npy (frame labels).
-Scene SS (01..13) -> cache/shtech_SS/{train,test}/<video>.npy + gt.json. Frames grayscale, resized to --size.
+Scene SS (01..13) -> /workspace/cache/shtech_SS/{train,test}/<video>.npy + gt.json. Frames grayscale, resized to --size.
 The per-scene models follow the unsupervised protocol (13 fixed cameras, normal training videos only); results are
 pooled over all test frames (micro AUC), which our per-scene Fisher calibration makes comparable across scenes.
 """

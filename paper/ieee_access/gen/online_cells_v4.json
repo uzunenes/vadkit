@@ -1,0 +1,170 @@
+[
+ {
+  "config": "obj",
+  "protocol": "standard",
+  "dataset": "ped1",
+  "value": "74.6",
+  "source": "kanit/r2_20261105/res/base/ped1_obj.json : fused offline"
+ },
+ {
+  "config": "obj",
+  "protocol": "standard",
+  "dataset": "ped2",
+  "value": "89.5",
+  "source": "kanit/r2_20261105/res/base/ped2_obj.json : fused offline"
+ },
+ {
+  "config": "obj",
+  "protocol": "standard",
+  "dataset": "avenue",
+  "value": "87.9",
+  "source": "kanit/r2_20261105/res/base/avenue_obj.json : fused offline"
+ },
+ {
+  "config": "obj",
+  "protocol": "standard",
+  "dataset": "shanghaitech",
+  "value": "78.4",
+  "source": "kanit/r2_20261105/res/base/shanghaitech_obj.json : fused offline"
+ },
+ {
+  "config": "obj",
+  "protocol": "online",
+  "dataset": "ped1",
+  "value": "70.9",
+  "source": "kanit/r2_20261105/res/base/ped1_obj.json : fused causal"
+ },
+ {
+  "config": "obj",
+  "protocol": "online",
+  "dataset": "ped2",
+  "value": "93.9",
+  "source": "kanit/r2_20261105/res/base/ped2_obj.json : fused causal"
+ },
+ {
+  "config": "obj",
+  "protocol": "online",
+  "dataset": "avenue",
+  "value": "82.8",
+  "source": "kanit/r2_20261105/res/base/avenue_obj.json : fused causal"
+ },
+ {
+  "config": "obj",
+  "protocol": "online",
+  "dataset": "shanghaitech",
+  "value": "79.5",
+  "source": "kanit/r2_20261105/res/base/shanghaitech_obj.json : fused causal"
+ },
+ {
+  "config": "obj",
+  "protocol": "online_macro",
+  "dataset": "ped1",
+  "value": "70.3",
+  "source": "kanit/r2_20261105/res/base/ped1_obj.json : fused causal_macro"
+ },
+ {
+  "config": "obj",
+  "protocol": "online_macro",
+  "dataset": "ped2",
+  "value": "93.2",
+  "source": "kanit/r2_20261105/res/base/ped2_obj.json : fused causal_macro"
+ },
+ {
+  "config": "obj",
+  "protocol": "online_macro",
+  "dataset": "avenue",
+  "value": "86.8",
+  "source": "kanit/r2_20261105/res/base/avenue_obj.json : fused causal_macro"
+ },
+ {
+  "config": "obj",
+  "protocol": "online_macro",
+  "dataset": "shanghaitech",
+  "value": "81.9",
+  "source": "kanit/r2_20261105/res/base/shanghaitech_obj.json : fused causal_macro"
+ },
+ {
+  "config": "grid",
+  "protocol": "standard",
+  "dataset": "ped1",
+  "value": "79.4",
+  "source": "kanit/r2_20261105/res/base/ped1_grid.json : fused offline"
+ },
+ {
+  "config": "grid",
+  "protocol": "standard",
+  "dataset": "ped2",
+  "value": "96.7",
+  "source": "kanit/r2_20261105/res/base/ped2_grid.json : fused offline"
+ },
+ {
+  "config": "grid",
+  "protocol": "standard",
+  "dataset": "avenue",
+  "value": "89.8",
+  "source": "kanit/r2_20261105/res/base/avenue_grid.json : fused offline"
+ },
+ {
+  "config": "grid",
+  "protocol": "standard",
+  "dataset": "shanghaitech",
+  "value": "76.9",
+  "source": "kanit/r2_20261105/res/base/shanghaitech_grid.json : fused offline"
+ },
+ {
+  "config": "grid",
+  "protocol": "online",
+  "dataset": "ped1",
+  "value": "76.4",
+  "source": "kanit/r2_20261105/res/base/ped1_grid.json : fused causal"
+ },
+ {
+  "config": "grid",
+  "protocol": "online",
+  "dataset": "ped2",
+  "value": "96.5",
+  "source": "kanit/r2_20261105/res/base/ped2_grid.json : fused causal"
+ },
+ {
+  "config": "grid",
+  "protocol": "online",
+  "dataset": "avenue",
+  "value": "87.4",
+  "source": "kanit/r2_20261105/res/base/avenue_grid.json : fused causal"
+ },
+ {
+  "config": "grid",
+  "protocol": "online",
+  "dataset": "shanghaitech",
+  "value": "70.2",
+  "source": "kanit/r2_20261105/res/base/shanghaitech_grid.json : fused causal"
+ },
+ {
+  "config": "grid",
+  "protocol": "online_macro",
+  "dataset": "ped1",
+  "value": "77.6",
+  "source": "kanit/r2_20261105/res/base/ped1_grid.json : fused causal_macro"
+ },
+ {
+  "config": "grid",
+  "protocol": "online_macro",
+  "dataset": "ped2",
+  "value": "93.6",
+  "source": "kanit/r2_20261105/res/base/ped2_grid.json : fused causal_macro"
+ },
+ {
+  "config": "grid",
+  "protocol": "online_macro",
+  "dataset": "avenue",
+  "value": "90.9",
+  "source": "kanit/r2_20261105/res/base/avenue_grid.json : fused causal_macro"
+ },
+ {
+  "config": "grid",
+  "protocol": "online_macro",
+  "dataset": "shanghaitech",
+  "value": "82.2",
+  "source": "kanit/r2_20261105/res/base/shanghaitech_grid.json : fused causal_macro"
+ }
+]

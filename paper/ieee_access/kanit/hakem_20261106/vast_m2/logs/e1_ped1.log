@@ -1,0 +1,3 @@
+ped1 c=0.111 gate=off obj_gated_vs_obj: +0.0241 [+0.0044, +0.0471]
+ped1 c=0.111 gate=off grid_gated_vs_grid: +0.0121 [+0.0045, +0.0205]
+E1_DONE

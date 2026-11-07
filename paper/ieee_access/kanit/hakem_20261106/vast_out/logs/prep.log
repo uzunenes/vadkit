@@ -1,0 +1,21 @@
+PackBitsDecode: Not enough data for scanline 0.
+UCSDped2 Train: 16 videos
+UCSDped2 Test: 12 videos
+UCSDped2 GT: 12 test videos, 2010 frames, 1648 anomalous (82.0%)
+UCSDped1 Train: 34 videos
+warning: unreadable /workspace/data/UCSD_Anomaly_Dataset.v1p2/UCSDped1/Test/Test017/142.tif, repeating previous frame to keep GT alignment
+UCSDped1 Test: 36 videos
+UCSDped1 GT: 36 test videos, 7200 frames, 4045 anomalous (56.2%)
+train: 16 videos
+test: 21 videos
+GT: 21 test videos, 15324 frames, 3712 anomalous (24.2%)
+ped2: 16 train / 12 test videos
+test frame counts match gt.json
+ped1: 34 train / 36 test videos
+test frame counts match gt.json
+avenue: 16 train / 21 test videos
+test frame counts match gt.json
+107 test videos, 40791 frames, 17326 anomalous, from [PosixPath('/workspace/data/shanghaitech/shanghaitech/testing/test_frame_mask')]
+shanghaitech: 330 train / 107 test videos
+test frame counts match gt.json
+PREP_OK

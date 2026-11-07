@@ -1,0 +1,166 @@
+{
+ "config": "r2_base",
+ "dataset": "avenue",
+ "frac": 0.25,
+ "rows": [
+  {
+   "seed": 0,
+   "videos": 4,
+   "frames": 4093,
+   "minutes": 2.728666666666667,
+   "fit_seconds": 648.4865142380004,
+   "loadavg": 58.71044921875,
+   "torch_threads": 2,
+   "test_videos": 21,
+   "fused": "ovel+opose+oapp",
+   "causal": 0.8432016019485691,
+   "offline": 0.894217889749902,
+   "causal_macro": 0.8913013226674655,
+   "channels": {
+    "ovel": {
+     "causal": 0.7580206332849314,
+     "offline": 0.7997588098147577,
+     "causal_macro": 0.7870241067062491
+    },
+    "opose": {
+     "causal": 0.7961013864818024,
+     "offline": 0.8304487888569494,
+     "causal_macro": 0.8279315812510014
+    },
+    "oapp": {
+     "causal": 0.7118741978547004,
+     "offline": 0.7026637407646074,
+     "causal_macro": 0.7178878232360957
+    }
+   }
+  },
+  {
+   "seed": 1,
+   "videos": 4,
+   "frames": 3266,
+   "minutes": 2.177333333333333,
+   "fit_seconds": 315.7023967410023,
+   "loadavg": 55.46484375,
+   "torch_threads": 2,
+   "test_videos": 21,
+   "fused": "ovel+opose+oapp",
+   "causal": 0.8461606632629164,
+   "offline": 0.8838456121120244,
+   "causal_macro": 0.8833408301890721,
+   "channels": {
+    "ovel": {
+     "causal": 0.7483371235186659,
+     "offline": 0.7852487709652322,
+     "causal_macro": 0.7772088466781201
+    },
+    "opose": {
+     "causal": 0.8188277085577779,
+     "offline": 0.8454736321745044,
+     "causal_macro": 0.8382961135527826
+    },
+    "oapp": {
+     "causal": 0.6570725795119209,
+     "offline": 0.6688480007676363,
+     "causal_macro": 0.7141575299298308
+    }
+   }
+  },
+  {
+   "seed": 2,
+   "videos": 4,
+   "frames": 2917,
+   "minutes": 1.9446666666666668,
+   "fit_seconds": 309.9572614460012,
+   "loadavg": 47.271484375,
+   "torch_threads": 2,
+   "test_videos": 21,
+   "fused": "ovel+opose+oapp",
+   "causal": 0.8353154831608037,
+   "offline": 0.8796490161040303,
+   "causal_macro": 0.8728120697429932,
+   "channels": {
+    "ovel": {
+     "causal": 0.7507473769263198,
+     "offline": 0.8055313478105288,
+     "causal_macro": 0.7774691454133231
+    },
+    "opose": {
+     "causal": 0.8015210899807953,
+     "offline": 0.8327725545140579,
+     "causal_macro": 0.8179446379501212
+    },
+    "oapp": {
+     "causal": 0.7021259075366528,
+     "offline": 0.7424601909291221,
+     "causal_macro": 0.7179590314009715
+    }
+   }
+  },
+  {
+   "seed": 3,
+   "videos": 4,
+   "frames": 5204,
+   "minutes": 3.469333333333333,
+   "fit_seconds": 357.03627332199903,
+   "loadavg": 22.89111328125,
+   "torch_threads": 2,
+   "test_videos": 21,
+   "fused": "ovel+opose+oapp",
+   "causal": 0.8036913672771558,
+   "offline": 0.8652339342030244,
+   "causal_macro": 0.8800463107278038,
+   "channels": {
+    "ovel": {
+     "causal": 0.7562489226661671,
+     "offline": 0.7951734308741255,
+     "causal_macro": 0.7844903563193697
+    },
+    "opose": {
+     "causal": 0.803160686683217,
+     "offline": 0.8341460082910661,
+     "causal_macro": 0.8226136353705306
+    },
+    "oapp": {
+     "causal": 0.6852920745702374,
+     "offline": 0.659468467518738,
+     "causal_macro": 0.7303196803873264
+    }
+   }
+  },
+  {
+   "seed": 4,
+   "videos": 4,
+   "frames": 5585,
+   "minutes": 3.7233333333333336,
+   "fit_seconds": 352.10524363399963,
+   "loadavg": 28.72314453125,
+   "torch_threads": 2,
+   "test_videos": 21,
+   "fused": "ovel+opose+oapp",
+   "causal": 0.8347720853435759,
+   "offline": 0.8896330676054497,
+   "causal_macro": 0.8864262682661831,
+   "channels": {
+    "ovel": {
+     "causal": 0.7459684879853858,
+     "offline": 0.7851577347898132,
+     "causal_macro": 0.7690530496965176
+    },
+    "opose": {
+     "causal": 0.7987311232376223,
+     "offline": 0.8306039261925832,
+     "causal_macro": 0.8300971137094704
+    },
+    "oapp": {
+     "causal": 0.6722777413461989,
+     "offline": 0.6920896013116633,
+     "causal_macro": 0.7234432327905659
+    }
+   }
+  }
+ ],
+ "causal_mean": 0.8326282401986042,
+ "causal_std": 0.015126681155512665,
+ "macro_mean": 0.8827853603187036,
+ "macro_std": 0.006213779683146156
+}

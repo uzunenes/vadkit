@@ -1,0 +1,18 @@
+14:03:41 R2_DONE seen; installing staged files
+vadkit/cli.py: OK
+vadkit/grid/precomputed.py: OK
+vadkit/plugins.py: OK
+vad_bench/vast/runs_hb/boot_hb.py: OK
+vadkit/cli.py: OK
+vadkit/grid/precomputed.py: OK
+vadkit/plugins.py: OK
+vad_bench/vast/runs_hb/boot_hb.py: OK
+14:03:41 shanghaitech start
+14:22:02 shanghaitech done
+14:22:02 ped1 start
+14:26:36 ped1 done
+14:26:36 ped2 start
+14:29:30 ped2 done
+14:29:30 avenue start
+14:36:36 avenue done
+14:36:37 HB_DONE

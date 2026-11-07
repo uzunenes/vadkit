@@ -16,7 +16,6 @@ The channel combination and the normalisation are chosen leave-one-dataset-out: 
 reported on the third. Frame AUC after the causal median 9, no per-video normalisation.
 """
 import json
-import os
 import sys
 from itertools import combinations
 from pathlib import Path
@@ -67,7 +66,7 @@ def normaliser(ref: np.ndarray, kind: str):
 
 
 def load(ds: str):
-    gt = {k: np.asarray(v) for k, v in json.loads(Path(os.environ.get("VAD_CACHE", "cache"), f"{ds}/gt.json").read_text()).items()}
+    gt = {k: np.asarray(v) for k, v in json.loads(Path(f"/workspace/cache/{ds}/gt.json").read_text()).items()}
     vids = sorted(gt)
     ch = {n: c for n in NAMES if (c := channel(ds, n))}
     norm = {(n, k): normaliser(ch[n][1], k) for n in ch for k in ("z", "fisher")}
