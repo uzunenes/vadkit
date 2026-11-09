@@ -1,5 +1,5 @@
 # v4 outputs of fig_src/make_hakem_v3.py (main_v4.tex, supp_v4.tex), from the inputs listed with their sha256 in gen/hakem_v3_provenance.txt
 tab_scoring_v4.tex: the online micro cells (with arrows) and the cost cells of tab_scoring_v3.tex, same values, checked row by row
 supp_tab_hyper_v4.tex: tab_hyper_v3.tex verbatim, \label{tab:hyper} -> \label{stab:hyper}
-supp_tab_latency_v4.tex: tab_latency_v3.tex verbatim, \label{tab:latency} -> \label{stab:latency}
+supp_tab_latency_v4.tex: tab_latency_v3.tex verbatim, \label{tab:latency} -> \label{stab:latency}; This is not the latency of the object + grid configuration: the two branches are not combined in one streaming implementation. -> This is the grid branch alone; the combined object + grid detector is timed in Table~\ref{stab:combined}.
 supp_tab_scoring_v4.tex: tab_scoring_v3.tex verbatim, \label{tab:scoring} -> \label{stab:scoring}; Table~\ref{tab:latency}a -> Table~\ref{stab:latency}a; Section~\ref{sec:res_abl} -> Section~\ref{ssec:changes}

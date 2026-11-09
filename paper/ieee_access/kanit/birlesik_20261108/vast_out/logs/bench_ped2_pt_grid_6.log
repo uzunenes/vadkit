@@ -1,0 +1,3 @@
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+WARNING:huggingface_hub.utils._http:Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+{"mode": "object+grid", "dataset": "ped2", "fps_median": 30.02964406664664, "all": {"median_ms": 31.510847496974748, "p95_ms": 38.14314690971514, "p99_ms": 39.78594697095104, "max_ms": 43.844372004969046}, "idle_ok": true}

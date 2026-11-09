@@ -1,0 +1,43 @@
+{
+ "config": {
+  "gap": 2,
+  "size": [
+   180,
+   320
+  ],
+  "stride": 8,
+  "pool": 48,
+  "cell": 8,
+  "alpha": 0.5,
+  "stats_every": 3,
+  "ref_every": 15,
+  "flow_preset": "medium"
+ },
+ "H": 180,
+ "W": 320,
+ "ae_patch": 16,
+ "ae_path": "/workspace/checkpoints/runs/avenue_2d_noadv",
+ "ae_sha256": "e6165ba0599702579d27c47c20f77b98b4c0c33f393e55fb9696ef24476ece87",
+ "meta": {
+  "train_videos": [
+   "01",
+   "02",
+   "03",
+   "04",
+   "05",
+   "06",
+   "07",
+   "08",
+   "09",
+   "10",
+   "11",
+   "12",
+   "13",
+   "14",
+   "15",
+   "16"
+  ],
+  "T": 16,
+  "device": "cuda"
+ }
+}

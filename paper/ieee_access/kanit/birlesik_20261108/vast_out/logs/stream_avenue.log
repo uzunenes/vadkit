@@ -1,0 +1,24 @@
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+WARNING:huggingface_hub.utils._http:Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+01 1439
+02 1211
+03 923
+04 947
+05 1007
+06 1283
+07 605
+08 36
+09 1175
+10 841
+11 472
+12 1271
+13 549
+14 507
+15 1001
+16 740
+17 426
+18 294
+19 248
+20 273
+21 76
+{"object": {"causal": 0.8277703756616235, "causal_macro": 0.8676154006573161, "offline": 0.879453023848694}, "object+grid": {"causal": 0.8741952199166237, "causal_macro": 0.909713524360578, "offline": 0.8792606043688456}, "max_abs_stream_vs_offline_fused": 0.0} 14 406

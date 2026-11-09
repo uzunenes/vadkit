@@ -36,9 +36,9 @@ Tests over 60 s on a CPU (model ports, YOLO / open_clip agreement, the full held
 `slow` marker (`tests/vadkit/conftest.py`) and run only with `VADKIT_SLOW=1`.
 
 Ped2 data on the laptop:
-- `data/frames/ped2`
-- `data/feat2tmp/feat2/ped2` (released light features)
-- `data/cache/ped2/gt.json`
+- `/home/lei/Desktop/msc/data/frames/ped2`
+- `/home/lei/Desktop/msc/data/feat2tmp/feat2/ped2` (released light features)
+- `/home/lei/Desktop/msc/data/cache/ped2/gt.json`
 
 The tests:
 

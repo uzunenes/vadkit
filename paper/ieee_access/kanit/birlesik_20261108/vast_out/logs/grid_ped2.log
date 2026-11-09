@@ -1,0 +1,48 @@
+{
+ "dataset": "ped2",
+ "device": "cuda",
+ "torch": "2.4.1+cu121",
+ "host": "e9dcd8b0d5d5",
+ "fit_s": 8.0,
+ "channels": {
+  "I": {
+   "max_abs_raw_diff_test": 0.00012969970703125,
+   "ref_len": [
+    154,
+    154
+   ],
+   "ref_max_abs_diff": 5.9604644775390625e-06,
+   "causal_auc_archived": 0.8973160782614973,
+   "causal_auc_refit": 0.8973160782614973
+  },
+  "Fs": {
+   "max_abs_raw_diff_test": 0.2690563201904297,
+   "ref_len": [
+    850,
+    850
+   ],
+   "ref_max_abs_diff": 0.07413125038146973,
+   "causal_auc_archived": 0.9412388997184319,
+   "causal_auc_refit": 0.9417578153201935
+  },
+  "Fd": {
+   "max_abs_raw_diff_test": 15.732879638671875,
+   "ref_len": [
+    850,
+    850
+   ],
+   "ref_max_abs_diff": 11.888519287109375,
+   "causal_auc_archived": 0.8601860876471012,
+   "causal_auc_refit": 0.8593458956032055
+  }
+ },
+ "grid_fused_causal_auc": {
+  "archived": 0.9354748754602555,
+  "refit": 0.9353810194209805
+ },
+ "stream_vs_batch_max_abs": {
+  "I": 9.5367431640625e-07,
+  "Fs": 0.0,
+  "Fd": 6.103515625e-05
+ }
+}

@@ -1,0 +1,40 @@
+{
+ "config": {
+  "gap": 1,
+  "size": null,
+  "stride": 8,
+  "pool": 48,
+  "cell": 8,
+  "alpha": 0.5,
+  "stats_every": 3,
+  "ref_every": 15,
+  "flow_preset": "medium"
+ },
+ "H": 240,
+ "W": 360,
+ "ae_patch": 16,
+ "ae_path": "/workspace/checkpoints/runs/ped2_2d_noadv",
+ "ae_sha256": "1dba6bb644a00a00c04f30ad2866ce36a9e300ac32997ce7faa17fccab59bfb7",
+ "meta": {
+  "train_videos": [
+   "Train001",
+   "Train002",
+   "Train003",
+   "Train004",
+   "Train005",
+   "Train006",
+   "Train007",
+   "Train008",
+   "Train009",
+   "Train010",
+   "Train011",
+   "Train012",
+   "Train013",
+   "Train014",
+   "Train015",
+   "Train016"
+  ],
+  "T": 16,
+  "device": "cuda"
+ }
+}

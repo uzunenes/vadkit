@@ -1,0 +1,260 @@
+{
+  "datasets": {
+    "ped1": {
+      "channels": {
+        "I": {
+          "causal": 0.6673357420811604,
+          "offline": 0.6428874841080632,
+          "causal_macro": 0.6691728089523946
+        },
+        "Fs": {
+          "causal": 0.7453186735425875,
+          "offline": 0.7537509672288184,
+          "causal_macro": 0.7567782222171484
+        },
+        "Fd": {
+          "causal": 0.7640159671895144,
+          "offline": 0.7229683493346445,
+          "causal_macro": 0.7607765320241033
+        }
+      },
+      "grid_only_full": {
+        "causal": 0.7747578418367551,
+        "offline": 0.7797671598635791,
+        "causal_macro": 0.7813030510877141
+      },
+      "grid_only_flow": {
+        "causal": 0.7748217586858009,
+        "offline": 0.7775149222592899,
+        "causal_macro": 0.7827844882604245
+      },
+      "obj_plus_full_grid": {
+        "causal": 0.764140284029629,
+        "offline": 0.7943366916170891,
+        "causal_macro": 0.7755004124558817
+      },
+      "obj_plus_flow_grid": {
+        "eval": {
+          "causal": 0.7642743744634236,
+          "offline": 0.7931132132761582,
+          "causal_macro": 0.7733508732303681
+        },
+        "boot_vs_full_grid": {
+          "point": 0.00013409043379464247,
+          "ci95": [
+            -0.008912158380599555,
+            0.009035754222509034
+          ],
+          "fraction_positive": 0.496
+        }
+      },
+      "pose_gate_plus_flow_grid": {
+        "eval": {
+          "causal": 0.7801003580406782,
+          "offline": 0.808740496670774,
+          "causal_macro": 0.7911554654992623
+        },
+        "boot_vs_full_grid": {
+          "point": 0.015960074011049263,
+          "ci95": [
+            0.005100343573863281,
+            0.027811355371508462
+          ],
+          "fraction_positive": 0.999
+        }
+      }
+    },
+    "ped2": {
+      "channels": {
+        "I": {
+          "causal": 0.8973160782614973,
+          "offline": 0.9022538620393714,
+          "causal_macro": 0.8859844619410384
+        },
+        "Fs": {
+          "causal": 0.9412388997184319,
+          "offline": 0.9726405353215684,
+          "causal_macro": 0.9417490954333934
+        },
+        "Fd": {
+          "causal": 0.8601860876471012,
+          "offline": 0.8447088049133724,
+          "causal_macro": 0.8805119179457442
+        }
+      },
+      "grid_only_full": {
+        "causal": 0.9354748754602555,
+        "offline": 0.9650941372096766,
+        "causal_macro": 0.9362070707656434
+      },
+      "grid_only_flow": {
+        "causal": 0.9233602266984333,
+        "offline": 0.9694556938261009,
+        "causal_macro": 0.9252833114218786
+      },
+      "obj_plus_full_grid": {
+        "causal": 0.965331023030828,
+        "offline": 0.9674626535428847,
+        "causal_macro": 0.9357059118742894
+      },
+      "obj_plus_flow_grid": {
+        "eval": {
+          "causal": 0.9611490145115877,
+          "offline": 0.96543944107708,
+          "causal_macro": 0.9345961672420044
+        },
+        "boot_vs_full_grid": {
+          "point": -0.004182008519240221,
+          "ci95": [
+            -0.012388939992662213,
+            0.004887338240706847
+          ],
+          "fraction_positive": 0.181
+        }
+      },
+      "pose_gate_plus_flow_grid": {
+        "eval": {
+          "causal": 0.9633131181864124,
+          "offline": 0.9664133320817465,
+          "causal_macro": 0.9355726313175038
+        },
+        "boot_vs_full_grid": {
+          "point": -0.0020179048444155523,
+          "ci95": [
+            -0.00978392280865049,
+            0.00691616643935742
+          ],
+          "fraction_positive": 0.2895
+        }
+      }
+    },
+    "avenue": {
+      "channels": {
+        "I": {
+          "causal": 0.7180034896248068,
+          "offline": 0.6834363854796465,
+          "causal_macro": 0.6918381672455212
+        },
+        "Fs": {
+          "causal": 0.7818193358002716,
+          "offline": 0.8563557263146327,
+          "causal_macro": 0.8308124220175863
+        },
+        "Fd": {
+          "causal": 0.8697342264274672,
+          "offline": 0.8622602714047299,
+          "causal_macro": 0.8745715120158275
+        }
+      },
+      "grid_only_full": {
+        "causal": 0.8819116117850953,
+        "offline": 0.8674360862944991,
+        "causal_macro": 0.8739644262322187
+      },
+      "grid_only_flow": {
+        "causal": 0.8413693732727527,
+        "offline": 0.8594549930511837,
+        "causal_macro": 0.8678001932744055
+      },
+      "obj_plus_full_grid": {
+        "causal": 0.8737595086420911,
+        "offline": 0.8978742774641572,
+        "causal_macro": 0.9090638739601267
+      },
+      "obj_plus_flow_grid": {
+        "eval": {
+          "causal": 0.8762416857932456,
+          "offline": 0.8949238377065343,
+          "causal_macro": 0.9155520521744805
+        },
+        "boot_vs_full_grid": {
+          "point": 0.0024821771511545077,
+          "ci95": [
+            -0.022187736103672313,
+            0.02341605314952804
+          ],
+          "fraction_positive": 0.578
+        }
+      },
+      "pose_gate_plus_flow_grid": {
+        "eval": {
+          "causal": 0.8762416857932456,
+          "offline": 0.8949238377065343,
+          "causal_macro": 0.9155520521744805
+        },
+        "boot_vs_full_grid": {
+          "point": 0.0024821771511545077,
+          "ci95": [
+            -0.022187736103672313,
+            0.02341605314952804
+          ],
+          "fraction_positive": 0.578
+        }
+      }
+    },
+    "shanghaitech": {
+      "channels": {
+        "I": {
+          "causal": 0.5576052599646191,
+          "offline": 0.5913351095113697,
+          "causal_macro": 0.6628304104274503
+        },
+        "Fs": {
+          "causal": 0.730096346119407,
+          "offline": 0.7491284466865815,
+          "causal_macro": 0.7833809831577251
+        },
+        "Fd": {
+          "causal": 0.7271472985852934,
+          "offline": 0.721770386358201,
+          "causal_macro": 0.7990638135517002
+        }
+      },
+      "grid_only_full": {
+        "causal": 0.6603506609152534,
+        "offline": 0.7436968427782356,
+        "causal_macro": 0.7985028624286188
+      },
+      "grid_only_flow": {
+        "causal": 0.7389594351767155,
+        "offline": 0.7580350144368067,
+        "causal_macro": 0.8026960668970612
+      },
+      "obj_plus_full_grid": {
+        "causal": 0.7020095461330567,
+        "offline": 0.7689838466711199,
+        "causal_macro": 0.8224740816047669
+      },
+      "obj_plus_flow_grid": {
+        "eval": {
+          "causal": 0.7849190023372323,
+          "offline": 0.7792997503730066,
+          "causal_macro": 0.8274188448032386
+        },
+        "boot_vs_full_grid": {
+          "point": 0.08290945620417567,
+          "ci95": [
+            0.04034959126012971,
+            0.12804459774083957
+          ],
+          "fraction_positive": 1.0
+        }
+      },
+      "pose_gate_plus_flow_grid": {
+        "eval": {
+          "causal": 0.7951208829028422,
+          "offline": 0.7841975256016664,
+          "causal_macro": 0.8271738668374388
+        },
+        "boot_vs_full_grid": {
+          "point": 0.09311133676978556,
+          "ci95": [
+            0.05077093832970623,
+            0.1378449657596655
+          ],
+          "fraction_positive": 1.0
+        }
+      }
+    }
+  }
+}

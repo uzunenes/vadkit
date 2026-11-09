@@ -1,0 +1,3 @@
+train: 16 videos
+test: 21 videos
+GT: 21 test videos, 15324 frames, 3712 anomalous (24.2%)

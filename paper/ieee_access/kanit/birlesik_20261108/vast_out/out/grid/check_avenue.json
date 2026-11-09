@@ -1,0 +1,48 @@
+{
+ "dataset": "avenue",
+ "device": "cuda",
+ "torch": "2.4.1+cu121",
+ "host": "e9dcd8b0d5d5",
+ "fit_s": 35.3,
+ "channels": {
+  "I": {
+   "max_abs_raw_diff_test": 4.00543212890625e-05,
+   "ref_len": [
+    1013,
+    1013
+   ],
+   "ref_max_abs_diff": 2.09808349609375e-05,
+   "causal_auc_archived": 0.7180034896248068,
+   "causal_auc_refit": 0.7180032085811981
+  },
+  "Fs": {
+   "max_abs_raw_diff_test": 3.357055187225342,
+   "ref_len": [
+    5115,
+    5115
+   ],
+   "ref_max_abs_diff": 3.5567150115966797,
+   "causal_auc_archived": 0.7818193358002716,
+   "causal_auc_refit": 0.7814272682561244
+  },
+  "Fd": {
+   "max_abs_raw_diff_test": 805.325439453125,
+   "ref_len": [
+    5115,
+    5115
+   ],
+   "ref_max_abs_diff": 75.2763671875,
+   "causal_auc_archived": 0.8697342264274672,
+   "causal_auc_refit": 0.8693411752306899
+  }
+ },
+ "grid_fused_causal_auc": {
+  "archived": 0.8819116117850953,
+  "refit": 0.8820240058082346
+ },
+ "stream_vs_batch_max_abs": {
+  "I": 1.9073486328125e-06,
+  "Fs": 0.0,
+  "Fd": 0.000244140625
+ }
+}

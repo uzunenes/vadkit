@@ -574,7 +574,12 @@ def main():
         mac("KnnTimeRatioMin", f"{min(rt):.0f}")
         mac("KnnTimeRatioMax", f"{max(rt):.0f}")
     latency(mac, prov)
-    supp_copy("tab_latency_v3.tex", "supp_tab_latency_v4.tex", [("\\label{tab:latency}", "\\label{stab:latency}")],
+    supp_copy("tab_latency_v3.tex", "supp_tab_latency_v4.tex",
+              [("\\label{tab:latency}", "\\label{stab:latency}"),
+               ("This is not the latency of the object + grid configuration: the two branches are not combined in one "
+                "streaming implementation.",
+                "This is the grid branch alone; the combined object + grid detector is timed in "
+                "Table~\\ref{stab:combined}.")],
               prov4)
     supp_copy("tab_scoring_v3.tex", "supp_tab_scoring_v4.tex",
               [("\\label{tab:scoring}", "\\label{stab:scoring}"),

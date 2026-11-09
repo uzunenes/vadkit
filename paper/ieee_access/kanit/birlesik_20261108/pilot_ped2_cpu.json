@@ -1,0 +1,48 @@
+{
+ "dataset": "ped2",
+ "device": "cpu",
+ "torch": "2.6.0+cpu",
+ "host": "vm",
+ "fit_s": 659.6,
+ "channels": {
+  "I": {
+   "max_abs_raw_diff_test": 0.031444549560546875,
+   "ref_len": [
+    154,
+    262
+   ],
+   "ref_max_abs_diff": null,
+   "causal_auc_archived": 0.8973160782614973,
+   "causal_auc_refit": 0.8979270449787018
+  },
+  "Fs": {
+   "max_abs_raw_diff_test": 1.3287239074707031,
+   "ref_len": [
+    850,
+    850
+   ],
+   "ref_max_abs_diff": 0.1994774341583252,
+   "causal_auc_archived": 0.9412388997184319,
+   "causal_auc_refit": 0.9428687459389212
+  },
+  "Fd": {
+   "max_abs_raw_diff_test": 0.00506591796875,
+   "ref_len": [
+    850,
+    850
+   ],
+   "ref_max_abs_diff": 0.0016326904296875,
+   "causal_auc_archived": 0.8601860876471012,
+   "causal_auc_refit": 0.8601590137896181
+  }
+ },
+ "grid_fused_causal_auc": {
+  "archived": 0.9354748754602555,
+  "refit": 0.9351680384087793
+ },
+ "stream_vs_batch_max_abs": {
+  "I": 0.0,
+  "Fs": 0.0,
+  "Fd": 6.103515625e-05
+ }
+}

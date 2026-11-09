@@ -1,0 +1,150 @@
+{
+ "vadkit": "0.1.0",
+ "scenes": false,
+ "gap": 2,
+ "channels": [
+  "ovel",
+  "opose",
+  "oapp"
+ ],
+ "config": {
+  "name": "r2_base",
+  "gap": {
+   "ped1": 1,
+   "ped2": 1,
+   "avenue": 2,
+   "shanghaitech": 2
+  },
+  "width": 640,
+  "detector": {
+   "name": "yolo_motion",
+   "args": {
+    "weights": "yolo11n.pt",
+    "conf": 0.25
+   }
+  },
+  "pose": {
+   "name": "yolo",
+   "args": {
+    "weights": "yolo11n-pose.pt",
+    "conf": 0.25
+   }
+  },
+  "flow": {
+   "name": "dis"
+  },
+  "encoder": {
+   "name": "open_clip",
+   "args": {
+    "model": "MobileCLIP2-S0",
+    "pretrained": "dfndr2b"
+   }
+  },
+  "attributes": [
+   {
+    "name": "ovel",
+    "kind": "orientation_hist"
+   },
+   {
+    "name": "opose",
+    "kind": "pose_keypoints"
+   },
+   {
+    "name": "oapp",
+    "kind": "appearance_pca",
+    "args": {
+     "dim": 64
+    }
+   }
+  ],
+  "density": "niw",
+  "seed": 0,
+  "train_every": 1,
+  "drop_startup": false,
+  "calibrator": "fisher",
+  "fusion": {
+   "name": "sum"
+  },
+  "temporal": {
+   "name": "causal_median",
+   "args": {
+    "k": 9
+   }
+  },
+  "warmup": 4
+ },
+ "groups": {
+  "all": {
+   "ovel": {
+    "floor": -21.74395482628238,
+    "hyper": {
+     "K": 256,
+     "kappa0": 1,
+     "nu0": 12,
+     "dim": 8,
+     "train_rows": 124464
+    },
+    "extractor": null,
+    "density": {
+     "K": 256,
+     "kappa0": 1,
+     "nu0": 12,
+     "alpha0": 1.0
+    },
+    "calibrator": {
+     "n": 15328,
+     "u": 8.783335839234015,
+     "beta": 3.8467060459269335
+    }
+   },
+   "opose": {
+    "floor": -163.88499654086309,
+    "hyper": {
+     "K": 256,
+     "kappa0": 1,
+     "nu0": 38,
+     "dim": 34,
+     "train_rows": 100023
+    },
+    "extractor": null,
+    "density": {
+     "K": 256,
+     "kappa0": 1,
+     "nu0": 38,
+     "alpha0": 1.0
+    },
+    "calibrator": {
+     "n": 15328,
+     "u": -85.36872084282975,
+     "beta": 15.522921046996792
+    }
+   },
+   "oapp": {
+    "floor": -168.45220864870805,
+    "hyper": {
+     "K": 128,
+     "kappa0": 10,
+     "nu0": 95,
+     "dim": 64,
+     "train_rows": 124464
+    },
+    "extractor": {
+     "dim": 64,
+     "max_rows": 50000,
+     "key": "app"
+    },
+    "density": {
+     "K": 128,
+     "kappa0": 10,
+     "nu0": 95,
+     "alpha0": 1.0
+    },
+    "calibrator": {
+     "n": 15328,
+     "u": -55.00978474061726,
+     "beta": 17.637278541538755
+    }
+   }
+  }
+ }
+}

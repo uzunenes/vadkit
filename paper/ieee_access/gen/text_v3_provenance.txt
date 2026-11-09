@@ -193,10 +193,7 @@ text    | seed 0 (Method, NIW selection)           | 0 | vadkit/pipeline/offline
 text    | seed 0 (Method, NIW selection)           | 0 | vadkit/density/niw.py : NIWDensity.fit(): fallback NumPy generator of select_hyper
 text    | seed 0 (Method, NIW selection)           | 0 | aean/niw.py : k-means initial centres: K training vectors by torch.randperm with this seed
 text    | seed 0 (Method, NIW selection)           | 0 | aean/niw.py : NIWMixture.fit() default seed (vadkit NIWDensity.fit calls it without a seed)
-text    | pre-registration 3dffc5a                 | 3dffc5aff696b61728467e89594bacb4494617d9 2026-11-05 08:52:55 +0300 | git show -s 3dffc5a (adds docs/tez_notlari/tur2_on_kayit_2026-11-05.md; unchanged since, also in the working tree)
-text    | pre-registration e4031e4                 | e4031e4222f069865ca020706c4977cc513e1d54 2026-11-05 11:41:26 +0300 | git show -s e4031e4 (adds docs/tez_notlari/kurulum_olcumleri_on_kayit_2026-11-05.md; unchanged since, also in the working tree)
-text    | pre-registration 2921bc5                 | 2921bc5585e8143e37b7853a1ad40ae619ba923d 2026-11-05 15:41:30 +0300 | git show -s 2921bc5 (adds docs/tez_notlari/hiz_on_kayit_2026-11-05.md; unchanged since, also in the working tree)
-text    | pre-registration 6b08c14                 | 6b08c14520984b53208dfbc143cf44942a536975 2026-11-05 16:17:27 +0300 | git show -s 6b08c14 (adds docs/tez_notlari/hiyerarsik_kalibrasyon_on_kayit_2026-11-05.md; unchanged since, also in the working tree)
+text    | pre-registration citation check          | skipped | manuscript sources or the private git history not available (public release)
 text    | latency budget B1 (ms)                   | 15 | docs/tez_notlari/tur2_on_kayit_2026-11-05.md : budget table
 text    | latency budget B2 (ms)                   | 40 | docs/tez_notlari/tur2_on_kayit_2026-11-05.md : budget table
 text    | latency budget B3 (ms)                   | 100 | docs/tez_notlari/tur2_on_kayit_2026-11-05.md : budget table

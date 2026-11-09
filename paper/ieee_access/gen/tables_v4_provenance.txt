@@ -8,7 +8,7 @@ tab_speed_v4.tex             | tabular and note values                          
 supp_speed_notes_v4.tex      | TensorRT encoder mean cosine, crops                  | 0.947, 481 | tables_v3_provenance.txt : same 'speed' entries as tab_speed_v3.tex
 supp_speed_notes_v4.tex      | 4-thread FPS sequential / parallel                   | 12.5 / 18.3 | tables_v3_provenance.txt : same 'speed' entries as tab_speed_v3.tex
 supp_speed_notes_v4.tex      | host 1-min load average                              | 11.63--32.69 | tables_v3_provenance.txt : same 'speed' entries as tab_speed_v3.tex
-supp_tab_size_v4.tex         | all cells and notes                                  | identical to tab_size_v3.tex | tab_size_v3.tex with label stab:size and the latency reference re-pointed to stab:latency
+supp_tab_size_v4.tex         | all cells and notes                                  | as tab_size_v3.tex, with combined object + grid speed macros | tab_size_v3.tex with label stab:size, latency reference stab:latency, and \VbFps* macros from stab:combined
 tab_size_v4.tex              | ours params with / without grid (M)                  | 17.9 / 16.9 | tables_v3_provenance.txt : 'ours params object / with grid (M)'
 tab_size_v4.tex              | ours weights                                         | 61.5~MB | tables_v3_provenance.txt : 'ours weights total (MB)'
 tab_size_v4.tex              | ours GFLOPs per frame / per crop                     | 14.3 / 4.8 | tables_v3_provenance.txt : 'ours GFLOPs per frame ... / per crop'

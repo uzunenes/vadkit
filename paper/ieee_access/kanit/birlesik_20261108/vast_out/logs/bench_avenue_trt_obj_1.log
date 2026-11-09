@@ -1,0 +1,9 @@
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+WARNING:huggingface_hub.utils._http:Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+Loading yolo11n.engine for TensorRT inference...
+[11/08/2026-18:35:38] [TRT] [I] Loaded engine size: 7 MiB
+[11/08/2026-18:35:38] [TRT] [I] [MemUsageChange] TensorRT-managed allocation in IExecutionContext creation: CPU +0, GPU +49, now: CPU 0, GPU 54 (MiB)
+Loading yolo11n-pose.engine for TensorRT inference...
+[11/08/2026-18:35:38] [TRT] [I] Loaded engine size: 9 MiB
+[11/08/2026-18:35:38] [TRT] [I] [MemUsageChange] TensorRT-managed allocation in IExecutionContext creation: CPU +0, GPU +54, now: CPU 1, GPU 114 (MiB)
+{"mode": "object", "dataset": "avenue", "fps_median": 56.52733582770794, "all": {"median_ms": 17.67193050181959, "p95_ms": 18.326652847463265, "p99_ms": 24.481890653114533, "max_ms": 24.67357700516004}, "idle_ok": true}
