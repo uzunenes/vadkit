@@ -1,1 +1,3 @@
-{"mode": "object", "dataset": "avenue", "fps_median": 56.2834237266853, "all": {"median_ms": 18.100719003996346, "p95_ms": 20.77534394484246, "p99_ms": 28.202344134333543, "max_ms": 110.7512299931841}, "idle_ok": true}
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+WARNING:huggingface_hub.utils._http:Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+{"mode": "object", "dataset": "avenue", "fps_median": 23.32772780693606, "all": {"median_ms": 42.79252514243126, "p95_ms": 44.05797543004155, "p99_ms": 68.24350273236632, "max_ms": 69.00015007704496}, "idle_ok": true}

@@ -21,4 +21,4 @@ WARNING:huggingface_hub.utils._http:Warning: You are sending unauthenticated req
 19 248
 20 273
 21 76
-{"object": {"causal": 0.8277703756616235, "causal_macro": 0.8676154006573161, "offline": 0.879453023848694}, "object+grid": {"causal": 0.8741952199166237, "causal_macro": 0.909713524360578, "offline": 0.8792606043688456}, "max_abs_stream_vs_offline_fused": 0.0} 14 406
+{"object": {"causal": 0.8277728582134994, "causal_macro": 0.8676513107916038, "offline": 0.8794928115757185}, "object+grid": {"causal": 0.8742183591737318, "causal_macro": 0.9097756908938076, "offline": 0.8792712994954685}, "max_abs_stream_vs_offline_fused": 0.0} 14 406

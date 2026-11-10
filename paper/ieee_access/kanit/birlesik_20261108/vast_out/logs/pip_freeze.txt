@@ -117,7 +117,7 @@ python-etcd==0.4.5
 pytz @ file:///home/conda/feedstock_root/build_artifacts/pytz_1706886791323/work
 PyYAML @ file:///home/conda/feedstock_root/build_artifacts/pyyaml_1725456139051/work
 referencing @ file:///home/conda/feedstock_root/build_artifacts/referencing_1714619483868/work
-regex==2026.11.7
+regex==2026.11.9
 requests @ file:///home/conda/feedstock_root/build_artifacts/requests_1717057054362/work
 rpds-py @ file:///home/conda/feedstock_root/build_artifacts/rpds-py_1725327039958/work
 ruamel.yaml @ file:///home/conda/feedstock_root/build_artifacts/ruamel.yaml_1707298093865/work

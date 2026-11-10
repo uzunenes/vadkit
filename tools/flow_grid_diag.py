@@ -49,6 +49,11 @@ def run_dataset(dataset: str, features: str, gt_path: str, extra_channels: list[
     _, f_c3 = br.fuse(channel_order(z_flow, keep_obj, scenes))
 
     return {
+        "gt_video_summary": {
+            "total_videos": len(vids),
+            "videos_ge_80pct_anomalous": sum(1 for v in vids if float(np.mean(gt[v])) >= 0.80),
+            "videos_100pct_anomalous": sum(1 for v in vids if float(np.mean(gt[v])) == 1.0),
+        },
         "channels": {c: evaluate({v: z_grid[c][v] for v in vids}, gt) for c in ("I", "Fs", "Fd")},
         "grid_only_full": evaluate(f_g0, gt),
         "grid_only_flow": evaluate(f_g1, gt),

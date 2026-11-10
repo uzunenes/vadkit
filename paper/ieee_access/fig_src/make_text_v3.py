@@ -801,12 +801,19 @@ def table_online_v4(boot):
                                                    for ds, o, g, d, dci, sig, nv, reps in boot]) + r" \\")
     L.append(" & ".join([r"\quad 95\% CI"] + [r"{\scriptsize " + ci(dci) + "}"
                                               for ds, o, g, d, dci, sig, nv, reps in boot]) + r" \\")
+    fg_p = K / "birlesik_20261108/flow_grid_posthoc.json"
+    fg = jload(fg_p)["datasets"]
+    L.append(r"\midrule")
+    L.append(r"\multicolumn{5}{l}{\textit{Object + flow grid ($F_s$, $F_d$; no $I$)$^{\dagger}$}} \\")
+    L.append(" & ".join([r"\quad Online, micro"] + [pc(fg[ds]["obj_plus_flow_grid"]["eval"]["causal"]) for ds in DS4]) + r" \\")
     L += [r"\bottomrule", r"\end{tabular}", r"\par\vspace{3pt}",
           r"\parbox{\columnwidth}{\scriptsize Micro: AUC over all test frames pooled; macro: mean of the per-video AUCs "
           r"over the test videos that contain normal and anomalous frames (online protocol only). Protocols: "
           r"Section~\ref{sec:protocols}. PyTorch detectors. Grid effect: paired video bootstrap of the difference "
           rf"({boot[0][7]:,} replicates, percentile intervals), computed from the unrounded AUCs; bold: the interval "
-          r"excludes zero. $^{a}$Development set.}", r"\end{table}"]
+          r"excludes zero. $^{a}$Development set. $^{\dagger}$Post-hoc, not pre-registered: the two optical-flow grid "
+          r"channels without the autoencoder residual channel $I$ (no per-scene network training; "
+          r"Section~\ref{sec:limits}).}", r"\end{table}"]
     # the caption constants (median length 9, 4 unscored frames) are those of tab_online_v3.tex
     v3 = (GEN / "tab_online_v3.tex").read_text()
     if "median of the last 9 frame scores; the first 4 frames of each video are not scored" not in v3:
@@ -821,6 +828,10 @@ def table_online_v4(boot):
                       f"kanit/r2_20261105/boot/{ds}.json : grid+obj_vs_obj (as tab_ablation_v3.tex part a)"))
     PROV4.append(("tab_online_v4.tex", "median length, unscored frames", "9, 4",
                   "caption of gen/tab_online_v3.tex (make_tables_v3.py protocol_constants())"))
+    for ds in DS4:
+        PROV4.append(("tab_online_v4.tex", f"flow grid online micro {ds}",
+                      pc(fg[ds]["obj_plus_flow_grid"]["eval"]["causal"]),
+                      f"{rel(fg_p)} : datasets.{ds}.obj_plus_flow_grid.eval.causal"))
 
 
 def main():

@@ -2,11 +2,11 @@
 
 Code and evidence for the paper:
 
-> E. Uzun and K. Kayabol, "Light, Modular and Online: Object Attributes and Bayesian Cell Statistics for Video Anomaly Detection," under review at *IEEE Access*.
+> E. Uzun and K. Kayabol, "Light, Modular and Online: Bayesian Object Densities and Shrinkage Cell Statistics for Video Anomaly Detection," under review at *IEEE Access*.
 
 `vadkit` is a lightweight video anomaly detector for fixed cameras. It learns from normal footage of a scene, scores frames causally as they arrive (delay $\le 4$ frames from a 9-frame causal median), and requires no test labels.
 
-- **Object branch (training-free, 16.9 M parameters):** YOLO11n + motion-contour boxes, YOLO11n-pose keypoints, DIS optical flow, and MobileCLIP2-S0 crop embeddings. Each object is represented by velocity, pose, and appearance, and scored with normal–inverse-Wishart (NIW) mixture densities selected on held-out normal video.
+- **Object branch (requires no per-scene network training, 16.9 M parameters):** YOLO11n + motion-contour boxes, YOLO11n-pose keypoints, DIS optical flow, and MobileCLIP2-S0 crop embeddings. Each object is represented by velocity, pose, and appearance, and scored with normal–inverse-Wishart (NIW) mixture densities selected on held-out normal video.
 - **Grid branch (optional, +1.0 M parameters):** A small scene autoencoder (`I`) and two optical-flow background models (`Fs`, `Fd`) scored in fixed $16\times 16$ cells with statistics shrunk towards the scene, following the hyperspectral background models of Arısoy and Kayabol.
 - **Fusion:** Per-channel calibration against normal reference scores (`-log p`), summed across channels and smoothed causally.
 
@@ -18,12 +18,16 @@ Frame-level micro AUC (%). *Standard* uses per-video min–max normalisation and
 |---|---:|---:|---:|---:|---:|
 | Object branch | 16.9 M | 74.6 / 70.9 | 89.5 / 93.9 | 87.9 / 82.8 | 78.4 / 79.5 |
 | Object + grid | 17.9 M | 79.4 / 76.4 | 96.7 / 96.5 | 89.8 / 87.4 | 76.9 / 70.2 |
+| Object + flow-grid (`Fs, Fd`; no `I`)† | 16.9 M | 79.7 / 76.4 | 96.7 / 96.1 | 89.9 / 87.6 | 77.9 / 78.5 |
+| Pose rule + flow-grid† | 16.9 M | 80.1 / 78.0 | 96.3 / 96.3 | 89.9 / 87.6 | 78.4 / 79.5 |
 
-On ShanghaiTech, a post-hoc check shows that the grid drop comes from the per-scene residual channel `I` (55.8% online alone): keeping only the training-free flow-grid channels (`Fs + Fd`) with the object branch gives 78.5% online on ShanghaiTech (+8.3 pts) while keeping Ped1, Ped2, and Avenue at 76.4%, 96.1%, and 87.6%.
+† *Post-hoc diagnostic (not pre-registered):* on ShanghaiTech, the grid drop comes from the per-scene residual channel `I` (55.8% online alone); keeping only the two flow-grid channels (`Fs + Fd`, which require no per-scene network training) with the object branch gives 78.5% online on ShanghaiTech (+8.3 pts, 95% CI [+4.0, +12.8]) and 79.5% (+9.3 pts) with the pose coverage rule.
 
 **End-to-end streaming speed (batch size 1, RTX 3090, TensorRT detectors):**
 - First measurement session (object branch, Avenue): **25.7 FPS** (19.6 FPS in PyTorch).
-- Combined-streaming session (object branch + native streaming grid branch in parallel threads): **56.7 FPS** object-only and **55.7 FPS** object + grid on Avenue (17.9 ms median, 28.1 ms p99); **40.7 FPS** object-only and **34.3 FPS** object + grid on Ped2.
+- Unified reference-host session (`RTX 3090` + `AMD EPYC 7452`, 24/24 runs starting on an idle GPU, object branch + native streaming grid branch in parallel threads):
+  - **Avenue:** **31.4 FPS** object-only (31.8 ms median, 56.5 ms p99) and **26.7 FPS** object + grid (37.6 ms median, 61.8 ms p99; grid adds +5.9 ms) with TensorRT; **23.1 FPS** object-only and **20.6 FPS** object + grid in PyTorch.
+  - **Ped2:** **31.6 FPS** object-only (31.4 ms median, 57.8 ms p99) and **26.8 FPS** object + grid (36.7 ms median, 63.5 ms p99; grid adds +5.2 ms) with TensorRT; **22.8 FPS** object-only and **19.8 FPS** object + grid in PyTorch.
 
 ## Installation
 
@@ -44,7 +48,7 @@ First run downloads YOLO11n, YOLO11n-pose (Ultralytics, AGPL-3.0) and MobileCLIP
 Place normal training frames under `<root>/training/frames/<video>/<t>.jpg` (`t = 0 ... n-1`), copy `vadkit/configs/r2/base.yaml`, and set `gap:` (1 at 10 fps, 2 at 25 fps).
 
 ```bash
-# 1. Extract object features and fit NIW densities (no network training)
+# 1. Extract object features and fit NIW densities (requires no per-scene network training)
 python -m vadkit extract --config mycam.yaml --frames <root> --splits training --out feat/mycam
 python -m vadkit fit     --config mycam.yaml --features feat/mycam --out state/mycam
 ```
@@ -52,12 +56,12 @@ python -m vadkit fit     --config mycam.yaml --features feat/mycam --out state/m
 Score a video file, frame directory, or live camera stream one frame at a time:
 
 ```python
-from vadkit.grid import StreamingGrid
+from vadkit.grid.stream import GridBranch
 from vadkit.io.frames import VideoSource
 from vadkit.pipeline import FittedState, StreamingVAD
 
 state = FittedState.load("state/mycam")
-grid = StreamingGrid.load("state/mycam_grid")   # optional; omit for object-only
+grid = GridBranch.load("state/mycam_grid")      # optional; omit for object-only
 vad = StreamingVAD(state, grid=grid)
 
 for t, frame in VideoSource("test.mp4"):
@@ -103,9 +107,9 @@ pytest -q tests
 
 ## Repository structure
 
-- `vadkit/` — core package: perception (`detector`, `pose`, `flow`, `embed`), attributes, NIW density, calibration, fusion, causal median, `StreamingGrid`, offline & streaming pipelines.
+- `vadkit/` — core package: perception (`detector`, `pose`, `flow`, `embed`), attributes, NIW density, calibration, fusion, causal median, `GridBranch` (`vadkit/grid/stream.py`), offline & streaming pipelines.
 - `aean/`, `train.py`, `evaluate.py` — grid autoencoder training and offline cell evaluation.
-- `tools/` — streaming grid verification (`grid_check.py`), end-to-end benchmark (`bench_e2e.py`), combined stream evaluation (`stream_eval.py`), and post-hoc flow-grid diagnosis (`flow_grid_diag.py`).
+- `tools/` — streaming grid verification (`grid_check.py`), end-to-end benchmark (`bench_e2e.py`), combined stream evaluation (`stream_eval.py`), post-hoc flow-grid diagnosis (`flow_grid_diag.py`), and sparse-data / cross-scene transfer analysis (`stage3_prior_dataeff.py`).
 - `paper/ieee_access/{fig_src,gen,kanit}/` — table/figure generators, generated LaTeX macros/tables, and raw experimental evidence.
 - `docs/tez_notlari/` — pre-registration records (`*_on_kayit_*.md`).
 
@@ -114,7 +118,7 @@ pytest -q tests
 ```bibtex
 @misc{uzun2026vadkit,
   author = {Uzun, Enes and Kayabol, Koray},
-  title  = {Light, Modular and Online: Object Attributes and Bayesian Cell Statistics for Video Anomaly Detection},
+  title  = {Light, Modular and Online: Bayesian Object Densities and Shrinkage Cell Statistics for Video Anomaly Detection},
   note   = {Under review at IEEE Access},
   year   = {2026},
   url    = {https://github.com/uzunenes/vadkit}

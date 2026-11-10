@@ -1,0 +1,14 @@
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+WARNING:huggingface_hub.utils._http:Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+extract testing/Test001
+extract testing/Test002
+extract testing/Test003
+extract testing/Test004
+extract testing/Test005
+extract testing/Test006
+extract testing/Test007
+extract testing/Test008
+extract testing/Test009
+extract testing/Test010
+extract testing/Test011
+extract testing/Test012

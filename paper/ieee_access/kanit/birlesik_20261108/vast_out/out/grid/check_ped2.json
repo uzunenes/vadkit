@@ -2,26 +2,26 @@
  "dataset": "ped2",
  "device": "cuda",
  "torch": "2.4.1+cu121",
- "host": "e9dcd8b0d5d5",
- "fit_s": 8.0,
+ "host": "b690ba9a18f3",
+ "fit_s": 12.3,
  "channels": {
   "I": {
-   "max_abs_raw_diff_test": 0.00012969970703125,
+   "max_abs_raw_diff_test": 0.0001220703125,
    "ref_len": [
     154,
     154
    ],
-   "ref_max_abs_diff": 5.9604644775390625e-06,
+   "ref_max_abs_diff": 6.198883056640625e-06,
    "causal_auc_archived": 0.8973160782614973,
    "causal_auc_refit": 0.8973160782614973
   },
   "Fs": {
-   "max_abs_raw_diff_test": 0.2690563201904297,
+   "max_abs_raw_diff_test": 0.26905250549316406,
    "ref_len": [
     850,
     850
    ],
-   "ref_max_abs_diff": 0.07413125038146973,
+   "ref_max_abs_diff": 0.07413101196289062,
    "causal_auc_archived": 0.9412388997184319,
    "causal_auc_refit": 0.9417578153201935
   },
@@ -43,6 +43,6 @@
  "stream_vs_batch_max_abs": {
   "I": 9.5367431640625e-07,
   "Fs": 0.0,
-  "Fd": 6.103515625e-05
+  "Fd": 4.57763671875e-05
  }
 }

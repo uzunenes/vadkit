@@ -72,7 +72,7 @@ files = {
  'ours_gt_json': (f'{S}/remote/m3_gt.json', 'cctv-aean/prepare_avenue.py -> /workspace/cache/avenue/gt.json (m3)'),
  'cuhk_mask_anypixel': (f'{S}/remote/ground_truth_demo.zip', 'official CUHK ground_truth_demo.zip/testing_label_mask/<i>_label.mat (volLabel), frame=1 iff mask has any nonzero pixel'),
  'vpc_avenue_mat': (f'{S}/remote/vpc_avenue.mat', 'm3:/workspace/m3/vpc/data/avenue/avenue.mat (from VideoPatchCore Google-Drive avenue.zip, CRC da034f7e); MAT header: PCWIN64, created Fri Oct 23 20:15:43 2015; cell gt{21} of [start;end] 1-based inclusive intervals'),
- 'accivad_avenue_mat': ('/home/lei/Desktop/msc/ext/Accurate-Interpretable-VAD/data/avenue.mat', 'AccI-VAD repo data/avenue.mat; MAT header: created Wed Jan 20 23:58:42 2021; per-frame int32 arrays keyed 01..21'),
+ 'accivad_avenue_mat': ('ext/Accurate-Interpretable-VAD/data/avenue.mat', 'AccI-VAD repo data/avenue.mat; MAT header: created Wed Jan 20 23:58:42 2021; per-frame int32 arrays keyed 01..21'),
  'aedmae_avenue_gt_txt': (f'{S}/remote/gt_files.zip', 'AED-MAE gt_files.zip/Avenue_gt/<vid>.txt (np.savetxt 0/1 per frame, zip dated 2022-03-17)'),
 }
 meta = {k: dict(source=v[1], **h(v[0])) for k, v in files.items()}

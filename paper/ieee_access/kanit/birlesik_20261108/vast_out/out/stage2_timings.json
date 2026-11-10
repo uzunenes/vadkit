@@ -1,0 +1,43 @@
+{
+  "host": {
+    "torch": "2.4.1+cu121",
+    "cuda": "12.1",
+    "gpu": "NVIDIA GeForce RTX 3090",
+    "cpu": "AMD EPYC 7452 32-Core Processor",
+    "cv2": "4.11.0",
+    "ultralytics": "8.4.201",
+    "tensorrt": "10.3.0",
+    "python": "3.11.9",
+    "nproc": "64"
+  },
+  "prep": {},
+  "export_trt": {
+    "yolo11n_engine_s": 261.13,
+    "yolo11n_pose_engine_s": 240.94,
+    "total_trt_build_s": 502.07,
+    "total_trt_build_min": 8.37
+  },
+  "extract": {
+    "ped2_pt_train_s": 140.41,
+    "ped2_pt_train_min": 2.34,
+    "ped2_pt_test_s": 114.93,
+    "avenue_pt_train_s": 1129.91,
+    "avenue_pt_train_min": 18.83,
+    "avenue_pt_test_s": 1106.59,
+    "ped2_trt_train_s": 77.57,
+    "ped2_trt_train_min": 1.29,
+    "avenue_trt_train_s": 481.22,
+    "avenue_trt_train_min": 8.02
+  },
+  "fit": {
+    "ped2_gpu_s": 12.53,
+    "ped2_cpu_s": 144.14,
+    "ped2_cpu_min": 2.4,
+    "avenue_gpu_s": 25.6,
+    "avenue_cpu_s": 361.66,
+    "avenue_cpu_min": 6.03
+  },
+  "grid": {},
+  "stream": {},
+  "bench": {}
+}

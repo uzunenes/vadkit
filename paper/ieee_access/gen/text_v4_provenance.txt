@@ -7,3 +7,7 @@ tab_online_v4.tex          | grid effect ped2                         | $+$2.7 [
 tab_online_v4.tex          | grid effect avenue                       | $+$4.6 [$-$0.6, $+$10.9] | kanit/r2_20261105/boot/avenue.json : grid+obj_vs_obj (as tab_ablation_v3.tex part a)
 tab_online_v4.tex          | grid effect shanghaitech                 | $-$9.3 [$-$14.0, $-$4.8] (bold) | kanit/r2_20261105/boot/shanghaitech.json : grid+obj_vs_obj (as tab_ablation_v3.tex part a)
 tab_online_v4.tex          | median length, unscored frames           | 9, 4 | caption of gen/tab_online_v3.tex (make_tables_v3.py protocol_constants())
+tab_online_v4.tex          | flow grid online micro ped1              | 76.4 | paper/ieee_access/kanit/birlesik_20261108/flow_grid_posthoc.json : datasets.ped1.obj_plus_flow_grid.eval.causal
+tab_online_v4.tex          | flow grid online micro ped2              | 96.1 | paper/ieee_access/kanit/birlesik_20261108/flow_grid_posthoc.json : datasets.ped2.obj_plus_flow_grid.eval.causal
+tab_online_v4.tex          | flow grid online micro avenue            | 87.6 | paper/ieee_access/kanit/birlesik_20261108/flow_grid_posthoc.json : datasets.avenue.obj_plus_flow_grid.eval.causal
+tab_online_v4.tex          | flow grid online micro shanghaitech      | 78.5 | paper/ieee_access/kanit/birlesik_20261108/flow_grid_posthoc.json : datasets.shanghaitech.obj_plus_flow_grid.eval.causal

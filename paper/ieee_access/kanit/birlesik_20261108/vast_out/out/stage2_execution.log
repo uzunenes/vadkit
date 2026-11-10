@@ -1,0 +1,279 @@
+[2026-11-09 14:53:28] === Step 1: Probing Environment & Hardware ===
+[2026-11-09 14:53:29] RUN: pip freeze > /workspace/logs/pip_freeze.txt
+[2026-11-09 14:53:30] EXIT 0 in 0.34s
+[2026-11-09 14:53:30] Host: CPU=AMD EPYC 7452 32-Core Processor, GPU=NVIDIA GeForce RTX 3090, Torch=2.4.1+cu121, TRT=10.3.0
+[2026-11-09 14:53:30] === Step 2: Preparing Cache and Frames ===
+[2026-11-09 14:53:30] RUN: python prepare_ucsd.py --root /workspace/data/UCSD_Anomaly_Dataset.v1p2 --out /workspace/cache --peds UCSDped2
+[2026-11-09 14:53:34] EXIT 0 in 4.25s
+[2026-11-09 14:53:34] RUN: python prepare_avenue.py --zip /workspace/data/avenue/Avenue_Dataset.zip --gt-zip /workspace/data/avenue/ground_truth_demo.zip --out /workspace/cache/avenue --splits train,test
+[2026-11-09 14:54:07] EXIT 0 in 33.49s
+[2026-11-09 14:54:07] Extracting JPEG frames for Ped2 and Avenue...
+[2026-11-09 14:54:47] Frames preparation completed.
+[2026-11-09 14:54:47] === Step 3: Exporting TensorRT Engines (Timed) ===
+[2026-11-09 14:54:47] Building yolo11n.engine...
+WARNING ⚠️ 'half' is deprecated and will be removed in the future. Use 'quantize' instead.
+WARNING ⚠️ TensorRT requires GPU export, automatically assigning device=0
+Ultralytics 8.4.201 🚀 Python-3.11.9 torch-2.4.1+cu121 CUDA:0 (NVIDIA GeForce RTX 3090, 24124MiB)
+WARNING ⚠️ 'dynamic=True' export requires a maximum batch size, e.g. 'batch=16'.
+YOLO11n summary (fused): 100 layers, 2,616,248 parameters, 0 gradients, 6.5 GFLOPs
+
+[34m[1mPyTorch:[0m starting from 'yolo11n.pt' with input shape (1, 3, 640, 640) BCHW and output shape(s) (1, 84, 8400) (5.4 MB)
+[31m[1mrequirements:[0m Ultralytics requirement ['onnxruntime-gpu[cuda]'] not found, attempting AutoUpdate...
+Collecting onnxruntime-gpu[cuda]
+  Downloading onnxruntime_gpu-1.31.1-cp311-cp311-manylinux_2_28_x86_64.whl.metadata (6.2 kB)
+Collecting flatbuffers (from onnxruntime-gpu[cuda])
+  Downloading flatbuffers-25.12.19-py2.py3-none-any.whl.metadata (1.0 kB)
+Requirement already satisfied: numpy>=1.21.6 in /opt/conda/lib/python3.11/site-packages (from onnxruntime-gpu[cuda]) (2.1.1)
+Requirement already satisfied: packaging in /opt/conda/lib/python3.11/site-packages (from onnxruntime-gpu[cuda]) (24.1)
+Requirement already satisfied: protobuf>=4.25.8 in /opt/conda/lib/python3.11/site-packages (from onnxruntime-gpu[cuda]) (7.36.2)
+Collecting nvidia-cuda-nvrtc~=13.0 (from onnxruntime-gpu[cuda])
+  Downloading nvidia_cuda_nvrtc-13.5.37-py3-none-manylinux2010_x86_64.manylinux_2_12_x86_64.whl.metadata (1.8 kB)
+Collecting nvidia-cuda-runtime~=13.0 (from onnxruntime-gpu[cuda])
+  Downloading nvidia_cuda_runtime-13.5.37-py3-none-manylinux2014_x86_64.manylinux_2_17_x86_64.whl.metadata (1.8 kB)
+Collecting nvidia-cufft~=12.0 (from onnxruntime-gpu[cuda])
+  Downloading nvidia_cufft-12.5.0.14-py3-none-manylinux2014_x86_64.manylinux_2_17_x86_64.whl.metadata (1.8 kB)
+Collecting nvidia-curand~=10.0 (from onnxruntime-gpu[cuda])
+  Downloading nvidia_curand-10.4.5.25-py3-none-manylinux_2_27_x86_64.whl.metadata (1.8 kB)
+Collecting nvidia-nvjitlink (from nvidia-cufft~=12.0->onnxruntime-gpu[cuda])
+  Downloading nvidia_nvjitlink-13.5.37-py3-none-manylinux2010_x86_64.manylinux_2_12_x86_64.whl.metadata (1.8 kB)
+Downloading nvidia_cuda_nvrtc-13.5.37-py3-none-manylinux2010_x86_64.manylinux_2_12_x86_64.whl (58.2 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 58.2/58.2 MB 111.2 MB/s eta 0:00:00
+Downloading nvidia_cuda_runtime-13.5.37-py3-none-manylinux2014_x86_64.manylinux_2_17_x86_64.whl (2.5 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 2.5/2.5 MB 117.3 MB/s eta 0:00:00
+Downloading nvidia_cufft-12.5.0.14-py3-none-manylinux2014_x86_64.manylinux_2_17_x86_64.whl (165.1 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 165.1/165.1 MB 117.4 MB/s eta 0:00:00
+Downloading nvidia_curand-10.4.5.25-py3-none-manylinux_2_27_x86_64.whl (77.1 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 77.1/77.1 MB 117.0 MB/s eta 0:00:00
+Downloading flatbuffers-25.12.19-py2.py3-none-any.whl (26 kB)
+Downloading onnxruntime_gpu-1.31.1-cp311-cp311-manylinux_2_28_x86_64.whl (255.6 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 255.6/255.6 MB 115.8 MB/s eta 0:00:00
+Downloading nvidia_nvjitlink-13.5.37-py3-none-manylinux2010_x86_64.manylinux_2_12_x86_64.whl (46.6 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 46.6/46.6 MB 117.7 MB/s eta 0:00:00
+Installing collected packages: flatbuffers, onnxruntime-gpu, nvidia-nvjitlink, nvidia-curand, nvidia-cuda-runtime, nvidia-cuda-nvrtc, nvidia-cufft
+Successfully installed flatbuffers-25.12.19 nvidia-cuda-nvrtc-13.5.37 nvidia-cuda-runtime-13.5.37 nvidia-cufft-12.5.0.14 nvidia-curand-10.4.5.25 nvidia-nvjitlink-13.5.37 onnxruntime-gpu-1.31.1
+WARNING: Running pip as the 'root' user can result in broken permissions and conflicting behaviour with the system package manager, possibly rendering your system unusable.It is recommended to use a virtual environment instead: https://pip.pypa.io/warnings/venv. Use the --root-user-action option if you know what you are doing and want to suppress this warning.
+
+[31m[1mrequirements:[0m AutoUpdate success ✅ 12.6s
+WARNING ⚠️ [31m[1mrequirements:[0m [1mRestart runtime or rerun command for updates to take effect[0m
+
+
+[34m[1mONNX:[0m starting export with onnx 1.23.2 opset 18...
+[34m[1mONNX:[0m slimming with onnxslim 0.1.99...
+[34m[1mONNX:[0m export success ✅ 15.8s, saved as 'yolo11n.onnx' (10.7 MB)
+
+[34m[1mTensorRT:[0m starting export with TensorRT 10.3.0...
+[11/09/2026-14:55:04] [TRT] [I] [MemUsageChange] Init CUDA: CPU +2, GPU +0, now: CPU 669, GPU 443 (MiB)
+[11/09/2026-14:55:11] [TRT] [I] [MemUsageChange] Init builder kernel library: CPU +2090, GPU +386, now: CPU 2914, GPU 829 (MiB)
+[11/09/2026-14:55:11] [TRT] [I] ----------------------------------------------------------------
+[11/09/2026-14:55:11] [TRT] [I] Input filename:   yolo11n.onnx
+[11/09/2026-14:55:11] [TRT] [I] ONNX IR version:  0.0.8
+[11/09/2026-14:55:11] [TRT] [I] Opset version:    18
+[11/09/2026-14:55:11] [TRT] [I] Producer name:    pytorch
+[11/09/2026-14:55:11] [TRT] [I] Producer version: 2.4.1
+[11/09/2026-14:55:11] [TRT] [I] Domain:           
+[11/09/2026-14:55:11] [TRT] [I] Model version:    0
+[11/09/2026-14:55:11] [TRT] [I] Doc string:       
+[11/09/2026-14:55:11] [TRT] [I] ----------------------------------------------------------------
+[34m[1mTensorRT:[0m input "images" with shape(-1, 3, -1, -1) DataType.FLOAT
+[34m[1mTensorRT:[0m output "output0" with shape(-1, 84, -1) DataType.FLOAT
+[34m[1mTensorRT:[0m building FP16 engine as yolo11n.engine
+[11/09/2026-14:55:11] [TRT] [I] Local timing cache in use. Profiling results in this builder pass will not be stored.
+[11/09/2026-14:59:05] [TRT] [I] Detected 1 inputs and 1 output network tensors.
+[11/09/2026-14:59:08] [TRT] [I] Total Host Persistent Memory: 521200
+[11/09/2026-14:59:08] [TRT] [I] Total Device Persistent Memory: 1024
+[11/09/2026-14:59:08] [TRT] [I] Total Scratch Memory: 21305856
+[11/09/2026-14:59:08] [TRT] [I] [BlockAssignment] Started assigning block shifts. This will take 177 steps to complete.
+[11/09/2026-14:59:08] [TRT] [I] [BlockAssignment] Algorithm ShiftNTopDown took 13.2142ms to assign 10 blocks to 177 nodes requiring 56122368 bytes.
+[11/09/2026-14:59:08] [TRT] [I] Total Activation Memory: 56121856
+[11/09/2026-14:59:08] [TRT] [I] Total Weights Memory: 5279140
+[11/09/2026-14:59:08] [TRT] [I] Engine generation completed in 236.574 seconds.
+[11/09/2026-14:59:08] [TRT] [I] [MemUsageStats] Peak memory usage of TRT CPU/GPU memory allocators: CPU 0 MiB, GPU 657 MiB
+[11/09/2026-14:59:08] [TRT] [I] [MemUsageStats] Peak memory usage during Engine building and serialization: CPU: 4965 MiB
+[34m[1mTensorRT:[0m export success ✅ 260.1s, saved as 'yolo11n.engine' (8.6 MB)
+
+Export complete (261.0s)
+Results saved to [1m/workspace/cctv_aean/yolo11n.engine[0m
+Predict:         yolo predict task=detect model=yolo11n.engine imgsz=640 quantize=16
+Validate:        yolo val task=detect model=yolo11n.engine imgsz=640  quantize=16
+Visualize:       https://netron.app
+[2026-11-09 14:59:08] Building yolo11n-pose.engine...
+WARNING ⚠️ 'half' is deprecated and will be removed in the future. Use 'quantize' instead.
+WARNING ⚠️ TensorRT requires GPU export, automatically assigning device=0
+Ultralytics 8.4.201 🚀 Python-3.11.9 torch-2.4.1+cu121 CUDA:0 (NVIDIA GeForce RTX 3090, 24124MiB)
+WARNING ⚠️ 'dynamic=True' export requires a maximum batch size, e.g. 'batch=16'.
+YOLO11n-pose summary (fused): 109 layers, 2,866,468 parameters, 0 gradients, 7.5 GFLOPs
+
+[34m[1mPyTorch:[0m starting from 'yolo11n-pose.pt' with input shape (1, 3, 640, 640) BCHW and output shape(s) (1, 56, 8400) (6.0 MB)
+
+[34m[1mONNX:[0m starting export with onnx 1.23.2 opset 18...
+[34m[1mONNX:[0m slimming with onnxslim 0.1.99...
+[34m[1mONNX:[0m export success ✅ 2.8s, saved as 'yolo11n-pose.onnx' (11.7 MB)
+
+[34m[1mTensorRT:[0m starting export with TensorRT 10.3.0...
+[11/09/2026-14:59:11] [TRT] [I] [MemUsageChange] Init CUDA: CPU +0, GPU +0, now: CPU 1164, GPU 505 (MiB)
+[11/09/2026-14:59:14] [TRT] [I] [MemUsageChange] Init builder kernel library: CPU +2088, GPU +376, now: CPU 3252, GPU 881 (MiB)
+[11/09/2026-14:59:14] [TRT] [I] ----------------------------------------------------------------
+[11/09/2026-14:59:14] [TRT] [I] Input filename:   yolo11n-pose.onnx
+[11/09/2026-14:59:14] [TRT] [I] ONNX IR version:  0.0.8
+[11/09/2026-14:59:14] [TRT] [I] Opset version:    18
+[11/09/2026-14:59:14] [TRT] [I] Producer name:    pytorch
+[11/09/2026-14:59:14] [TRT] [I] Producer version: 2.4.1
+[11/09/2026-14:59:14] [TRT] [I] Domain:           
+[11/09/2026-14:59:14] [TRT] [I] Model version:    0
+[11/09/2026-14:59:14] [TRT] [I] Doc string:       
+[11/09/2026-14:59:14] [TRT] [I] ----------------------------------------------------------------
+[34m[1mTensorRT:[0m input "images" with shape(-1, 3, -1, -1) DataType.FLOAT
+[34m[1mTensorRT:[0m output "output0" with shape(-1, 56, -1) DataType.FLOAT
+[34m[1mTensorRT:[0m building FP16 engine as yolo11n-pose.engine
+[11/09/2026-14:59:14] [TRT] [I] Local timing cache in use. Profiling results in this builder pass will not be stored.
+[11/09/2026-15:03:07] [TRT] [I] Detected 1 inputs and 1 output network tensors.
+[11/09/2026-15:03:09] [TRT] [I] Total Host Persistent Memory: 574656
+[11/09/2026-15:03:09] [TRT] [I] Total Device Persistent Memory: 0
+[11/09/2026-15:03:09] [TRT] [I] Total Scratch Memory: 21305856
+[11/09/2026-15:03:09] [TRT] [I] [BlockAssignment] Started assigning block shifts. This will take 191 steps to complete.
+[11/09/2026-15:03:09] [TRT] [I] [BlockAssignment] Algorithm ShiftNTopDown took 16.5365ms to assign 14 blocks to 191 nodes requiring 59528704 bytes.
+[11/09/2026-15:03:09] [TRT] [I] Total Activation Memory: 59527168
+[11/09/2026-15:03:09] [TRT] [I] Total Weights Memory: 5846900
+[11/09/2026-15:03:09] [TRT] [I] Engine generation completed in 234.403 seconds.
+[11/09/2026-15:03:09] [TRT] [I] [MemUsageStats] Peak memory usage of TRT CPU/GPU memory allocators: CPU 0 MiB, GPU 657 MiB
+[11/09/2026-15:03:09] [TRT] [I] [MemUsageStats] Peak memory usage during Engine building and serialization: CPU: 5166 MiB
+[34m[1mTensorRT:[0m export success ✅ 240.6s, saved as 'yolo11n-pose.engine' (9.1 MB)
+
+Export complete (240.9s)
+Results saved to [1m/workspace/cctv_aean/yolo11n-pose.engine[0m
+Predict:         yolo predict task=pose model=yolo11n-pose.engine imgsz=640 quantize=16
+Validate:        yolo val task=pose model=yolo11n-pose.engine imgsz=640  quantize=16
+Visualize:       https://netron.app
+[2026-11-09 15:03:09] TRT Engine build: YOLO11n=261.1s, YOLO11n-pose=240.9s (Total: 8.37 min)
+[2026-11-09 15:03:09] === Step 4: Feature Extraction Setup Timings ===
+[2026-11-09 15:03:09] Measuring Ped2 PyTorch feature extraction (training)...
+[2026-11-09 15:03:09] RUN: python -m vadkit extract --config vadkit/configs/r2/base.yaml --frames /workspace/frames/ped2 --dataset ped2 --splits training --out /workspace/out/feat/ped2 --device cuda
+[2026-11-09 15:05:30] EXIT 0 in 140.41s
+[2026-11-09 15:05:30] Extracting Ped2 PyTorch feature extraction (testing)...
+[2026-11-09 15:05:30] RUN: python -m vadkit extract --config vadkit/configs/r2/base.yaml --frames /workspace/frames/ped2 --dataset ped2 --splits testing --out /workspace/out/feat/ped2 --device cuda
+[2026-11-09 15:07:24] EXIT 0 in 114.93s
+[2026-11-09 15:07:24] Measuring Avenue PyTorch feature extraction (training)...
+[2026-11-09 15:07:24] RUN: python -m vadkit extract --config vadkit/configs/r2/base.yaml --frames /workspace/frames/avenue --dataset avenue --splits training --out /workspace/out/feat/avenue --device cuda
+[2026-11-09 15:26:14] EXIT 0 in 1129.91s
+[2026-11-09 15:26:14] Extracting Avenue PyTorch feature extraction (testing)...
+[2026-11-09 15:26:14] RUN: python -m vadkit extract --config vadkit/configs/r2/base.yaml --frames /workspace/frames/avenue --dataset avenue --splits testing --out /workspace/out/feat/avenue --device cuda
+[2026-11-09 15:44:41] EXIT 0 in 1106.59s
+[2026-11-09 15:44:41] Measuring Ped2 TensorRT + parallel flow feature extraction (training)...
+[2026-11-09 15:44:41] RUN: python -m vadkit extract --config vadkit/configs/r2/base_trt_par.yaml --frames /workspace/frames/ped2 --dataset ped2 --splits training --out /workspace/out/feat/ped2_trt --device cuda
+[2026-11-09 15:45:59] EXIT 0 in 77.57s
+[2026-11-09 15:45:59] Measuring Avenue TensorRT + parallel flow feature extraction (training)...
+[2026-11-09 15:45:59] RUN: python -m vadkit extract --config vadkit/configs/r2/base_trt_par.yaml --frames /workspace/frames/avenue --dataset avenue --splits training --out /workspace/out/feat/avenue_trt --device cuda
+[2026-11-09 15:54:00] EXIT 0 in 481.22s
+[2026-11-09 15:54:00] Extraction summary: Ped2 PyTorch train=2.34 min, TRT train=1.29 min
+[2026-11-09 15:54:00] Extraction summary: Avenue PyTorch train=18.83 min, TRT train=8.02 min
+[2026-11-09 15:54:00] === Step 5: Object Branch Fitting Setup Timings ===
+[2026-11-09 15:54:00] Timing Ped2 GPU fit...
+[2026-11-09 15:54:00] RUN: python -m vadkit fit --config vadkit/configs/r2/base.yaml --features /workspace/out/feat/ped2 --out /workspace/out/state/ped2 --device cuda
+[2026-11-09 15:54:12] EXIT 0 in 12.53s
+[2026-11-09 15:54:12] Timing Ped2 CPU fit (AMD EPYC 7452)...
+[2026-11-09 15:54:12] RUN: python -m vadkit fit --config vadkit/configs/r2/base.yaml --features /workspace/out/feat/ped2 --out /workspace/out/state/ped2_cpu --device cpu
+[2026-11-09 15:58:19] EXIT 0 in 246.65s
+[2026-11-09 15:58:19] Timing Avenue GPU fit...
+[2026-11-09 15:58:19] RUN: python -m vadkit fit --config vadkit/configs/r2/base.yaml --features /workspace/out/feat/avenue --out /workspace/out/state/avenue --device cuda
+[2026-11-09 15:58:45] EXIT 0 in 25.60s
+[2026-11-09 15:58:45] Timing Avenue CPU fit (AMD EPYC 7452)...
+[2026-11-09 15:58:45] RUN: python -m vadkit fit --config vadkit/configs/r2/base.yaml --features /workspace/out/feat/avenue --out /workspace/out/state/avenue_cpu --device cpu
+[2026-11-09 16:10:17] EXIT 0 in 692.06s
+[2026-11-09 16:10:17] Fitting summary: Ped2 GPU=12.53s, CPU=246.65s (4.11 min)
+[2026-11-09 16:10:17] Fitting summary: Avenue GPU=25.60s, CPU=692.06s (11.53 min)
+[2026-11-09 16:10:17] === Step 6: Object Branch Evaluation ===
+[2026-11-09 16:10:17] RUN: python -m vadkit eval --config vadkit/configs/r2/base.yaml --features /workspace/out/feat/ped2 --state /workspace/out/state/ped2 --gt /workspace/cache/ped2/gt.json --out /workspace/out/state/eval_obj_ped2.json
+[2026-11-09 16:10:21] EXIT 0 in 4.24s
+[2026-11-09 16:10:21] RUN: python -m vadkit eval --config vadkit/configs/r2/base.yaml --features /workspace/out/feat/avenue --state /workspace/out/state/avenue --gt /workspace/cache/avenue/gt.json --out /workspace/out/state/eval_obj_avenue.json
+[2026-11-09 16:10:28] EXIT 0 in 6.91s
+[2026-11-09 16:10:28] Object evaluation completed.
+[2026-11-09 16:10:28] === Step 7: Grid Branch Fitting & Check ===
+[2026-11-09 16:10:28] RUN: python tools/grid_check.py --cache /workspace/cache/ped2 --dataset ped2 --run /workspace/checkpoints/runs/ped2_2d_noadv --archive /workspace/checkpoints/scores/runs/ped2_2d_noadv --state /workspace/out/grid/state_ped2 --out /workspace/out/grid/check_ped2.json --device cuda --workers 8
+[2026-11-09 16:11:24] EXIT 0 in 55.98s
+[2026-11-09 16:11:24] RUN: python tools/grid_check.py --cache /workspace/cache/avenue --dataset avenue --run /workspace/checkpoints/runs/avenue_2d_noadv --archive /workspace/checkpoints/scores/runs/avenue_2d_noadv --state /workspace/out/grid/state_avenue --out /workspace/out/grid/check_avenue.json --device cuda --workers 8
+[2026-11-09 16:15:51] EXIT 0 in 266.97s
+[2026-11-09 16:15:51] Grid check completed.
+[2026-11-09 16:15:51] === Step 8: Streaming Combined Detector Evaluation on Avenue ===
+[2026-11-09 16:15:51] RUN: python tools/stream_eval.py --config vadkit/configs/r2/base.yaml --frames /workspace/frames/avenue --dataset avenue --state /workspace/out/state/avenue --grid-state /workspace/out/grid/state_avenue --grid-run /workspace/checkpoints/runs/avenue_2d_noadv --gt /workspace/cache/avenue/gt.json --out /workspace/out/stream/avenue
+[2026-11-09 16:39:50] EXIT 0 in 1439.06s
+[2026-11-09 16:39:50] Stream evaluation completed.
+[2026-11-09 16:39:50] === Step 9: End-to-End Latency & Speed Benchmark (24 runs) ===
+[2026-11-09 16:39:50] RUN: nvidia-smi > /workspace/out/bench/nvidia_smi_start.txt 2>&1; uptime >> /workspace/out/bench/nvidia_smi_start.txt
+[2026-11-09 16:39:50] EXIT 0 in 0.09s
+[2026-11-09 16:39:50] Benchmark [avenue trt obj run 1/6]...
+[2026-11-09 16:39:50] RUN: python tools/bench_e2e.py --config vadkit/configs/r2/base_trt.yaml --frames /workspace/frames/avenue --dataset avenue --state /workspace/out/state/avenue --parallel-flow  --out /workspace/out/bench/avenue_trt_obj_1.json
+[2026-11-09 16:42:24] EXIT 0 in 153.82s
+[2026-11-09 16:42:24] Benchmark [avenue trt grid run 2/6]...
+[2026-11-09 16:42:24] RUN: python tools/bench_e2e.py --config vadkit/configs/r2/base_trt.yaml --frames /workspace/frames/avenue --dataset avenue --state /workspace/out/state/avenue --parallel-flow --grid-state /workspace/out/grid/state_avenue --grid-run /workspace/checkpoints/runs/avenue_2d_noadv --parallel-grid --out /workspace/out/bench/avenue_trt_grid_2.json
+[2026-11-09 16:44:59] EXIT 0 in 155.47s
+[2026-11-09 16:44:59] Benchmark [avenue trt grid run 3/6]...
+[2026-11-09 16:44:59] RUN: python tools/bench_e2e.py --config vadkit/configs/r2/base_trt.yaml --frames /workspace/frames/avenue --dataset avenue --state /workspace/out/state/avenue --parallel-flow --grid-state /workspace/out/grid/state_avenue --grid-run /workspace/checkpoints/runs/avenue_2d_noadv --parallel-grid --out /workspace/out/bench/avenue_trt_grid_3.json
+[2026-11-09 16:47:35] EXIT 0 in 155.67s
+[2026-11-09 16:47:35] Benchmark [avenue trt obj run 4/6]...
+[2026-11-09 16:47:35] RUN: python tools/bench_e2e.py --config vadkit/configs/r2/base_trt.yaml --frames /workspace/frames/avenue --dataset avenue --state /workspace/out/state/avenue --parallel-flow  --out /workspace/out/bench/avenue_trt_obj_4.json
+[2026-11-09 16:50:08] EXIT 0 in 153.63s
+[2026-11-09 16:50:08] Benchmark [avenue trt obj run 5/6]...
+[2026-11-09 16:50:08] RUN: python tools/bench_e2e.py --config vadkit/configs/r2/base_trt.yaml --frames /workspace/frames/avenue --dataset avenue --state /workspace/out/state/avenue --parallel-flow  --out /workspace/out/bench/avenue_trt_obj_5.json
+[2026-11-09 16:52:42] EXIT 0 in 153.69s
+[2026-11-09 16:52:42] Benchmark [avenue trt grid run 6/6]...
+[2026-11-09 16:52:42] RUN: python tools/bench_e2e.py --config vadkit/configs/r2/base_trt.yaml --frames /workspace/frames/avenue --dataset avenue --state /workspace/out/state/avenue --parallel-flow --grid-state /workspace/out/grid/state_avenue --grid-run /workspace/checkpoints/runs/avenue_2d_noadv --parallel-grid --out /workspace/out/bench/avenue_trt_grid_6.json
+[2026-11-09 16:55:18] EXIT 0 in 155.78s
+[2026-11-09 16:55:18] Benchmark [avenue pt obj run 1/6]...
+[2026-11-09 16:55:18] RUN: python tools/bench_e2e.py --config vadkit/configs/r2/base.yaml --frames /workspace/frames/avenue --dataset avenue --state /workspace/out/state/avenue --parallel-flow  --out /workspace/out/bench/avenue_pt_obj_1.json
+[2026-11-09 16:57:56] EXIT 0 in 157.68s
+[2026-11-09 16:57:56] Benchmark [avenue pt grid run 2/6]...
+[2026-11-09 16:57:56] RUN: python tools/bench_e2e.py --config vadkit/configs/r2/base.yaml --frames /workspace/frames/avenue --dataset avenue --state /workspace/out/state/avenue --parallel-flow --grid-state /workspace/out/grid/state_avenue --grid-run /workspace/checkpoints/runs/avenue_2d_noadv --parallel-grid --out /workspace/out/bench/avenue_pt_grid_2.json
+[2026-11-09 17:00:36] EXIT 0 in 160.18s
+[2026-11-09 17:00:36] Benchmark [avenue pt grid run 3/6]...
+[2026-11-09 17:00:36] RUN: python tools/bench_e2e.py --config vadkit/configs/r2/base.yaml --frames /workspace/frames/avenue --dataset avenue --state /workspace/out/state/avenue --parallel-flow --grid-state /workspace/out/grid/state_avenue --grid-run /workspace/checkpoints/runs/avenue_2d_noadv --parallel-grid --out /workspace/out/bench/avenue_pt_grid_3.json
+[2026-11-09 17:03:17] EXIT 0 in 161.05s
+[2026-11-09 17:03:17] Benchmark [avenue pt obj run 4/6]...
+[2026-11-09 17:03:17] RUN: python tools/bench_e2e.py --config vadkit/configs/r2/base.yaml --frames /workspace/frames/avenue --dataset avenue --state /workspace/out/state/avenue --parallel-flow  --out /workspace/out/bench/avenue_pt_obj_4.json
+[2026-11-09 17:05:55] EXIT 0 in 158.09s
+[2026-11-09 17:05:55] Benchmark [avenue pt obj run 5/6]...
+[2026-11-09 17:05:55] RUN: python tools/bench_e2e.py --config vadkit/configs/r2/base.yaml --frames /workspace/frames/avenue --dataset avenue --state /workspace/out/state/avenue --parallel-flow  --out /workspace/out/bench/avenue_pt_obj_5.json
+[2026-11-09 17:08:33] EXIT 0 in 157.75s
+[2026-11-09 17:08:33] Benchmark [avenue pt grid run 6/6]...
+[2026-11-09 17:08:33] RUN: python tools/bench_e2e.py --config vadkit/configs/r2/base.yaml --frames /workspace/frames/avenue --dataset avenue --state /workspace/out/state/avenue --parallel-flow --grid-state /workspace/out/grid/state_avenue --grid-run /workspace/checkpoints/runs/avenue_2d_noadv --parallel-grid --out /workspace/out/bench/avenue_pt_grid_6.json
+[2026-11-09 17:11:13] EXIT 0 in 160.06s
+[2026-11-09 17:11:13] Benchmark [ped2 trt obj run 1/6]...
+[2026-11-09 17:11:13] RUN: python tools/bench_e2e.py --config vadkit/configs/r2/base_trt.yaml --frames /workspace/frames/ped2 --dataset ped2 --state /workspace/out/state/ped2 --parallel-flow  --out /workspace/out/bench/ped2_trt_obj_1.json
+[2026-11-09 17:13:48] EXIT 0 in 154.86s
+[2026-11-09 17:13:48] Benchmark [ped2 trt grid run 2/6]...
+[2026-11-09 17:13:48] RUN: python tools/bench_e2e.py --config vadkit/configs/r2/base_trt.yaml --frames /workspace/frames/ped2 --dataset ped2 --state /workspace/out/state/ped2 --parallel-flow --grid-state /workspace/out/grid/state_ped2 --grid-run /workspace/checkpoints/runs/ped2_2d_noadv --parallel-grid --out /workspace/out/bench/ped2_trt_grid_2.json
+[2026-11-09 17:16:23] EXIT 0 in 155.90s
+[2026-11-09 17:16:23] Benchmark [ped2 trt grid run 3/6]...
+[2026-11-09 17:16:23] RUN: python tools/bench_e2e.py --config vadkit/configs/r2/base_trt.yaml --frames /workspace/frames/ped2 --dataset ped2 --state /workspace/out/state/ped2 --parallel-flow --grid-state /workspace/out/grid/state_ped2 --grid-run /workspace/checkpoints/runs/ped2_2d_noadv --parallel-grid --out /workspace/out/bench/ped2_trt_grid_3.json
+[2026-11-09 17:18:59] EXIT 0 in 155.73s
+[2026-11-09 17:18:59] Benchmark [ped2 trt obj run 4/6]...
+[2026-11-09 17:18:59] RUN: python tools/bench_e2e.py --config vadkit/configs/r2/base_trt.yaml --frames /workspace/frames/ped2 --dataset ped2 --state /workspace/out/state/ped2 --parallel-flow  --out /workspace/out/bench/ped2_trt_obj_4.json
+[2026-11-09 17:21:33] EXIT 0 in 153.58s
+[2026-11-09 17:21:33] Benchmark [ped2 trt obj run 5/6]...
+[2026-11-09 17:21:33] RUN: python tools/bench_e2e.py --config vadkit/configs/r2/base_trt.yaml --frames /workspace/frames/ped2 --dataset ped2 --state /workspace/out/state/ped2 --parallel-flow  --out /workspace/out/bench/ped2_trt_obj_5.json
+[2026-11-09 17:24:06] EXIT 0 in 153.23s
+[2026-11-09 17:24:06] Benchmark [ped2 trt grid run 6/6]...
+[2026-11-09 17:24:06] RUN: python tools/bench_e2e.py --config vadkit/configs/r2/base_trt.yaml --frames /workspace/frames/ped2 --dataset ped2 --state /workspace/out/state/ped2 --parallel-flow --grid-state /workspace/out/grid/state_ped2 --grid-run /workspace/checkpoints/runs/ped2_2d_noadv --parallel-grid --out /workspace/out/bench/ped2_trt_grid_6.json
+[2026-11-09 17:26:41] EXIT 0 in 155.40s
+[2026-11-09 17:26:41] Benchmark [ped2 pt obj run 1/6]...
+[2026-11-09 17:26:41] RUN: python tools/bench_e2e.py --config vadkit/configs/r2/base.yaml --frames /workspace/frames/ped2 --dataset ped2 --state /workspace/out/state/ped2 --parallel-flow  --out /workspace/out/bench/ped2_pt_obj_1.json
+[2026-11-09 17:29:19] EXIT 0 in 157.51s
+[2026-11-09 17:29:19] Benchmark [ped2 pt grid run 2/6]...
+[2026-11-09 17:29:19] RUN: python tools/bench_e2e.py --config vadkit/configs/r2/base.yaml --frames /workspace/frames/ped2 --dataset ped2 --state /workspace/out/state/ped2 --parallel-flow --grid-state /workspace/out/grid/state_ped2 --grid-run /workspace/checkpoints/runs/ped2_2d_noadv --parallel-grid --out /workspace/out/bench/ped2_pt_grid_2.json
+[2026-11-09 17:31:58] EXIT 0 in 159.26s
+[2026-11-09 17:31:58] Benchmark [ped2 pt grid run 3/6]...
+[2026-11-09 17:31:58] RUN: python tools/bench_e2e.py --config vadkit/configs/r2/base.yaml --frames /workspace/frames/ped2 --dataset ped2 --state /workspace/out/state/ped2 --parallel-flow --grid-state /workspace/out/grid/state_ped2 --grid-run /workspace/checkpoints/runs/ped2_2d_noadv --parallel-grid --out /workspace/out/bench/ped2_pt_grid_3.json
+[2026-11-09 17:34:38] EXIT 0 in 159.73s
+[2026-11-09 17:34:38] Benchmark [ped2 pt obj run 4/6]...
+[2026-11-09 17:34:38] RUN: python tools/bench_e2e.py --config vadkit/configs/r2/base.yaml --frames /workspace/frames/ped2 --dataset ped2 --state /workspace/out/state/ped2 --parallel-flow  --out /workspace/out/bench/ped2_pt_obj_4.json
+[2026-11-09 17:37:16] EXIT 0 in 158.12s
+[2026-11-09 17:37:16] Benchmark [ped2 pt obj run 5/6]...
+[2026-11-09 17:37:16] RUN: python tools/bench_e2e.py --config vadkit/configs/r2/base.yaml --frames /workspace/frames/ped2 --dataset ped2 --state /workspace/out/state/ped2 --parallel-flow  --out /workspace/out/bench/ped2_pt_obj_5.json
+[2026-11-09 17:39:53] EXIT 0 in 157.38s
+[2026-11-09 17:39:53] Benchmark [ped2 pt grid run 6/6]...
+[2026-11-09 17:39:53] RUN: python tools/bench_e2e.py --config vadkit/configs/r2/base.yaml --frames /workspace/frames/ped2 --dataset ped2 --state /workspace/out/state/ped2 --parallel-flow --grid-state /workspace/out/grid/state_ped2 --grid-run /workspace/checkpoints/runs/ped2_2d_noadv --parallel-grid --out /workspace/out/bench/ped2_pt_grid_6.json
+[2026-11-09 17:42:33] EXIT 0 in 159.72s
+[2026-11-09 17:42:33] RUN: nvidia-smi > /workspace/out/bench/nvidia_smi_end.txt 2>&1; uptime >> /workspace/out/bench/nvidia_smi_end.txt
+[2026-11-09 17:42:33] EXIT 0 in 0.08s
+[2026-11-09 17:42:33] RUN: cp /workspace/logs/*.log /workspace/out/ 2>/dev/null
+[2026-11-09 17:42:33] EXIT 0 in 0.01s
+[2026-11-09 17:42:33] === ALL STAGE 2 STEPS COMPLETED SUCCESSFULLY! ===

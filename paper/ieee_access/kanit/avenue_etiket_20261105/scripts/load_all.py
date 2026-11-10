@@ -2,7 +2,7 @@ import json, glob, os, pickle, sys
 import numpy as np
 from scipy.io import loadmat
 S = sys.argv[1]
-ACCI = '/home/lei/Desktop/msc/ext/Accurate-Interpretable-VAD/data/avenue.mat'
+ACCI = 'ext/Accurate-Interpretable-VAD/data/avenue.mat'
 ids = [f'{i:02d}' for i in range(1, 22)]
 ours = {k: np.array(v, dtype=np.uint8) for k, v in json.load(open(f'{S}/remote/m3_gt.json')).items()}
 # CUHK masks

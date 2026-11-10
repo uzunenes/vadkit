@@ -51,7 +51,8 @@ def main():
     cells = {(ds, be, m): bench(ds, be, m) for ds in DS for be in BE for m in MODE}
     env = next(iter(cells.values()))["env"]
     put("VbGpu", env["gpu"].replace("NVIDIA GeForce ", ""), "bench env.gpu")
-    put("VbCpu", env["cpu"].replace("(R)", "").replace("(TM)", "").replace(" 16-Core Processor", "").strip(),
+    put("VbCpu", env["cpu"].replace("(R)", "").replace("(TM)", "").replace(" 16-Core Processor", "")
+        .replace(" 32-Core Processor", "").strip(),
         "bench env.cpu")
     for (ds, be, m), c in cells.items():
         tag = f"{MODE[m]}{BE[be]}{DS[ds]}"
@@ -78,6 +79,9 @@ def main():
         dauc.append(abs(g["grid_fused_causal_auc"]["refit"] - g["grid_fused_causal_auc"]["archived"]))
     put("VbGridDaucMax", f"{100 * max(dauc):.2f}", "grid/check_{ped2,avenue}.json, |refit - archived| causal AUC x 100")
     put("VbGridCheckOk", "yes" if max(dauc) <= 0.005 else "no", "pre-registered tolerance 0.005")
+    gs_mb = [sum(p.stat().st_size for p in (K / f"grid/state_{ds}").glob("*")) / 1e6 for ds in ("avenue", "ped2")]
+    put("VbGridStateMBMin", f"{min(gs_mb):.2f}", "grid/state_{avenue,ped2}/grid.{npz,json} byte sum / 1e6")
+    put("VbGridStateMBMax", f"{max(gs_mb):.2f}", "grid/state_{avenue,ped2}/grid.{npz,json} byte sum / 1e6")
     s = json.loads((K / "stream/avenue/result.json").read_text())
     put("VbStreamObjAvenue", f"{100 * s['object']['causal']:.1f}", "stream/avenue/result.json object.causal")
     put("VbStreamGridAvenue", f"{100 * s['object+grid']['causal']:.1f}", "stream/avenue/result.json object+grid.causal")
@@ -92,6 +96,10 @@ def main():
 
     put("VbShtFsOn", f"{100 * fg['shanghaitech']['channels']['Fs']['causal']:.1f}", f"{fg_src} shanghaitech.channels.Fs.causal")
     put("VbShtFdOn", f"{100 * fg['shanghaitech']['channels']['Fd']['causal']:.1f}", f"{fg_src} shanghaitech.channels.Fd.causal")
+    put("VbPedTwoGeEightyVids", str(fg["ped2"]["gt_video_summary"]["videos_ge_80pct_anomalous"]),
+        f"{fg_src} ped2.gt_video_summary.videos_ge_80pct_anomalous")
+    put("VbPedTwoAllAnomVids", str(fg["ped2"]["gt_video_summary"]["videos_100pct_anomalous"]),
+        f"{fg_src} ped2.gt_video_summary.videos_100pct_anomalous")
     for ds, tag in (("ped1", "PedOne"), ("ped2", "PedTwo"), ("avenue", "Avenue"), ("shanghaitech", "SHT")):
         d = fg[ds]
         put(f"VbGridOnlyFullOn{tag}", f"{100 * d['grid_only_full']['causal']:.1f}", f"{fg_src} {ds}.grid_only_full.causal")
@@ -108,6 +116,81 @@ def main():
         put(f"VbRuleFlowGridOn{tag}", f"{100 * c3['eval']['causal']:.1f}", f"{fg_src} {ds}.pose_gate_plus_flow_grid.eval.causal")
         put(f"VbRuleFlowGridDiff{tag}", sgn(b3["point"]), f"{fg_src} {ds}.pose_gate_plus_flow_grid.boot_vs_full_grid.point")
         put(f"VbRuleFlowGridCI{tag}", f"[{sgn(b3['ci95'][0])}, {sgn(b3['ci95'][1])}]", f"{fg_src} {ds}.pose_gate_plus_flow_grid.boot_vs_full_grid.ci95")
+
+    # Stage 2: directly measured setup & fitting timings on the single reference host
+    t2_path = K / "stage2_timings.json"
+    if t2_path.exists():
+        t2 = json.loads(t2_path.read_text())
+        t2_src = t2_path.relative_to(ROOT).as_posix()
+        # TRT engine builds
+        put("VbTrtBuildMin", f"{t2['export_trt']['total_trt_build_min']:.1f}", f"{t2_src} export_trt.total_trt_build_min")
+        put("VbTrtBuildYoloS", f"{t2['export_trt']['yolo11n_engine_s']:.1f}", f"{t2_src} export_trt.yolo11n_engine_s")
+        put("VbTrtBuildPoseS", f"{t2['export_trt']['yolo11n_pose_engine_s']:.1f}", f"{t2_src} export_trt.yolo11n_pose_engine_s")
+        # Feature extraction timings (sequential PyTorch vs TensorRT + parallel flow)
+        put("VbExtractPtPedTwoTrainMin", f"{t2['extract']['ped2_pt_train_min']:.1f}", f"{t2_src} extract.ped2_pt_train_min")
+        put("VbExtractTrtPedTwoTrainMin", f"{t2['extract']['ped2_trt_train_min']:.1f}", f"{t2_src} extract.ped2_trt_train_min")
+        put("VbExtractPtAvenueTrainMin", f"{t2['extract']['avenue_pt_train_min']:.1f}", f"{t2_src} extract.avenue_pt_train_min")
+        put("VbExtractTrtAvenueTrainMin", f"{t2['extract']['avenue_trt_train_min']:.1f}", f"{t2_src} extract.avenue_trt_train_min")
+        # Model fitting timings (GPU vs AMD EPYC 7452 CPU)
+        put("VbFitGpuPedTwoS", f"{t2['fit']['ped2_gpu_s']:.1f}", f"{t2_src} fit.ped2_gpu_s")
+        put("VbFitCpuPedTwoMin", f"{t2['fit']['ped2_cpu_min']:.1f}", f"{t2_src} fit.ped2_cpu_min")
+        put("VbFitGpuAvenueS", f"{t2['fit']['avenue_gpu_s']:.1f}", f"{t2_src} fit.avenue_gpu_s")
+        put("VbFitCpuAvenueMin", f"{t2['fit']['avenue_cpu_min']:.1f}", f"{t2_src} fit.avenue_cpu_min")
+        # Total setup time on reference host (extraction + GPU fit)
+        tot_pt_ped2 = t2['extract']['ped2_pt_train_min'] + t2['fit']['ped2_gpu_s'] / 60.0
+        tot_pt_av = t2['extract']['avenue_pt_train_min'] + t2['fit']['avenue_gpu_s'] / 60.0
+        tot_trt_ped2 = t2['extract']['ped2_trt_train_min'] + t2['fit']['ped2_gpu_s'] / 60.0
+        tot_trt_av = t2['extract']['avenue_trt_train_min'] + t2['fit']['avenue_gpu_s'] / 60.0
+        put("VbSetupPtPedTwoMin", f"{tot_pt_ped2:.1f}", "extract.ped2_pt_train_min + fit.ped2_gpu_s")
+        put("VbSetupPtAvenueMin", f"{tot_pt_av:.1f}", "extract.avenue_pt_train_min + fit.avenue_gpu_s")
+        put("VbSetupTrtPedTwoMin", f"{tot_trt_ped2:.1f}", "extract.ped2_trt_train_min + fit.ped2_gpu_s")
+        put("VbSetupTrtAvenueMin", f"{tot_trt_av:.1f}", "extract.avenue_trt_train_min + fit.avenue_gpu_s")
+        sp_ped2 = t2["extract"]["ped2_pt_train_s"] / t2["extract"]["ped2_trt_train_s"]
+        sp_av = t2["extract"]["avenue_pt_train_s"] / t2["extract"]["avenue_trt_train_s"]
+        put("VbExtractSpeedupPedTwo", f"{sp_ped2:.2f}", f"{t2_src} extract.ped2_pt_train_s / ped2_trt_train_s")
+        put("VbExtractSpeedupAvenue", f"{sp_av:.2f}", f"{t2_src} extract.avenue_pt_train_s / avenue_trt_train_s")
+
+    # Stage 3: Prior regularization & Cross-scene transfer evidence
+    s3_path = ROOT / "kanit/birlesik_20261108/stage3_prior_dataeff.json"
+    if s3_path.exists():
+        s3 = json.loads(s3_path.read_text())
+        s3_src = s3_path.relative_to(ROOT).as_posix()
+        # SHT scene overlap audit
+        put("VbShtTotalScenes", str(s3["sht_scene_overlap"]["total_scenes"]), f"{s3_src} sht_scene_overlap.total_scenes")
+        put("VbShtOverlapScenes", str(s3["sht_scene_overlap"]["n_overlap_scenes"]), f"{s3_src} sht_scene_overlap.n_overlap_scenes")
+        put("VbShtOverlapTrainVids", str(s3["sht_scene_overlap"]["overlap_train_videos"]), f"{s3_src} sht_scene_overlap.overlap_train_videos")
+        put("VbShtTotalTestVids", str(s3["sht_scene_overlap"]["total_test_videos"]), f"{s3_src} sht_scene_overlap.total_test_videos")
+        sht_de = json.loads((ROOT / "kanit/kurulum_20261105/dataeff_shanghaitech_1.0.json").read_text())
+        put("VbShtTrainMin", f"{sht_de['rows'][0]['minutes']:.0f}",
+            "kanit/kurulum_20261105/dataeff_shanghaitech_1.0.json rows[0].minutes")
+        put("VbShtSubsampleSec", f"{5.0 / 24.0:.1f}", "5 frames / 24 FPS on ShanghaiTech")
+        # f=0.10 NIW vs ML-GMM gain per dataset
+        f010 = s3["f010_ablation"]
+        put("VbFZeroTenNiwPedOne", f"{100 * f010['ped1']['summary']['D1']['causal_mean']:.1f}", f"{s3_src} ped1.D1.causal_mean")
+        put("VbFZeroTenGmmPedOne", f"{100 * f010['ped1']['summary']['D2']['causal_mean']:.1f}", f"{s3_src} ped1.D2.causal_mean")
+        put("VbFZeroTenGainPedOne", f"{100 * f010['ped1']['summary']['D1_minus_D2_causal_mean']:.1f}", f"{s3_src} ped1.D1_minus_D2")
+        put("VbFZeroTenNiwPedTwo", f"{100 * f010['ped2']['summary']['D1']['causal_mean']:.1f}", f"{s3_src} ped2.D1.causal_mean")
+        put("VbFZeroTenGmmPedTwo", f"{100 * f010['ped2']['summary']['D2']['causal_mean']:.1f}", f"{s3_src} ped2.D2.causal_mean")
+        put("VbFZeroTenGainPedTwo", f"{100 * f010['ped2']['summary']['D1_minus_D2_causal_mean']:.1f}", f"{s3_src} ped2.D1_minus_D2")
+        put("VbFZeroTenNiwAvenue", f"{100 * f010['avenue']['summary']['D1']['causal_mean']:.1f}", f"{s3_src} avenue.D1.causal_mean")
+        put("VbFZeroTenGmmAvenue", f"{100 * f010['avenue']['summary']['D2']['causal_mean']:.1f}", f"{s3_src} avenue.D2.causal_mean")
+        put("VbFZeroTenGainAvenue", f"{100 * f010['avenue']['summary']['D1_minus_D2_causal_mean']:.1f}", f"{s3_src} avenue.D1_minus_D2")
+        put("VbFZeroTenNiwSHT", f"{100 * f010['shanghaitech']['summary']['D1']['causal_mean']:.1f}", f"{s3_src} sht.D1.causal_mean")
+        put("VbFZeroTenGmmSHT", f"{100 * f010['shanghaitech']['summary']['D2']['causal_mean']:.1f}", f"{s3_src} sht.D2.causal_mean")
+        put("VbFZeroTenGainSHT", f"{100 * f010['shanghaitech']['summary']['D1_minus_D2_causal_mean']:.1f}", f"{s3_src} sht.D1_minus_D2")
+        # Leave-one-scene-out transfer speedup and sparse data gain
+        loto = s3["sht_cross_scene_loo"]
+        put("VbLotoFitSpeedup", f"{loto['full_data']['speedup_factor']:.1f}", f"{s3_src} full_data.speedup_factor")
+        put("VbLotoFullScratch", f"{100 * loto['full_data']['scene_cv']['causal']:.1f}", f"{s3_src} full_data.scene_cv.causal")
+        put("VbLotoFullTrans", f"{100 * loto['full_data']['loo_hyper']['causal']:.1f}", f"{s3_src} full_data.loo_hyper.causal")
+        put("VbLotoFullDiff", f"{100 * abs(loto['full_data']['boot_loo_vs_cv']['point']):.1f}",
+            f"{s3_src} |full_data.boot_loo_vs_cv.point|")
+        lci = loto["full_data"]["boot_loo_vs_cv"]["ci95"]
+        put("VbLotoFullCI", f"[{sgn(lci[0])}, {sgn(lci[1])}]", f"{s3_src} full_data.boot_loo_vs_cv.ci95")
+        f010_diff = loto["fractions"]["0.1"]["loo_prior_blend_causal_mean"] - loto["fractions"]["0.1"]["scene_cv_causal_mean"]
+        f025_diff = loto["fractions"]["0.25"]["loo_hyper_causal_mean"] - loto["fractions"]["0.25"]["scene_cv_causal_mean"]
+        put("VbLotoFZeroTenGain", f"{100 * f010_diff:.2f}", f"{s3_src} fractions.0.1 loo_prior_blend vs scene_cv")
+        put("VbLotoFTwoFiveGain", f"{100 * f025_diff:.2f}", f"{s3_src} fractions.0.25 loo_hyper vs scene_cv")
 
     # supplementary table
     L = [r"\begin{table}[t]", r"\centering",

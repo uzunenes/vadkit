@@ -116,11 +116,6 @@ def main():
     cfg = load_config(a.config)
     cfg = {**cfg, "parallel_flow": a.parallel_flow, "parallel_grid": a.parallel_grid}
     gap = gap_of(cfg, a.dataset)
-    state = FittedState.load(a.state, a.device)
-    grid = None
-    if a.grid_state:
-        grid = GridBranch(GridState.load(a.grid_state), a.grid_run, a.device, parallel_flow=a.parallel_grid)
-    sv = StreamingVAD(state, cfg, gap, next(iter(state.groups)) if state.scenes else None, a.device, grid=grid)
     seq = [(t, p) for paths in frame_paths(a.frames, "testing").values() for t, p in enumerate(paths)]
     total = a.warm + a.reps * a.n
     if len(seq) < total:
@@ -132,6 +127,12 @@ def main():
         if attempts[-1]["idle"] or i == a.idle_tries - 1:
             break
         time.sleep(60)
+
+    state = FittedState.load(a.state, a.device)
+    grid = None
+    if a.grid_state:
+        grid = GridBranch(GridState.load(a.grid_state), a.grid_run, a.device, parallel_flow=a.parallel_grid)
+    sv = StreamingVAD(state, cfg, gap, next(iter(state.groups)) if state.scenes else None, a.device, grid=grid)
     sampler = Sampler()
     sampler.start()
     ms, scores = [], []

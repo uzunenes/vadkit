@@ -372,6 +372,7 @@ class ObjectBranch:
             perc = perc or Perception(self.config, gap, self.device, batch=None)
             chunk = int(getattr(perc.flow, "batch", 1) or 1)
             rows, pending, last = [], [], None
+            use_par = bool(self.config.get("parallel_flow", False)) and perc.pool is not None
             for t in range(gap, len(paths)):
                 if t % every:
                     continue
@@ -380,16 +381,24 @@ class ObjectBranch:
                     for u in range(t - gap, t):
                         perc(read(paths[u], width), flow=False)
                 bgr = read(paths[t], width)
-                objs, last = perc(bgr, flow=False), t
-                if not len(objs):
-                    continue
-                cols = {"f": np.full(len(objs), t, np.int32), "box": objs.box, "src": objs.src, "cls": objs.cls,
-                        "conf": objs.conf, "pose": objs.pose, "pose_ok": objs.pose_ok, **objs.attrs}
-                rows.append(cols)
-                if perc.flow:
-                    pending.append((cols, perc.prev, bgr))
-                    if len(pending) == chunk:
-                        _flow_rows(perc, pending)
+                if use_par:
+                    objs, last = perc(bgr, flow=True), t
+                    if not len(objs):
+                        continue
+                    cols = {"f": np.full(len(objs), t, np.int32), "box": objs.box, "src": objs.src, "cls": objs.cls,
+                            "conf": objs.conf, "pose": objs.pose, "pose_ok": objs.pose_ok, **objs.attrs}
+                    rows.append(cols)
+                else:
+                    objs, last = perc(bgr, flow=False), t
+                    if not len(objs):
+                        continue
+                    cols = {"f": np.full(len(objs), t, np.int32), "box": objs.box, "src": objs.src, "cls": objs.cls,
+                            "conf": objs.conf, "pose": objs.pose, "pose_ok": objs.pose_ok, **objs.attrs}
+                    rows.append(cols)
+                    if perc.flow:
+                        pending.append((cols, perc.prev, bgr))
+                        if len(pending) == chunk:
+                            _flow_rows(perc, pending)
             if pending:
                 _flow_rows(perc, pending)
             out = {k: (np.concatenate([c[k] for c in rows]) if rows else np.zeros((0, *shape))).astype(dt)

@@ -1,0 +1,112 @@
+=== Stage 3a: SHT Scene Overlap ===
+{
+  "total_scenes": 13,
+  "train_scenes": 13,
+  "test_scenes": 12,
+  "overlap_scenes": [
+    "01",
+    "02",
+    "03",
+    "04",
+    "05",
+    "06",
+    "07",
+    "08",
+    "09",
+    "10",
+    "11",
+    "12"
+  ],
+  "n_overlap_scenes": 12,
+  "train_only_scenes": [
+    "13"
+  ],
+  "test_only_scenes": [],
+  "total_train_videos": 330,
+  "overlap_train_videos": 323,
+  "total_test_videos": 107,
+  "per_scene": {
+    "01": {
+      "train_videos": 83,
+      "test_videos": 34,
+      "in_both": true
+    },
+    "02": {
+      "train_videos": 15,
+      "test_videos": 3,
+      "in_both": true
+    },
+    "03": {
+      "train_videos": 6,
+      "test_videos": 10,
+      "in_both": true
+    },
+    "04": {
+      "train_videos": 20,
+      "test_videos": 9,
+      "in_both": true
+    },
+    "05": {
+      "train_videos": 66,
+      "test_videos": 8,
+      "in_both": true
+    },
+    "06": {
+      "train_videos": 30,
+      "test_videos": 6,
+      "in_both": true
+    },
+    "07": {
+      "train_videos": 8,
+      "test_videos": 8,
+      "in_both": true
+    },
+    "08": {
+      "train_videos": 49,
+      "test_videos": 12,
+      "in_both": true
+    },
+    "09": {
+      "train_videos": 10,
+      "test_videos": 1,
+      "in_both": true
+    },
+    "10": {
+      "train_videos": 11,
+      "test_videos": 5,
+      "in_both": true
+    },
+    "11": {
+      "train_videos": 10,
+      "test_videos": 1,
+      "in_both": true
+    },
+    "12": {
+      "train_videos": 15,
+      "test_videos": 10,
+      "in_both": true
+    },
+    "13": {
+      "train_videos": 7,
+      "test_videos": 0,
+      "in_both": false
+    }
+  }
+}
+Loaded existing f010_ablation from /workspace/cctv_aean/paper/ieee_access/kanit/birlesik_20261108/stage3_prior_dataeff.json
+Intermediate save written to /workspace/cctv_aean/paper/ieee_access/kanit/birlesik_20261108/stage3_prior_dataeff.json
+
+=== Stage 3b-2: SHT Leave-One-Scene-Out Cross-Scene Prior Transfer (12 overlap scenes) ===
+[SHT LOO f=1.0] base_cv=79.54% (554.10s) loo_hyper=79.16% (25.09s, diff=-0.38pt)
+Precomputed donor centers for 12 scenes in 12.55s
+[SHT LOO f=0.10] seed=0: scene_cv=73.86% loo_hyper=71.21% loo_prior_blend=74.00%
+[SHT LOO f=0.10] seed=1: scene_cv=76.61% loo_hyper=77.81% loo_prior_blend=78.35%
+[SHT LOO f=0.10] seed=2: scene_cv=72.44% loo_hyper=74.22% loo_prior_blend=75.71%
+[SHT LOO f=0.10] seed=3: scene_cv=75.52% loo_hyper=77.05% loo_prior_blend=78.20%
+[SHT LOO f=0.10] seed=4: scene_cv=72.78% loo_hyper=72.41% loo_prior_blend=73.96%
+[SHT LOO f=0.25] seed=0: scene_cv=71.61% loo_hyper=73.81% loo_prior_blend=74.54%
+[SHT LOO f=0.25] seed=1: scene_cv=71.72% loo_hyper=76.77% loo_prior_blend=75.87%
+[SHT LOO f=0.25] seed=2: scene_cv=71.21% loo_hyper=72.78% loo_prior_blend=73.79%
+[SHT LOO f=0.25] seed=3: scene_cv=74.13% loo_hyper=75.93% loo_prior_blend=76.04%
+[SHT LOO f=0.25] seed=4: scene_cv=74.20% loo_hyper=76.73% loo_prior_blend=75.68%
+Wrote full /workspace/cctv_aean/paper/ieee_access/kanit/birlesik_20261108/stage3_prior_dataeff.json

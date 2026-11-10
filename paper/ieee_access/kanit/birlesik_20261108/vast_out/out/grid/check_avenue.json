@@ -2,11 +2,11 @@
  "dataset": "avenue",
  "device": "cuda",
  "torch": "2.4.1+cu121",
- "host": "e9dcd8b0d5d5",
- "fit_s": 35.3,
+ "host": "b690ba9a18f3",
+ "fit_s": 52.3,
  "channels": {
   "I": {
-   "max_abs_raw_diff_test": 4.00543212890625e-05,
+   "max_abs_raw_diff_test": 3.814697265625e-05,
    "ref_len": [
     1013,
     1013
@@ -21,12 +21,12 @@
     5115,
     5115
    ],
-   "ref_max_abs_diff": 3.5567150115966797,
+   "ref_max_abs_diff": 3.556703567504883,
    "causal_auc_archived": 0.7818193358002716,
-   "causal_auc_refit": 0.7814272682561244
+   "causal_auc_refit": 0.781427256545974
   },
   "Fd": {
-   "max_abs_raw_diff_test": 805.325439453125,
+   "max_abs_raw_diff_test": 805.32568359375,
    "ref_len": [
     5115,
     5115
